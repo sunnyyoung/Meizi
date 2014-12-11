@@ -1,1 +1,57 @@
+PODS:
+  - AFNetworking (2.5.0):
+    - AFNetworking/NSURLConnection (= 2.5.0)
+    - AFNetworking/NSURLSession (= 2.5.0)
+    - AFNetworking/Reachability (= 2.5.0)
+    - AFNetworking/Security (= 2.5.0)
+    - AFNetworking/Serialization (= 2.5.0)
+    - AFNetworking/UIKit (= 2.5.0)
+  - AFNetworking/NSURLConnection (2.5.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.5.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.5.0)
+  - AFNetworking/Security (2.5.0)
+  - AFNetworking/Serialization (2.5.0)
+  - AFNetworking/UIKit (2.5.0):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - AMSlideMenu (1.5.3)
+  - hpple (0.2.0)
+  - JTSImageViewController (1.4)
+  - KVNProgress (2.1.3)
+  - MJRefresh (1.0)
+  - NHBalancedFlowLayout (0.2)
+
+DEPENDENCIES:
+  - AFNetworking
+  - AMSlideMenu
+  - hpple
+  - JTSImageViewController
+  - KVNProgress
+  - MJRefresh (from `https://github.com/Sunnyyoung/MJRefresh.git`)
+  - NHBalancedFlowLayout
+
+EXTERNAL SOURCES:
+  MJRefresh:
+    :git: https://github.com/Sunnyyoung/MJRefresh.git
+
+CHECKOUT OPTIONS:
+  MJRefresh:
+    :commit: 7750563493462249ff0bb5f91c27356be891e449
+    :git: https://github.com/Sunnyyoung/MJRefresh.git
+
+SPEC CHECKSUMS:
+  AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
+  AMSlideMenu: ab0c9313c74eac61e360d2a714d2d8202f6de916
+  hpple: f4eb7c21a8db83ec264e5d614ec7509e10e5adec
+  JTSImageViewController: 9fe6402194b7679f0e28d0c1002d6164301fc34a
+  KVNProgress: 0c0fcd44798c91d50abbad19b76d869b4f8f5cb1
+  MJRefresh: d90a8f4ee91229c838dd55973b86d0e12ea7f997
+  NHBalancedFlowLayout: be3c297b54f74c27607aaa04563270ecbd2d8e38
+
 COCOAPODS: 0.35.0
