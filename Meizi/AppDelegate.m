@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "SideBarViewController.h"
+#import <iOS-Slide-Menu/SlideNavigationController.h>
 
 @interface AppDelegate ()
 
@@ -14,9 +16,24 @@
 
 @implementation AppDelegate
 
+- (void)setupSideBarleft:(id)left right:(id)right {
+    
+    [SlideNavigationController sharedInstance].leftMenu = left;
+    [SlideNavigationController sharedInstance].rightMenu = right;
+    
+    [SlideNavigationController sharedInstance].enableSwipeGesture = YES;
+    [SlideNavigationController sharedInstance].enableShadow = YES;
+    [SlideNavigationController sharedInstance].panGestureSideOffset = 30.0;
+    [SlideNavigationController sharedInstance].portraitSlideOffset = 200.0;
+    [SlideNavigationController sharedInstance].landscapeSlideOffset = 460.0;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    SideBarViewController *leftSideBar = (SideBarViewController*)[storyboard instantiateViewControllerWithIdentifier:@"SideBar"];
+    
+    [self setupSideBarleft:leftSideBar right:nil];
+    
     return YES;
 }
 

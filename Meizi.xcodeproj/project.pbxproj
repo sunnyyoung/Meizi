@@ -8,15 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		7D5504058B5E44FAC2D9E252 /* libPods-Meizi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8051BBDCA3CAA5AB86BBC999 /* libPods-Meizi.a */; };
+		7DA9F4DA1A455B2E007BAEDF /* SideBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA9F4D91A455B2E007BAEDF /* SideBarViewController.m */; };
+		7DA9F4DD1A455CAD007BAEDF /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA9F4DC1A455CAD007BAEDF /* MainTableViewController.m */; };
 		7DDA49331A39FC9C00DEFFD5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DDA49321A39FC9C00DEFFD5 /* main.m */; };
 		7DDA49361A39FC9C00DEFFD5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DDA49351A39FC9C00DEFFD5 /* AppDelegate.m */; };
 		7DDA49391A39FC9C00DEFFD5 /* Meizi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7DDA49371A39FC9C00DEFFD5 /* Meizi.xcdatamodeld */; };
 		7DDA493F1A39FC9C00DEFFD5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DDA493D1A39FC9C00DEFFD5 /* Main.storyboard */; };
 		7DDA49411A39FC9C00DEFFD5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DDA49401A39FC9C00DEFFD5 /* Images.xcassets */; };
 		7DDA49501A39FC9C00DEFFD5 /* MeiziTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DDA494F1A39FC9C00DEFFD5 /* MeiziTests.m */; };
-		7DDA495B1A3A024000DEFFD5 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DDA495A1A3A024000DEFFD5 /* MainViewController.m */; };
-		7DDA49631A3A120E00DEFFD5 /* poc.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7DDA49621A3A120E00DEFFD5 /* poc.jpg */; };
-		7DDA49661A3A134B00DEFFD5 /* AllTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DDA49651A3A134B00DEFFD5 /* AllTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +30,10 @@
 
 /* Begin PBXFileReference section */
 		51F1F86A06680DA69546F3CE /* Pods-Meizi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meizi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Meizi/Pods-Meizi.debug.xcconfig"; sourceTree = "<group>"; };
+		7DA9F4D81A455B2E007BAEDF /* SideBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideBarViewController.h; sourceTree = "<group>"; };
+		7DA9F4D91A455B2E007BAEDF /* SideBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideBarViewController.m; sourceTree = "<group>"; };
+		7DA9F4DB1A455CAD007BAEDF /* MainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableViewController.h; sourceTree = "<group>"; };
+		7DA9F4DC1A455CAD007BAEDF /* MainTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableViewController.m; sourceTree = "<group>"; };
 		7DDA492D1A39FC9C00DEFFD5 /* Meizi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meizi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DDA49311A39FC9C00DEFFD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7DDA49321A39FC9C00DEFFD5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -42,11 +45,6 @@
 		7DDA49491A39FC9C00DEFFD5 /* MeiziTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeiziTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DDA494E1A39FC9C00DEFFD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7DDA494F1A39FC9C00DEFFD5 /* MeiziTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeiziTests.m; sourceTree = "<group>"; };
-		7DDA49591A3A024000DEFFD5 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		7DDA495A1A3A024000DEFFD5 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		7DDA49621A3A120E00DEFFD5 /* poc.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = poc.jpg; sourceTree = "<group>"; };
-		7DDA49641A3A134B00DEFFD5 /* AllTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllTableViewController.h; sourceTree = "<group>"; };
-		7DDA49651A3A134B00DEFFD5 /* AllTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllTableViewController.m; sourceTree = "<group>"; };
 		8051BBDCA3CAA5AB86BBC999 /* libPods-Meizi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Meizi.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C37A8097E2E03511376A2AE2 /* Pods-Meizi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meizi.release.xcconfig"; path = "Pods/Target Support Files/Pods-Meizi/Pods-Meizi.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,17 +100,16 @@
 		7DDA492F1A39FC9C00DEFFD5 /* Meizi */ = {
 			isa = PBXGroup;
 			children = (
-				7DDA49621A3A120E00DEFFD5 /* poc.jpg */,
 				7DDA49341A39FC9C00DEFFD5 /* AppDelegate.h */,
 				7DDA49351A39FC9C00DEFFD5 /* AppDelegate.m */,
 				7DDA493D1A39FC9C00DEFFD5 /* Main.storyboard */,
 				7DDA49401A39FC9C00DEFFD5 /* Images.xcassets */,
 				7DDA49371A39FC9C00DEFFD5 /* Meizi.xcdatamodeld */,
 				7DDA49301A39FC9C00DEFFD5 /* Supporting Files */,
-				7DDA49591A3A024000DEFFD5 /* MainViewController.h */,
-				7DDA495A1A3A024000DEFFD5 /* MainViewController.m */,
-				7DDA49641A3A134B00DEFFD5 /* AllTableViewController.h */,
-				7DDA49651A3A134B00DEFFD5 /* AllTableViewController.m */,
+				7DA9F4D81A455B2E007BAEDF /* SideBarViewController.h */,
+				7DA9F4D91A455B2E007BAEDF /* SideBarViewController.m */,
+				7DA9F4DB1A455CAD007BAEDF /* MainTableViewController.h */,
+				7DA9F4DC1A455CAD007BAEDF /* MainTableViewController.m */,
 			);
 			path = Meizi;
 			sourceTree = "<group>";
@@ -233,7 +230,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7DDA49631A3A120E00DEFFD5 /* poc.jpg in Resources */,
 				7DDA493F1A39FC9C00DEFFD5 /* Main.storyboard in Resources */,
 				7DDA49411A39FC9C00DEFFD5 /* Images.xcassets in Resources */,
 			);
@@ -288,9 +284,9 @@
 			files = (
 				7DDA49361A39FC9C00DEFFD5 /* AppDelegate.m in Sources */,
 				7DDA49331A39FC9C00DEFFD5 /* main.m in Sources */,
-				7DDA49661A3A134B00DEFFD5 /* AllTableViewController.m in Sources */,
 				7DDA49391A39FC9C00DEFFD5 /* Meizi.xcdatamodeld in Sources */,
-				7DDA495B1A3A024000DEFFD5 /* MainViewController.m in Sources */,
+				7DA9F4DD1A455CAD007BAEDF /* MainTableViewController.m in Sources */,
+				7DA9F4DA1A455B2E007BAEDF /* SideBarViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -4,10 +4,9 @@ target 'Meizi' do
 
 pod 'hpple'
 pod 'KVNProgress'
-pod 'AMSlideMenu'
 pod 'AFNetworking'
+pod 'iOS-Slide-Menu'
 pod 'JTSImageViewController'
-pod 'NHBalancedFlowLayout'
 
 pod 'MJRefresh'     , :git => 'https://github.com/Sunnyyoung/MJRefresh.git'
 
