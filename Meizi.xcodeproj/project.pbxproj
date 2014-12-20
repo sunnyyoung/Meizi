@@ -12,6 +12,7 @@
 		7DA9F4E31A457716007BAEDF /* MainCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA9F4E21A457716007BAEDF /* MainCollectionViewController.m */; };
 		7DA9F4E91A45A953007BAEDF /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA9F4E81A45A953007BAEDF /* ImageCell.m */; };
 		7DA9F5271A45CD31007BAEDF /* NetworkUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA9F5261A45CD31007BAEDF /* NetworkUtil.m */; };
+		7DA9F5311A4625B8007BAEDF /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA9F5301A4625B8007BAEDF /* RootViewController.m */; };
 		7DDA49331A39FC9C00DEFFD5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DDA49321A39FC9C00DEFFD5 /* main.m */; };
 		7DDA49361A39FC9C00DEFFD5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DDA49351A39FC9C00DEFFD5 /* AppDelegate.m */; };
 		7DDA49391A39FC9C00DEFFD5 /* Meizi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7DDA49371A39FC9C00DEFFD5 /* Meizi.xcdatamodeld */; };
@@ -41,6 +42,8 @@
 		7DA9F5251A45CD31007BAEDF /* NetworkUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkUtil.h; sourceTree = "<group>"; };
 		7DA9F5261A45CD31007BAEDF /* NetworkUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkUtil.m; sourceTree = "<group>"; };
 		7DA9F5281A45D33F007BAEDF /* Meizi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Meizi.h; sourceTree = "<group>"; };
+		7DA9F52F1A4625B8007BAEDF /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		7DA9F5301A4625B8007BAEDF /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		7DDA492D1A39FC9C00DEFFD5 /* Meizi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meizi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DDA49311A39FC9C00DEFFD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7DDA49321A39FC9C00DEFFD5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -87,6 +90,8 @@
 		7DA9F5201A45B438007BAEDF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7DA9F52F1A4625B8007BAEDF /* RootViewController.h */,
+				7DA9F5301A4625B8007BAEDF /* RootViewController.m */,
 				7DA9F5221A45B4A8007BAEDF /* SideBar */,
 				7DA9F5231A45B4B9007BAEDF /* Main */,
 			);
@@ -336,6 +341,7 @@
 			files = (
 				7DA9F4E31A457716007BAEDF /* MainCollectionViewController.m in Sources */,
 				7DA9F4E91A45A953007BAEDF /* ImageCell.m in Sources */,
+				7DA9F5311A4625B8007BAEDF /* RootViewController.m in Sources */,
 				7DDA49361A39FC9C00DEFFD5 /* AppDelegate.m in Sources */,
 				7DDA49331A39FC9C00DEFFD5 /* main.m in Sources */,
 				7DA9F5271A45CD31007BAEDF /* NetworkUtil.m in Sources */,

@@ -51,6 +51,10 @@
     [self.collectionView headerBeginRefreshing];
 }
 
+- (UIStatusBarStyle) preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -98,7 +102,7 @@
     cell.thumburl = [meizi valueForKey:@"data-src"];
     cell.imageurl = [meizi valueForKey:@"data-bigimg"];
     cell.detail = [meizi valueForKey:@"alt"];
-    [cell.imageView setImageWithURL:[NSURL URLWithString:cell.thumburl] placeholderImage:nil];
+    [cell.imageView setImageWithURL:[NSURL URLWithString:cell.thumburl] placeholderImage:[UIImage imageNamed:@"PlaceholderImage"]];
     return cell;
 }
 
