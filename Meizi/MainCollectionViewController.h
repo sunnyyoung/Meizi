@@ -18,4 +18,6 @@
 
 @interface MainCollectionViewController : UICollectionViewController<SlideNavigationControllerDelegate, JTSImageViewControllerInteractionsDelegate, UIActionSheetDelegate>
 
+@property (nonatomic, strong)NSString *datasource;
+
 @end

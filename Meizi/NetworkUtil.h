@@ -15,7 +15,7 @@
 
 - (void)getMeizi:(NSString*)url
            pages:(int)pages
-         success:(void (^)(NSString *succMsg,id responseObject))success
+         success:(void (^)(NSString *succMsg,NSArray *meiziArray))success
          failure:(void (^)(NSString *failMsg,NSError *error))failure;
 
 @end

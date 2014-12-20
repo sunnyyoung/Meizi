@@ -22,8 +22,9 @@
     [SlideNavigationController sharedInstance].leftMenu = left;
     [SlideNavigationController sharedInstance].rightMenu = right;
     
-    [SlideNavigationController sharedInstance].enableSwipeGesture = YES;
     [SlideNavigationController sharedInstance].enableShadow = YES;
+    [SlideNavigationController sharedInstance].enableSwipeGesture = YES;
+    [SlideNavigationController sharedInstance].avoidSwitchingToSameClassViewController = NO;
     [SlideNavigationController sharedInstance].panGestureSideOffset = 30.0;
     [SlideNavigationController sharedInstance].portraitSlideOffset = 200.0;
     [SlideNavigationController sharedInstance].landscapeSlideOffset = 460.0;

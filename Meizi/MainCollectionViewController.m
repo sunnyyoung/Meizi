@@ -19,51 +19,65 @@
 
 @implementation MainCollectionViewController
 
+#pragma mark view
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.page = 1;
+    
+    self.page = 1;      //初始页数
     self.meizi = [[NSMutableArray alloc]init];
-    [self.collectionView addFooterWithTarget:self action:@selector(loadMeiziWithpage:)];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:YES];
-    [self loadMeiziWithpage:self.page];
+    self.datasource = !self.datasource ? MEIZI_ALL:self.datasource;
+    
+    __weak typeof(self) weakself = self;
+    //下拉刷新
+    [self.collectionView addHeaderWithCallback:^{
+        if (weakself.meizi.count == 0) {
+            [weakself loadMeiziWithpage:1 completion:^(BOOL result, NSString *message) {
+                [weakself.collectionView reloadData];
+                [weakself.collectionView headerEndRefreshing];
+            }];
+        }else {
+            [weakself.collectionView headerEndRefreshing];
+        }
+    }];
+    //上拉加载更多
+    [self.collectionView addFooterWithCallback:^{
+        [weakself loadMeiziWithpage:weakself.page completion:^(BOOL result, NSString *message) {
+            [weakself.collectionView reloadData];
+            [weakself.collectionView footerEndRefreshing];
+        }];
+    }];
+    //开始刷新啦哈哈哈哈哈!!!
+    [self.collectionView headerBeginRefreshing];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
+
+#pragma marl loadMeizi
+
+/**
+ *  加载妹子图
+ *
+ *  @param page 页数
+ */
+- (void)loadMeiziWithpage:(int)page completion:(void (^)(BOOL result, NSString *message))completion{
+    [[NetworkUtil sharedNetworkUtil]getMeizi:self.datasource pages:page success:^(NSString *succMsg, NSArray *meiziArray) {
+        self.page++;
+        [self.meizi addObjectsFromArray:meiziArray];
+        completion(YES, succMsg);
+    } failure:^(NSString *failMsg, NSError *error) {
+        [KVNProgress showErrorWithStatus:failMsg];
+        completion(NO, failMsg);
+    }];
+}
+
+#pragma mark <SlideNavigationControllerDelegate>
 
 - (BOOL)slideNavigationControllerShouldDisplayLeftMenu {
     return YES;
 }
-
-- (void)loadMeiziWithpage:(int)page {
-    page = !page ? 1:self.page;
-    //[KVNProgress showWithStatus:@"正在获取妹子"];
-    [[NetworkUtil sharedNetworkUtil]getMeizi:MEIZI_CALLIPYGE pages:page success:^(NSString *succMsg, id responseObject) {
-        NSArray *meiziArray = [[TFHpple hppleWithHTMLData:responseObject]searchWithXPathQuery:@"/html/body/div[2]/ul[2]/li[@*]/div/div[1]/span/img"];
-        [self.meizi addObjectsFromArray:meiziArray];
-        self.page ++;
-        [self.collectionView reloadData];
-        [self.collectionView footerEndRefreshing];
-        [KVNProgress dismiss];
-    } failure:^(NSString *failMsg, NSError *error) {
-        [KVNProgress showErrorWithStatus:@"获取妹子失败"];
-    }];
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 #pragma mark <UICollectionViewDataSource>
 
@@ -91,12 +105,15 @@
 #pragma mark <UICollectionViewDelegate>
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    //获取选中的Cell
     ImageCell *cell = (ImageCell*)[collectionView cellForItemAtIndexPath:indexPath];
+    //创建图片信息
     JTSImageInfo *imageInfo = [[JTSImageInfo alloc]init];
     imageInfo.imageURL = [NSURL URLWithString:cell.imageurl];
     imageInfo.altText = cell.detail;
     imageInfo.referenceRect = cell.frame;
     imageInfo.referenceView = cell.superview;
+    //图片浏览Viewer
     JTSImageViewController *imageViewer = [[JTSImageViewController alloc]initWithImageInfo:imageInfo mode:JTSImageViewControllerMode_Image backgroundStyle:JTSImageViewControllerBackgroundOption_Blurred];
     imageViewer.interactionsDelegate = self;
     [imageViewer showFromViewController:self transition:JTSImageViewControllerTransition_FromOriginalPosition];
@@ -132,5 +149,15 @@
             break;
     }
 }
+
+/*
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

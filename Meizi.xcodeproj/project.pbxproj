@@ -153,14 +153,14 @@
 		7DDA492F1A39FC9C00DEFFD5 /* Meizi */ = {
 			isa = PBXGroup;
 			children = (
-				7DA9F5241A45CD0D007BAEDF /* Util */,
 				7DDA49341A39FC9C00DEFFD5 /* AppDelegate.h */,
 				7DDA49351A39FC9C00DEFFD5 /* AppDelegate.m */,
-				7DA9F5211A45B442007BAEDF /* Views */,
-				7DA9F5201A45B438007BAEDF /* Controllers */,
 				7DDA49401A39FC9C00DEFFD5 /* Images.xcassets */,
 				7DDA493D1A39FC9C00DEFFD5 /* Main.storyboard */,
 				7DDA49371A39FC9C00DEFFD5 /* Meizi.xcdatamodeld */,
+				7DA9F5241A45CD0D007BAEDF /* Util */,
+				7DA9F5211A45B442007BAEDF /* Views */,
+				7DA9F5201A45B438007BAEDF /* Controllers */,
 				7DDA49301A39FC9C00DEFFD5 /* Supporting Files */,
 			);
 			path = Meizi;

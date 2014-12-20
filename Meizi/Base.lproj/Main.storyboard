@@ -115,24 +115,6 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="About" id="OKc-FI-hpF">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="NzB-0K-bWm" style="IBUITableViewCellStyleDefault" id="Bln-QE-HPS">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bln-QE-HPS" id="rB9-Jd-3wD">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="About" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NzB-0K-bWm">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="gjX-ai-0o8" id="NQT-vN-zFI"/>
@@ -153,7 +135,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="8Oj-e6-T9e" kind="relationship" relationship="rootViewController" id="yJC-Rt-uBP"/>
+                        <segue destination="8Oj-e6-T9e" kind="relationship" relationship="rootViewController" id="GXv-0w-Q0g"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6YY-fh-5X2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -163,7 +145,7 @@
         <!--所有妹子-->
         <scene sceneID="r9c-RA-0ra">
             <objects>
-                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="8Oj-e6-T9e" customClass="MainCollectionViewController" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="MainCollectionView" autoresizesArchivedViewToFullSize="NO" id="8Oj-e6-T9e" customClass="MainCollectionViewController" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="UpS-Hv-c84">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -208,7 +190,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dcb-zh-Scg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="685" y="-373"/>
+            <point key="canvasLocation" x="678" y="-373"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
