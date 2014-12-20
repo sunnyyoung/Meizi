@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "SideBarViewController.h"
 #import <iOS-Slide-Menu/SlideNavigationController.h>
+#import <AFNetworking/AFNetworkActivityIndicatorManager.h>
 
 @interface AppDelegate ()
 
@@ -29,6 +30,8 @@
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     SideBarViewController *leftSideBar = (SideBarViewController*)[storyboard instantiateViewControllerWithIdentifier:@"SideBar"];
     
