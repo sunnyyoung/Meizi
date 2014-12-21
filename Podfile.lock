@@ -20,6 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.5.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - CHTCollectionViewWaterfallLayout (0.8)
   - hpple (0.2.0)
   - iOS-Slide-Menu (1.4.4)
   - JTSImageViewController (1.4)
@@ -28,6 +29,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - CHTCollectionViewWaterfallLayout
   - hpple
   - iOS-Slide-Menu
   - JTSImageViewController
@@ -45,6 +47,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
+  CHTCollectionViewWaterfallLayout: 14b7950cbe45ae9297e7759148d69b022bac047d
   hpple: f4eb7c21a8db83ec264e5d614ec7509e10e5adec
   iOS-Slide-Menu: 7891c4e4180aac2b23fb2e5459ff61b8691a8496
   JTSImageViewController: 9fe6402194b7679f0e28d0c1002d6164301fc34a

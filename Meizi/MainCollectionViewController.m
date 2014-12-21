@@ -12,8 +12,9 @@
 
 @interface MainCollectionViewController ()
 
-@property (nonatomic ,assign)int page;
-@property (nonatomic ,strong)NSMutableArray *meizi;
+@property (nonatomic, assign)int page;
+@property (nonatomic, weak)UIImage *selectedImage;
+@property (nonatomic, strong)NSMutableArray *meizi;
 
 @end
 
@@ -23,6 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setCollectionLayout];
     
     self.page = 1;      //初始页数
     self.meizi = [[NSMutableArray alloc]init];
@@ -51,8 +53,16 @@
     [self.collectionView headerBeginRefreshing];
 }
 
-- (UIStatusBarStyle) preferredStatusBarStyle {
-    return UIStatusBarStyleLightContent;
+/**
+ *  设置CollectionView的Layout
+ */
+- (void)setCollectionLayout {
+    CHTCollectionViewWaterfallLayout *layout = [[CHTCollectionViewWaterfallLayout alloc]init];
+    layout.columnCount = 2;
+    layout.minimumColumnSpacing = 1;
+    layout.minimumInteritemSpacing = 1;
+    layout.sectionInset = UIEdgeInsetsMake(1, 1, 1, 1);
+    [self.collectionView setCollectionViewLayout:layout];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -83,12 +93,17 @@
     return YES;
 }
 
+#pragma marl <CHTCollectionViewDelegateWaterfallLayout>
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(arc4random() % 50 + 50, arc4random() % 50 + 50);
+}
+
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
 }
-
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.meizi.count;
@@ -134,7 +149,12 @@
 }
 
 - (void)imageViewerDidLongPress:(JTSImageViewController *)imageViewer atRect:(CGRect)rect {
-    [[[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"保存到手机" otherButtonTitles:nil, nil]showInView:self.view];
+    self.selectedImage = imageViewer.image;
+    [[[UIActionSheet alloc]initWithTitle:nil
+                                delegate:self
+                       cancelButtonTitle:@"取消"
+                  destructiveButtonTitle:@"保存到手机"
+                       otherButtonTitles:nil, nil]showInView:self.view];
 }
 
 #pragma mark <UIActionSheetDelegate>
@@ -142,7 +162,8 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     switch (buttonIndex) {
         case 0: {
-            //todo
+            [KVNProgress showWithStatus:@"正在保存..."];
+            UIImageWriteToSavedPhotosAlbum(self.selectedImage, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
             break;
         }
         case 1: {
@@ -151,6 +172,16 @@
         }
         default:
             break;
+    }
+}
+
+#pragma mark SavePhotoToPhone
+- (void)image: (UIImage *) image didFinishSavingWithError: (NSError *) error contextInfo: (void *) contextInfo
+{
+    if(error) {
+        [KVNProgress showErrorWithStatus:@"保存图片失败"];
+    }else{
+        [KVNProgress showSuccessWithStatus:@"保存图片成功"];
     }
 }
 

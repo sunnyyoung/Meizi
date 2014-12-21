@@ -14,9 +14,10 @@
 #import <AFNetworking/UIKit+AFNetworking.h>
 #import <iOS-Slide-Menu/SlideNavigationController.h>
 #import <JTSImageViewController/JTSImageViewController.h>
+#import <CHTCollectionViewWaterfallLayout/CHTCollectionViewWaterfallLayout.h>
 
 
-@interface MainCollectionViewController : UICollectionViewController<SlideNavigationControllerDelegate, JTSImageViewControllerInteractionsDelegate, UIActionSheetDelegate>
+@interface MainCollectionViewController : UICollectionViewController<SlideNavigationControllerDelegate, JTSImageViewControllerInteractionsDelegate, CHTCollectionViewDelegateWaterfallLayout, UIActionSheetDelegate>
 
 @property (nonatomic, strong)NSString *datasource;
 

@@ -25,9 +25,13 @@
     [SlideNavigationController sharedInstance].enableShadow = NO;
     [SlideNavigationController sharedInstance].enableSwipeGesture = YES;
     [SlideNavigationController sharedInstance].avoidSwitchingToSameClassViewController = NO;
-    //[SlideNavigationController sharedInstance].panGestureSideOffset = 30.0;
     [SlideNavigationController sharedInstance].portraitSlideOffset = 200.0;
     [SlideNavigationController sharedInstance].landscapeSlideOffset = 460.0;
+}
+
+- (void)setupNavigationBar {
+    [[UINavigationBar appearance]setBarTintColor:[UIColor blackColor]];
+    [[UINavigationBar appearance]setTitleTextAttributes:[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName]];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -37,8 +41,7 @@
     SideBarViewController *leftSideBar = (SideBarViewController*)[storyboard instantiateViewControllerWithIdentifier:@"SideBar"];
     
     [self setupSideBarleft:leftSideBar right:nil];
-    [[UINavigationBar appearance]setBarTintColor:[UIColor blackColor]];
-    [[UINavigationBar appearance]setTitleTextAttributes:[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName]];
+    [self setupNavigationBar];
     
     return YES;
 }

@@ -68,7 +68,9 @@
         default:
             break;
     }
-    [[SlideNavigationController sharedInstance] popToRootAndSwitchToViewController:collectionView withSlideOutAnimation:NO andCompletion:nil];
+    [[SlideNavigationController sharedInstance] popToRootAndSwitchToViewController:collectionView
+                                                             withSlideOutAnimation:NO
+                                                                     andCompletion:nil];
 }
 
 @end
