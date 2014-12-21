@@ -10,14 +10,13 @@ Meizi
 
 第三方库:
 
-```
-                 hpple : https://github.com/topfunky/hpple
-             MJRefresh : https://github.com/CoderMJLee/MJRefresh
-           KVNProgress : https://github.com/kevin-hirsch/KVNProgress
-          AFNetworking : https://github.com/AFNetworking/AFNetworking
-        iOS-Slide-Menu : https://github.com/aryaxt/iOS-Slide-Menu
-JTSImageViewController : https://github.com/jaredsinclair/JTSImageViewController
-```
+- hpple: https://github.com/topfunky/hpple
+- MJRefresh: https://github.com/CoderMJLee/MJRefresh
+- KVNProgress: https://github.com/kevin-hirsch/KVNProgress
+- AFNetworking: https://github.com/AFNetworking/AFNetworking
+- iOS-Slide-Menu: https://github.com/aryaxt/iOS-Slide-Menu
+- JTSImageViewController: https://github.com/jaredsinclair/JTSImageViewController
+- CHTCollectionViewWaterfallLayout: https://github.com/chiahsien/CHTCollectionViewWaterfallLayout
 
 ##Platform
 MacBook Air:
@@ -40,8 +39,9 @@ pod install
 
 ##Todo
 
-- 瀑布流样式
-- 优化
+- √ 瀑布流样式
+- √ 优化
+- 其他暂无
 
 
 ## License
