@@ -27,7 +27,7 @@ Xcode:
 
 - Version: 6.1.1 (6A2008a)
 - SDK: iOS SDK 8.1
-- Deployment Taget: 8.1(Default)
+- Deployment Taget: 7.0
 
 ##Build
 
