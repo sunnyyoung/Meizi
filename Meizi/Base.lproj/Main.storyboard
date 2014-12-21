@@ -12,8 +12,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="56f-TB-nYG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
-                        <color key="separatorColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
                             <tableViewSection headerTitle="类别" id="Cnx-m4-FgY">
@@ -31,7 +30,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="Hwh-b7-iIQ" style="IBUITableViewCellStyleDefault" id="Gy9-mE-BPA">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -45,7 +43,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="q1x-sK-igr" style="IBUITableViewCellStyleDefault" id="OrN-zo-uAC">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -59,7 +56,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="apP-FD-Hlf" style="IBUITableViewCellStyleDefault" id="G5R-10-9kB">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -73,7 +69,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="jzW-NL-7Vc" style="IBUITableViewCellStyleDefault" id="lgB-1M-QYy">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -87,7 +82,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="QzZ-xJ-7jS" style="IBUITableViewCellStyleDefault" id="OfO-Pq-2R7">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -101,7 +95,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="8IC-ro-0gy" style="IBUITableViewCellStyleDefault" id="1n6-9n-q5B">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -115,7 +108,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -153,6 +145,7 @@
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="UpS-Hv-c84">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="84D-aU-ZIA">
                             <size key="itemSize" width="106" height="106"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -170,17 +163,24 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="flr-Uh-Dtg">
                                             <rect key="frame" x="0.0" y="0.0" width="106" height="106"/>
                                         </imageView>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="oAf-lx-vBk">
+                                            <rect key="frame" x="43" y="43" width="20" height="20"/>
+                                        </activityIndicatorView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="flr-Uh-Dtg" secondAttribute="bottom" id="KPD-BO-U5Y"/>
-                                    <constraint firstItem="flr-Uh-Dtg" firstAttribute="top" secondItem="iMt-2D-W6O" secondAttribute="top" id="LF1-Fg-4zD"/>
-                                    <constraint firstItem="flr-Uh-Dtg" firstAttribute="leading" secondItem="iMt-2D-W6O" secondAttribute="leading" id="Zhb-5V-JSR"/>
-                                    <constraint firstAttribute="trailing" secondItem="flr-Uh-Dtg" secondAttribute="trailing" id="wQh-PV-L2b"/>
+                                    <constraint firstItem="flr-Uh-Dtg" firstAttribute="leading" secondItem="iMt-2D-W6O" secondAttribute="leading" id="6Ut-PY-wZ7"/>
+                                    <constraint firstItem="flr-Uh-Dtg" firstAttribute="top" secondItem="iMt-2D-W6O" secondAttribute="top" id="PAt-V5-0IJ"/>
+                                    <constraint firstItem="flr-Uh-Dtg" firstAttribute="centerX" secondItem="oAf-lx-vBk" secondAttribute="centerX" id="QAN-Wm-pa4"/>
+                                    <constraint firstAttribute="trailing" secondItem="flr-Uh-Dtg" secondAttribute="trailing" id="n1o-V2-2hc"/>
+                                    <constraint firstAttribute="bottom" secondItem="flr-Uh-Dtg" secondAttribute="bottom" id="ovA-Wj-d9k"/>
+                                    <constraint firstItem="flr-Uh-Dtg" firstAttribute="centerY" secondItem="oAf-lx-vBk" secondAttribute="centerY" id="uVN-d1-fZg"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="imageView" destination="flr-Uh-Dtg" id="SXe-cb-xk4"/>
+                                    <outlet property="indicator" destination="oAf-lx-vBk" id="EKL-3Z-3Da"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -201,5 +201,5 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+    <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
 </document>

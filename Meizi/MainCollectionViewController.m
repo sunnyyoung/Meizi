@@ -113,11 +113,23 @@
     ImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ImageCell" forIndexPath:indexPath];
     
     cell.imageView.image = nil;
+    [cell.indicator setHidesWhenStopped:YES];
+    [cell.indicator startAnimating];
+    
     NSDictionary *meizi = [(TFHppleElement*)[self.meizi objectAtIndex:indexPath.row] attributes];
+    
     cell.thumburl = [meizi valueForKey:@"data-src"];
     cell.imageurl = [meizi valueForKey:@"data-bigimg"];
     cell.detail = [meizi valueForKey:@"alt"];
-    [cell.imageView setImageWithURL:[NSURL URLWithString:cell.thumburl] placeholderImage:[UIImage imageNamed:@"PlaceholderImage"]];
+    
+    [cell.imageView setImageWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:cell.thumburl]] placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+        [cell.indicator stopAnimating];
+        [cell.imageView setImage:image];
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+        [cell.indicator stopAnimating];
+        [cell.imageView setImage:[UIImage imageNamed:@"PlacholderImage"]];
+    }];
+    
     return cell;
 }
 
