@@ -24,8 +24,11 @@ PODS:
   - hpple (0.2.0)
   - iOS-Slide-Menu (1.4.4)
   - JTSImageViewController (1.4)
-  - KVNProgress (2.1.3)
+  - KVNProgress (2.1.5)
   - MJRefresh (1.0)
+  - SDWebImage (3.7.1):
+    - SDWebImage/Core (= 3.7.1)
+  - SDWebImage/Core (3.7.1)
 
 DEPENDENCIES:
   - AFNetworking
@@ -35,6 +38,7 @@ DEPENDENCIES:
   - JTSImageViewController
   - KVNProgress
   - MJRefresh (from `https://github.com/Sunnyyoung/MJRefresh.git`)
+  - SDWebImage
 
 EXTERNAL SOURCES:
   MJRefresh:
@@ -51,7 +55,8 @@ SPEC CHECKSUMS:
   hpple: f4eb7c21a8db83ec264e5d614ec7509e10e5adec
   iOS-Slide-Menu: 7891c4e4180aac2b23fb2e5459ff61b8691a8496
   JTSImageViewController: 9fe6402194b7679f0e28d0c1002d6164301fc34a
-  KVNProgress: 0c0fcd44798c91d50abbad19b76d869b4f8f5cb1
+  KVNProgress: 7b92508a8e3e9ee6c41962f70d20f6f7403ee27d
   MJRefresh: d90a8f4ee91229c838dd55973b86d0e12ea7f997
+  SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
 
 COCOAPODS: 0.35.0

@@ -19,14 +19,14 @@
 
 - (void)setupSideBarleft:(id)left right:(id)right {
     
-    [SlideNavigationController sharedInstance].leftMenu = left;
-    [SlideNavigationController sharedInstance].rightMenu = right;
+    [[SlideNavigationController sharedInstance] setLeftMenu:left];
+    [[SlideNavigationController sharedInstance] setRightMenu:right];
     
-    [SlideNavigationController sharedInstance].enableShadow = YES;
-    [SlideNavigationController sharedInstance].enableSwipeGesture = YES;
-    [SlideNavigationController sharedInstance].avoidSwitchingToSameClassViewController = NO;
-    [SlideNavigationController sharedInstance].portraitSlideOffset = 200.0;
-    [SlideNavigationController sharedInstance].landscapeSlideOffset = 460.0;
+    [[SlideNavigationController sharedInstance] setEnableShadow:YES];
+    [[SlideNavigationController sharedInstance] setEnableSwipeGesture:YES];
+    [[SlideNavigationController sharedInstance] setAvoidSwitchingToSameClassViewController:NO];
+    [[SlideNavigationController sharedInstance] setPortraitSlideOffset:200.0];
+    [[SlideNavigationController sharedInstance] setLandscapeSlideOffset:360.0];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {

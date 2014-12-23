@@ -11,7 +11,7 @@
 #import <MJRefresh/MJRefresh.h>
 #import <KVNProgress/KVNProgress.h>
 #import <AFNetworking/AFNetworking.h>
-#import <AFNetworking/UIKit+AFNetworking.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 #import <iOS-Slide-Menu/SlideNavigationController.h>
 #import <JTSImageViewController/JTSImageViewController.h>
 #import <CHTCollectionViewWaterfallLayout/CHTCollectionViewWaterfallLayout.h>

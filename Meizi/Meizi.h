@@ -12,6 +12,10 @@
 #define NETWORK_TIMOUT      30.0
 #define NETWORK_ERR_MSG     @"网络不给力~"
 
+#define CACHES_IS_EMPTY     @"已经清空了啦"
+#define DELETE_SUCCESS_MSG  @"清除成功"
+#define DELETE_ERR_MSG      @"清除失败"
+
 #define GOT_MEIZI_MSG       @"妹子到手~"
 #define NO_MEIZI_MSG        @"没有更多妹子咯~"
 

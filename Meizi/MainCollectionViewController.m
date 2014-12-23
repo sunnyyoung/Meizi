@@ -9,10 +9,12 @@
 #import "MainCollectionViewController.h"
 #import "NetworkUtil.h"
 #import "ImageCell.h"
+#import "Config.h"
 
 @interface MainCollectionViewController ()
 
 @property (nonatomic, assign)int page;
+@property (nonatomic, assign)LayoutType layoutType;
 @property (nonatomic, weak)UIImage *selectedImage;
 @property (nonatomic, strong)NSMutableArray *meizi;
 
@@ -24,11 +26,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setCollectionLayout];
     
-    self.page = 1;      //初始页数
-    self.meizi = [[NSMutableArray alloc]init];
-    self.datasource = !self.datasource ? MEIZI_ALL:self.datasource;
+    self.page       = 1;                                            //设置初始页数
+    self.layoutType = [[Config sharedConfig]getLayoutType];         //设置样式类型
+    self.datasource = !self.datasource ? MEIZI_ALL:self.datasource; //设置API地址
+    self.meizi      = [[NSMutableArray alloc]init];                 //初始化数组
+    
+    [self setCollectionLayout:self.layoutType];                     //设置样式布局
     
     __weak typeof(self) weakself = self;
     //下拉刷新
@@ -39,6 +43,7 @@
                 [weakself.collectionView headerEndRefreshing];
             }];
         }else {
+            [weakself.collectionView reloadData];
             [weakself.collectionView headerEndRefreshing];
         }
     }];
@@ -56,13 +61,24 @@
 /**
  *  设置CollectionView的Layout
  */
-- (void)setCollectionLayout {
-    CHTCollectionViewWaterfallLayout *layout = [[CHTCollectionViewWaterfallLayout alloc]init];
-    layout.columnCount = 2;
-    layout.minimumColumnSpacing = 1;
-    layout.minimumInteritemSpacing = 1;
-    layout.sectionInset = UIEdgeInsetsMake(1, 1, 1, 1);
-    [self.collectionView setCollectionViewLayout:layout];
+- (void)setCollectionLayout:(LayoutType)type {
+    switch (type) {
+            //经典样式
+        case LayoutTypeClassic: {
+            //Default Layout & Do Nothing
+            break;
+        }
+            //瀑布流样式
+        case LayoutTypeWaterFall: {
+            CHTCollectionViewWaterfallLayout *layout = [[CHTCollectionViewWaterfallLayout alloc]init];
+            layout.columnCount = 2;
+            layout.minimumColumnSpacing = 1;
+            layout.minimumInteritemSpacing = 1;
+            layout.sectionInset = UIEdgeInsetsMake(1, 1, 1, 1);
+            [self.collectionView setCollectionViewLayout:layout];
+            break;
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -96,7 +112,14 @@
 #pragma marl <CHTCollectionViewDelegateWaterfallLayout>
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(arc4random() % 50 + 50, arc4random() % 50 + 50);
+    switch (self.layoutType) {
+        case LayoutTypeClassic:
+            return CGSizeMake(CGRectGetWidth(self.view.bounds), CGRectGetWidth(self.view.bounds));
+            break;
+        case LayoutTypeWaterFall:
+            return CGSizeMake(arc4random()%50 + 50, arc4random()%50 + 50);
+            break;
+    }
 }
 
 #pragma mark <UICollectionViewDataSource>
@@ -122,12 +145,15 @@
     cell.imageurl = [meizi valueForKey:@"data-bigimg"];
     cell.detail = [meizi valueForKey:@"alt"];
     
-    [cell.imageView setImageWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:cell.thumburl]] placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-        [cell.indicator stopAnimating];
-        [cell.imageView setImage:image];
-    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-        [cell.indicator stopAnimating];
-        [cell.imageView setImage:[UIImage imageNamed:@"PlacholderImage"]];
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:cell.thumburl]
+                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                                 if (image && !error) {
+                                     [cell.indicator stopAnimating];
+                                     [cell.imageView setImage:image];
+                                 }else {
+                                     [cell.indicator stopAnimating];
+                                     [cell.imageView setImage:[UIImage imageNamed:@"PlacholderImage"]];
+                                 }
     }];
     
     return cell;
