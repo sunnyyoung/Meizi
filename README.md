@@ -9,6 +9,11 @@ Discription
 
 - http://www.dbmeizi.com
 
+Screen Shot
+===
+![image](https://raw.githubusercontent.com/Sunnyyoung/Meizi/master/ScreenShot/Screen%20Shot.png)
+
+
 第三方库
 ---
 **hpple**
