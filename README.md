@@ -72,8 +72,8 @@ Todo
 - √ 设置页面
 - √ 样式选择
 - √ 缓存清除
-- ✗ ReloadData Cell大小刷新问题
-- 其他暂无
+- √ ReloadData Cell大小刷新问题
+- 欢迎提交意见
 
 
 ## License

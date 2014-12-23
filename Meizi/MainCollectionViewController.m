@@ -17,6 +17,7 @@
 @property (nonatomic, assign)LayoutType layoutType;
 @property (nonatomic, weak)UIImage *selectedImage;
 @property (nonatomic, strong)NSMutableArray *meizi;
+@property (nonatomic, strong)NSMutableArray *cellSize;
 
 @end
 
@@ -31,6 +32,7 @@
     self.layoutType = [[Config sharedConfig]getLayoutType];         //设置样式类型
     self.datasource = !self.datasource ? MEIZI_ALL:self.datasource; //设置API地址
     self.meizi      = [[NSMutableArray alloc]init];                 //初始化数组
+    self.cellSize   = [[NSMutableArray alloc]init];
     
     [self setCollectionLayout:self.layoutType];                     //设置样式布局
     
@@ -38,24 +40,32 @@
     //下拉刷新
     [self.collectionView addHeaderWithCallback:^{
         if (weakself.meizi.count == 0) {
-            [weakself loadMeiziWithpage:1 completion:^(BOOL result, NSString *message) {
+            [weakself loadMeiziWithpage:1 completion:^(int count, NSString *message) {
+                [weakself appendCellsize:count];
                 [weakself.collectionView reloadData];
                 [weakself.collectionView headerEndRefreshing];
             }];
         }else {
-            [weakself.collectionView reloadData];
             [weakself.collectionView headerEndRefreshing];
         }
     }];
     //上拉加载更多
     [self.collectionView addFooterWithCallback:^{
-        [weakself loadMeiziWithpage:weakself.page completion:^(BOOL result, NSString *message) {
+        [weakself loadMeiziWithpage:weakself.page completion:^(int count, NSString *message) {
+            [weakself appendCellsize:count];
             [weakself.collectionView reloadData];
             [weakself.collectionView footerEndRefreshing];
         }];
     }];
     //开始刷新啦哈哈哈哈哈!!!
     [self.collectionView headerBeginRefreshing];
+}
+
+- (void)appendCellsize:(int)count {
+    for (int n = 0; n < count; n++) {
+        CGSize cell = CGSizeMake(arc4random()%50 + 50, arc4random()%50 + 50);
+        [self.cellSize addObject:[NSValue valueWithCGSize:cell]];
+    }
 }
 
 /**
@@ -92,14 +102,14 @@
  *
  *  @param page 页数
  */
-- (void)loadMeiziWithpage:(int)page completion:(void (^)(BOOL result, NSString *message))completion{
+- (void)loadMeiziWithpage:(int)page completion:(void (^)(int count, NSString *message))completion{
     [[NetworkUtil sharedNetworkUtil]getMeizi:self.datasource pages:page success:^(NSString *succMsg, NSArray *meiziArray) {
         self.page++;
         [self.meizi addObjectsFromArray:meiziArray];
-        completion(YES, succMsg);
+        completion(meiziArray.count, succMsg);
     } failure:^(NSString *failMsg, NSError *error) {
         [KVNProgress showErrorWithStatus:failMsg];
-        completion(NO, failMsg);
+        completion(0, failMsg);
     }];
 }
 
@@ -117,7 +127,7 @@
             return CGSizeMake(CGRectGetWidth(self.view.bounds), CGRectGetWidth(self.view.bounds));
             break;
         case LayoutTypeWaterFall:
-            return CGSizeMake(arc4random()%50 + 50, arc4random()%50 + 50);
+            return [self.cellSize[indexPath.item]CGSizeValue];
             break;
     }
 }
