@@ -25,8 +25,8 @@
     [[SlideNavigationController sharedInstance] setEnableShadow:YES];
     [[SlideNavigationController sharedInstance] setEnableSwipeGesture:YES];
     [[SlideNavigationController sharedInstance] setAvoidSwitchingToSameClassViewController:NO];
-    [[SlideNavigationController sharedInstance] setPortraitSlideOffset:200.0];
-    [[SlideNavigationController sharedInstance] setLandscapeSlideOffset:360.0];
+    [[SlideNavigationController sharedInstance] setPortraitSlideOffset:CGRectGetWidth(self.window.bounds) - 100];
+    [[SlideNavigationController sharedInstance] setLandscapeSlideOffset:CGRectGetHeight(self.window.bounds) - 100];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {

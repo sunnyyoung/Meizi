@@ -81,7 +81,7 @@
             //跳转SettingTableView
             [settingTableView setTitle:@"设置"];
             [[SlideNavigationController sharedInstance] popToRootAndSwitchToViewController:settingTableView
-                                                                     withSlideOutAnimation:YES
+                                                                     withSlideOutAnimation:NO
                                                                              andCompletion:nil];
             break;
         }
