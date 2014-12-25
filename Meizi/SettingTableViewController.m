@@ -26,10 +26,10 @@
     }else {
         self.LayoutSwitch.on = NO;
     }
-    //获取Caches文件夹大小
+    //获取Caches文件夹大小并刷新Label
     if ([NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject]) {
         self.cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
-        self.CachesSizeLabel.text = [NSString stringWithFormat:@"%.2fM",[self getCacheSize]];
+        [self refreshCacheSize:self.CachesSizeLabel];
     }
 }
 
@@ -86,19 +86,24 @@
     return 0;
 }
 
-- (float)getCacheSize {
+#pragma mark RefreshCacheSize
+- (void)refreshCacheSize:(UILabel*)lable {
     NSFileManager *manager = [NSFileManager defaultManager];
     if (![manager fileExistsAtPath:self.cachesPath]) {
-        return 0;
+        lable.text = @"0.0M";
     }
-    NSEnumerator *childFilesEnumerator = [[manager subpathsAtPath:self.cachesPath] objectEnumerator];
-    NSString *fileName;
-    long long folderSize = 0;
-    while ((fileName = [childFilesEnumerator nextObject]) != nil){
-        NSString *fileAbsolutePath = [self.cachesPath stringByAppendingPathComponent:fileName];
-        folderSize += [self fileSizeAtPath:fileAbsolutePath];
-    }
-    return folderSize/(1024.0*1024.0);
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSEnumerator *childFilesEnumerator = [[manager subpathsAtPath:self.cachesPath] objectEnumerator];
+        NSString *fileName;
+        long long folderSize = 0;
+        while ((fileName = [childFilesEnumerator nextObject]) != nil){
+            NSString *fileAbsolutePath = [self.cachesPath stringByAppendingPathComponent:fileName];
+            folderSize += [self fileSizeAtPath:fileAbsolutePath];
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            lable.text = [NSString stringWithFormat:@"%.2fM",folderSize/(1024.0*1024.0)];
+        });
+    });
 }
 
 #pragma mark DeleteCaches
@@ -113,7 +118,7 @@
     [[SDImageCache sharedImageCache]clearMemory];
     [[SDImageCache sharedImageCache]clearDisk];
     [KVNProgress showSuccessWithStatus:DELETE_SUCCESS_MSG];
-    self.CachesSizeLabel.text = [NSString stringWithFormat:@"%.2fM",[self getCacheSize]];
+    [self refreshCacheSize:self.CachesSizeLabel];
 }
 
 #pragma mark <UIActionSheetDelegate>
