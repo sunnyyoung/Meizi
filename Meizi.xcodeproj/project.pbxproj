@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D0DAD671A52EC0300D0B982 /* LayoutsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D0DAD661A52EC0300D0B982 /* LayoutsTableViewController.m */; };
 		7D4349DD1A4964BA00C9C674 /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D4349DC1A4964BA00C9C674 /* SettingTableViewController.m */; };
 		7D4349E01A496E6500C9C674 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D4349DF1A496E6500C9C674 /* Config.m */; };
 		7D5504058B5E44FAC2D9E252 /* libPods-Meizi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8051BBDCA3CAA5AB86BBC999 /* libPods-Meizi.a */; };
@@ -35,6 +36,8 @@
 
 /* Begin PBXFileReference section */
 		51F1F86A06680DA69546F3CE /* Pods-Meizi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meizi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Meizi/Pods-Meizi.debug.xcconfig"; sourceTree = "<group>"; };
+		7D0DAD651A52EC0300D0B982 /* LayoutsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayoutsTableViewController.h; sourceTree = "<group>"; };
+		7D0DAD661A52EC0300D0B982 /* LayoutsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayoutsTableViewController.m; sourceTree = "<group>"; };
 		7D4349DB1A4964BA00C9C674 /* SettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTableViewController.h; sourceTree = "<group>"; };
 		7D4349DC1A4964BA00C9C674 /* SettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewController.m; sourceTree = "<group>"; };
 		7D4349DE1A496E6500C9C674 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
@@ -93,6 +96,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		7D0DAD641A52EBF100D0B982 /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				7D0DAD651A52EC0300D0B982 /* LayoutsTableViewController.h */,
+				7D0DAD661A52EC0300D0B982 /* LayoutsTableViewController.m */,
+			);
+			name = Layouts;
+			sourceTree = "<group>";
+		};
 		7D4349DA1A49649200C9C674 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +122,7 @@
 				7DA9F5221A45B4A8007BAEDF /* SideBar */,
 				7DA9F5231A45B4B9007BAEDF /* Main */,
 				7D4349DA1A49649200C9C674 /* Setting */,
+				7D0DAD641A52EBF100D0B982 /* Layouts */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -362,6 +375,7 @@
 				7DA9F5311A4625B8007BAEDF /* RootViewController.m in Sources */,
 				7DDA49361A39FC9C00DEFFD5 /* AppDelegate.m in Sources */,
 				7D4349DD1A4964BA00C9C674 /* SettingTableViewController.m in Sources */,
+				7D0DAD671A52EC0300D0B982 /* LayoutsTableViewController.m in Sources */,
 				7D4349E01A496E6500C9C674 /* Config.m in Sources */,
 				7DDA49331A39FC9C00DEFFD5 /* main.m in Sources */,
 				7DA9F5271A45CD31007BAEDF /* NetworkUtil.m in Sources */,

@@ -13,6 +13,10 @@
  */
 typedef NS_ENUM(NSInteger, LayoutType){
     /**
+     *  Instagram
+     */
+    LayoutTypeInstagram,
+    /**
      *  经典
      */
     LayoutTypeClassic,

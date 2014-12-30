@@ -73,6 +73,8 @@
  */
 - (void)setCollectionLayout:(LayoutType)type {
     switch (type) {
+        case LayoutTypeInstagram:
+            break;
             //经典样式
         case LayoutTypeClassic: {
             //Default Layout & Do Nothing
@@ -123,6 +125,9 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     switch (self.layoutType) {
+        case LayoutTypeInstagram:
+            return CGSizeMake(106, 106);
+            break;
         case LayoutTypeClassic:
             return CGSizeMake(CGRectGetWidth(self.view.bounds), CGRectGetWidth(self.view.bounds));
             break;

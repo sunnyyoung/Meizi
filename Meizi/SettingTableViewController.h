@@ -15,6 +15,5 @@
 @interface SettingTableViewController : UITableViewController<SlideNavigationControllerDelegate, UIActionSheetDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *CachesSizeLabel;
-@property (weak, nonatomic) IBOutlet UISwitch *LayoutSwitch;
 
 @end

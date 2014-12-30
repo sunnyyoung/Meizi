@@ -20,12 +20,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //获取样式类型
-    if ([[Config sharedConfig]getLayoutType] == LayoutTypeWaterFall) {
-        self.LayoutSwitch.on = YES;
-    }else {
-        self.LayoutSwitch.on = NO;
-    }
     //获取Caches文件夹大小并刷新Label
     if ([NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject]) {
         self.cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
@@ -50,7 +44,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     switch (indexPath.section) {
         case 0: {
-            //Do Nothing
+            [self performSegueWithIdentifier:@"toLayoutsSection" sender:self];
             break;
         }
         case 1: {
@@ -66,13 +60,12 @@
     }
 }
 
-#pragma mark LayoutSwitch action
+#pragma mark Destinate Section
 
-- (IBAction)layoutSwitchChange:(id)sender {
-    if (self.LayoutSwitch.isOn) {
-        [[Config sharedConfig]setLayoutType:LayoutTypeWaterFall];
-    }else {
-        [[Config sharedConfig]setLayoutType:LayoutTypeClassic];
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    UITableViewController *tableViewController = [segue destinationViewController];
+    if ([segue.identifier isEqualToString:@"toLayoutsSection"]) {
+        [tableViewController setTitle:@"浏览样式选择"];
     }
 }
 
@@ -87,6 +80,7 @@
 }
 
 #pragma mark RefreshCacheSize
+
 - (void)refreshCacheSize:(UILabel*)lable {
     NSFileManager *manager = [NSFileManager defaultManager];
     if (![manager fileExistsAtPath:self.cachesPath]) {
