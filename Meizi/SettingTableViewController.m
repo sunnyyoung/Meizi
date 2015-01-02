@@ -103,16 +103,22 @@
 #pragma mark DeleteCaches
 
 - (void)deleteCaches {
-    NSError *error;
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSString *bundleCachePath = [self.cachesPath stringByAppendingPathComponent:[[NSBundle mainBundle] bundleIdentifier]];
     if ([fileManager fileExistsAtPath: bundleCachePath]) {
-        [fileManager removeItemAtPath:bundleCachePath error:&error];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [fileManager removeItemAtPath:bundleCachePath error:nil];
+            [[SDImageCache sharedImageCache]clearMemory];
+            [[SDImageCache sharedImageCache]clearDisk];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [KVNProgress showSuccessWithStatus:DELETE_SUCCESS_MSG];
+                [self refreshCacheSize:self.CachesSizeLabel];
+            });
+        });
+    }else {
+        [KVNProgress showSuccessWithStatus:CACHES_IS_EMPTY];
+        [self refreshCacheSize:self.CachesSizeLabel];
     }
-    [[SDImageCache sharedImageCache]clearMemory];
-    [[SDImageCache sharedImageCache]clearDisk];
-    [KVNProgress showSuccessWithStatus:DELETE_SUCCESS_MSG];
-    [self refreshCacheSize:self.CachesSizeLabel];
 }
 
 #pragma mark <UIActionSheetDelegate>

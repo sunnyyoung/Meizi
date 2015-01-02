@@ -126,7 +126,7 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     switch (self.layoutType) {
         case LayoutTypeInstagram:
-            return CGSizeMake(106, 106);
+            return CGSizeMake((CGRectGetWidth(self.view.bounds)/3 - 1), (CGRectGetWidth(self.view.bounds)/3 - 1));
             break;
         case LayoutTypeClassic:
             return CGSizeMake(CGRectGetWidth(self.view.bounds), CGRectGetWidth(self.view.bounds));
