@@ -7,7 +7,6 @@
 //
 
 #import "SettingTableViewController.h"
-#import "Config.h"
 #import "Meizi.h"
 
 @interface SettingTableViewController ()
@@ -23,13 +22,12 @@
     //获取Caches文件夹大小并刷新Label
     if ([NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject]) {
         self.cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
-        [self refreshCacheSize:self.CachesSizeLabel];
+        [self refreshCacheSize:_CachesSizeLabel];
     }
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark <SlideNavigationControllerDelegate>
@@ -44,10 +42,6 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     switch (indexPath.section) {
         case 0: {
-            [self performSegueWithIdentifier:@"toLayoutsSection" sender:self];
-            break;
-        }
-        case 1: {
             if (indexPath.row == 1) {
                 [[[UIActionSheet alloc]initWithTitle:@"确认清除缓存图片?"
                                             delegate:self
@@ -57,15 +51,6 @@
             }
             break;
         }
-    }
-}
-
-#pragma mark Destinate Section
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    UITableViewController *tableViewController = [segue destinationViewController];
-    if ([segue.identifier isEqualToString:@"toLayoutsSection"]) {
-        [tableViewController setTitle:@"浏览样式选择"];
     }
 }
 

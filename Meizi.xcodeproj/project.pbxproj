@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7D0DAD671A52EC0300D0B982 /* LayoutsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D0DAD661A52EC0300D0B982 /* LayoutsTableViewController.m */; };
 		7D4349DD1A4964BA00C9C674 /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D4349DC1A4964BA00C9C674 /* SettingTableViewController.m */; };
-		7D4349E01A496E6500C9C674 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D4349DF1A496E6500C9C674 /* Config.m */; };
 		7D5504058B5E44FAC2D9E252 /* libPods-Meizi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8051BBDCA3CAA5AB86BBC999 /* libPods-Meizi.a */; };
 		7DA9F4DA1A455B2E007BAEDF /* SideBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA9F4D91A455B2E007BAEDF /* SideBarViewController.m */; };
 		7DA9F4E31A457716007BAEDF /* MainCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA9F4E21A457716007BAEDF /* MainCollectionViewController.m */; };
@@ -18,7 +16,6 @@
 		7DA9F5311A4625B8007BAEDF /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA9F5301A4625B8007BAEDF /* RootViewController.m */; };
 		7DDA49331A39FC9C00DEFFD5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DDA49321A39FC9C00DEFFD5 /* main.m */; };
 		7DDA49361A39FC9C00DEFFD5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DDA49351A39FC9C00DEFFD5 /* AppDelegate.m */; };
-		7DDA49391A39FC9C00DEFFD5 /* Meizi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7DDA49371A39FC9C00DEFFD5 /* Meizi.xcdatamodeld */; };
 		7DDA493F1A39FC9C00DEFFD5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DDA493D1A39FC9C00DEFFD5 /* Main.storyboard */; };
 		7DDA49411A39FC9C00DEFFD5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DDA49401A39FC9C00DEFFD5 /* Images.xcassets */; };
 		7DDA49501A39FC9C00DEFFD5 /* MeiziTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DDA494F1A39FC9C00DEFFD5 /* MeiziTests.m */; };
@@ -36,12 +33,8 @@
 
 /* Begin PBXFileReference section */
 		51F1F86A06680DA69546F3CE /* Pods-Meizi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meizi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Meizi/Pods-Meizi.debug.xcconfig"; sourceTree = "<group>"; };
-		7D0DAD651A52EC0300D0B982 /* LayoutsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayoutsTableViewController.h; sourceTree = "<group>"; };
-		7D0DAD661A52EC0300D0B982 /* LayoutsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayoutsTableViewController.m; sourceTree = "<group>"; };
 		7D4349DB1A4964BA00C9C674 /* SettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTableViewController.h; sourceTree = "<group>"; };
 		7D4349DC1A4964BA00C9C674 /* SettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewController.m; sourceTree = "<group>"; };
-		7D4349DE1A496E6500C9C674 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
-		7D4349DF1A496E6500C9C674 /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
 		7DA9F4D81A455B2E007BAEDF /* SideBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideBarViewController.h; sourceTree = "<group>"; };
 		7DA9F4D91A455B2E007BAEDF /* SideBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideBarViewController.m; sourceTree = "<group>"; };
 		7DA9F4E11A457716007BAEDF /* MainCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainCollectionViewController.h; sourceTree = "<group>"; };
@@ -58,7 +51,6 @@
 		7DDA49321A39FC9C00DEFFD5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7DDA49341A39FC9C00DEFFD5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7DDA49351A39FC9C00DEFFD5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		7DDA49381A39FC9C00DEFFD5 /* Meizi.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Meizi.xcdatamodel; sourceTree = "<group>"; };
 		7DDA493E1A39FC9C00DEFFD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7DDA49401A39FC9C00DEFFD5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7DDA49491A39FC9C00DEFFD5 /* MeiziTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeiziTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,15 +88,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		7D0DAD641A52EBF100D0B982 /* Layouts */ = {
-			isa = PBXGroup;
-			children = (
-				7D0DAD651A52EC0300D0B982 /* LayoutsTableViewController.h */,
-				7D0DAD661A52EC0300D0B982 /* LayoutsTableViewController.m */,
-			);
-			name = Layouts;
-			sourceTree = "<group>";
-		};
 		7D4349DA1A49649200C9C674 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,7 +105,6 @@
 				7DA9F5221A45B4A8007BAEDF /* SideBar */,
 				7DA9F5231A45B4B9007BAEDF /* Main */,
 				7D4349DA1A49649200C9C674 /* Setting */,
-				7D0DAD641A52EBF100D0B982 /* Layouts */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -158,8 +140,6 @@
 			isa = PBXGroup;
 			children = (
 				7DA9F5281A45D33F007BAEDF /* Meizi.h */,
-				7D4349DE1A496E6500C9C674 /* Config.h */,
-				7D4349DF1A496E6500C9C674 /* Config.m */,
 				7DA9F5251A45CD31007BAEDF /* NetworkUtil.h */,
 				7DA9F5261A45CD31007BAEDF /* NetworkUtil.m */,
 			);
@@ -193,7 +173,6 @@
 				7DDA49351A39FC9C00DEFFD5 /* AppDelegate.m */,
 				7DDA49401A39FC9C00DEFFD5 /* Images.xcassets */,
 				7DDA493D1A39FC9C00DEFFD5 /* Main.storyboard */,
-				7DDA49371A39FC9C00DEFFD5 /* Meizi.xcdatamodeld */,
 				7DA9F5241A45CD0D007BAEDF /* Util */,
 				7DA9F5211A45B442007BAEDF /* Views */,
 				7DA9F5201A45B438007BAEDF /* Controllers */,
@@ -375,11 +354,8 @@
 				7DA9F5311A4625B8007BAEDF /* RootViewController.m in Sources */,
 				7DDA49361A39FC9C00DEFFD5 /* AppDelegate.m in Sources */,
 				7D4349DD1A4964BA00C9C674 /* SettingTableViewController.m in Sources */,
-				7D0DAD671A52EC0300D0B982 /* LayoutsTableViewController.m in Sources */,
-				7D4349E01A496E6500C9C674 /* Config.m in Sources */,
 				7DDA49331A39FC9C00DEFFD5 /* main.m in Sources */,
 				7DA9F5271A45CD31007BAEDF /* NetworkUtil.m in Sources */,
-				7DDA49391A39FC9C00DEFFD5 /* Meizi.xcdatamodeld in Sources */,
 				7DA9F4DA1A455B2E007BAEDF /* SideBarViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -583,19 +559,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		7DDA49371A39FC9C00DEFFD5 /* Meizi.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				7DDA49381A39FC9C00DEFFD5 /* Meizi.xcdatamodel */,
-			);
-			currentVersion = 7DDA49381A39FC9C00DEFFD5 /* Meizi.xcdatamodel */;
-			path = Meizi.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 7DDA49251A39FC9C00DEFFD5 /* Project object */;
 }

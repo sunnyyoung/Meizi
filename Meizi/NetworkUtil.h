@@ -14,7 +14,7 @@
 + (NetworkUtil*)sharedNetworkUtil;
 
 - (void)getMeizi:(NSString*)url
-           pages:(int)pages
+           pages:(NSInteger)pages
          success:(void (^)(NSString *succMsg,NSArray *meiziArray))success
          failure:(void (^)(NSString *failMsg,NSError *error))failure;
 

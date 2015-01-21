@@ -9,12 +9,10 @@
 #import "MainCollectionViewController.h"
 #import "NetworkUtil.h"
 #import "ImageCell.h"
-#import "Config.h"
 
 @interface MainCollectionViewController ()
 
-@property (nonatomic, assign)int page;
-@property (nonatomic, assign)LayoutType layoutType;
+@property (nonatomic, assign)NSInteger page;
 @property (nonatomic, weak)UIImage *selectedImage;
 @property (nonatomic, strong)NSMutableArray *meizi;
 @property (nonatomic, strong)NSMutableArray *cellSize;
@@ -29,18 +27,15 @@
     [super viewDidLoad];
     
     self.page       = 1;                                            //设置初始页数
-    self.layoutType = [[Config sharedConfig]getLayoutType];         //设置样式类型
     self.datasource = !self.datasource ? MEIZI_ALL:self.datasource; //设置API地址
     self.meizi      = [[NSMutableArray alloc]init];                 //初始化数组
     self.cellSize   = [[NSMutableArray alloc]init];
-    
-    [self setCollectionLayout:self.layoutType];                     //设置样式布局
     
     __weak typeof(self) weakself = self;
     //下拉刷新
     [self.collectionView addHeaderWithCallback:^{
         if (weakself.meizi.count == 0) {
-            [weakself loadMeiziWithpage:1 completion:^(int count, NSString *message) {
+            [weakself loadMeiziWithpage:1 completion:^(NSInteger count, NSString *message) {
                 [weakself appendCellsize:count];
                 [weakself.collectionView reloadData];
                 [weakself.collectionView headerEndRefreshing];
@@ -51,7 +46,7 @@
     }];
     //上拉加载更多
     [self.collectionView addFooterWithCallback:^{
-        [weakself loadMeiziWithpage:weakself.page completion:^(int count, NSString *message) {
+        [weakself loadMeiziWithpage:weakself.page completion:^(NSInteger count, NSString *message) {
             [weakself appendCellsize:count];
             [weakself.collectionView reloadData];
             [weakself.collectionView footerEndRefreshing];
@@ -61,35 +56,10 @@
     [self.collectionView headerBeginRefreshing];
 }
 
-- (void)appendCellsize:(int)count {
+- (void)appendCellsize:(NSInteger)count {
     for (int n = 0; n < count; n++) {
         CGSize cell = CGSizeMake(arc4random()%50 + 50, arc4random()%50 + 50);
         [self.cellSize addObject:[NSValue valueWithCGSize:cell]];
-    }
-}
-
-/**
- *  设置CollectionView的Layout
- */
-- (void)setCollectionLayout:(LayoutType)type {
-    switch (type) {
-        case LayoutTypeInstagram:
-            break;
-            //经典样式
-        case LayoutTypeClassic: {
-            //Default Layout & Do Nothing
-            break;
-        }
-            //瀑布流样式
-        case LayoutTypeWaterFall: {
-            CHTCollectionViewWaterfallLayout *layout = [[CHTCollectionViewWaterfallLayout alloc]init];
-            layout.columnCount = 2;
-            layout.minimumColumnSpacing = 1;
-            layout.minimumInteritemSpacing = 1;
-            layout.sectionInset = UIEdgeInsetsMake(1, 1, 1, 1);
-            [self.collectionView setCollectionViewLayout:layout];
-            break;
-        }
     }
 }
 
@@ -104,7 +74,7 @@
  *
  *  @param page 页数
  */
-- (void)loadMeiziWithpage:(int)page completion:(void (^)(int count, NSString *message))completion{
+- (void)loadMeiziWithpage:(NSInteger)page completion:(void (^)(NSInteger count, NSString *message))completion{
     [[NetworkUtil sharedNetworkUtil]getMeizi:self.datasource pages:page success:^(NSString *succMsg, NSArray *meiziArray) {
         self.page++;
         [self.meizi addObjectsFromArray:meiziArray];
@@ -124,17 +94,7 @@
 #pragma marl <CHTCollectionViewDelegateWaterfallLayout>
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    switch (self.layoutType) {
-        case LayoutTypeInstagram:
-            return CGSizeMake((CGRectGetWidth(self.view.bounds)/3 - 1), (CGRectGetWidth(self.view.bounds)/3 - 1));
-            break;
-        case LayoutTypeClassic:
-            return CGSizeMake(CGRectGetWidth(self.view.bounds), CGRectGetWidth(self.view.bounds));
-            break;
-        case LayoutTypeWaterFall:
-            return [self.cellSize[indexPath.item]CGSizeValue];
-            break;
-    }
+    return CGSizeMake((CGRectGetWidth(self.view.bounds)/3 - 1), (CGRectGetWidth(self.view.bounds)/3 - 1));
 }
 
 #pragma mark <UICollectionViewDataSource>
@@ -237,15 +197,5 @@
         [KVNProgress showSuccessWithStatus:@"保存图片成功"];
     }
 }
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end
