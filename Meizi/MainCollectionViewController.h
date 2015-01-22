@@ -8,16 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import <hpple/TFHpple.h>
-#import <MJRefresh/MJRefresh.h>
 #import <KVNProgress/KVNProgress.h>
 #import <AFNetworking/AFNetworking.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <iOS-Slide-Menu/SlideNavigationController.h>
 #import <JTSImageViewController/JTSImageViewController.h>
-#import <CHTCollectionViewWaterfallLayout/CHTCollectionViewWaterfallLayout.h>
 
-
-@interface MainCollectionViewController : UICollectionViewController<SlideNavigationControllerDelegate, JTSImageViewControllerInteractionsDelegate, CHTCollectionViewDelegateWaterfallLayout, UIActionSheetDelegate>
+@interface MainCollectionViewController : UICollectionViewController<SlideNavigationControllerDelegate, JTSImageViewControllerInteractionsDelegate, UIActionSheetDelegate>
 
 @property (nonatomic, strong)NSString *datasource;
 

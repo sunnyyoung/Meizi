@@ -9,10 +9,13 @@ Discription
 
 - http://www.dbmeizi.com
 
-Screen Shot
-===
-![image](https://raw.githubusercontent.com/Sunnyyoung/Meizi/master/ScreenShot/Screen%20Shot.png)
+Update
+---
+- 2015-01-22 直接写死一种样式了,其他样式感觉不好看= =,支持横屏并改变Cell的大小
 
+Screen Shot
+---
+![image](https://raw.githubusercontent.com/Sunnyyoung/Meizi/master/ScreenShot/Screen%20Shot.png)
 
 第三方库
 ---
@@ -62,25 +65,21 @@ Xcode:
 
 Build
 ---
-
 ```
 cd Meizi
 pod install
 ```
 
-
 Todo
 ---
-
 - √ 瀑布流样式
 - √ 优化
 - √ 设置页面
 - √ 样式选择
 - √ 缓存清除
 - √ ReloadData Cell大小刷新问题
-- 欢迎提交意见
+- ✗ 采用json解析获取数据
 
-
-## License
-
+License
+---
 The [MIT License](LICENSE).

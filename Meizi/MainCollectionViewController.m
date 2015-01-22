@@ -7,15 +7,15 @@
 //
 
 #import "MainCollectionViewController.h"
+#import "MJRefresh.h"
 #import "NetworkUtil.h"
 #import "ImageCell.h"
 
 @interface MainCollectionViewController ()
 
-@property (nonatomic, assign)NSInteger page;
-@property (nonatomic, weak)UIImage *selectedImage;
-@property (nonatomic, strong)NSMutableArray *meizi;
-@property (nonatomic, strong)NSMutableArray *cellSize;
+@property (nonatomic, assign) NSInteger      page;
+@property (nonatomic, weak  ) UIImage        *selectedImage;
+@property (nonatomic, strong) NSMutableArray *meizi;
 
 @end
 
@@ -29,14 +29,12 @@
     self.page       = 1;                                            //设置初始页数
     self.datasource = !self.datasource ? MEIZI_ALL:self.datasource; //设置API地址
     self.meizi      = [[NSMutableArray alloc]init];                 //初始化数组
-    self.cellSize   = [[NSMutableArray alloc]init];
     
     __weak typeof(self) weakself = self;
     //下拉刷新
     [self.collectionView addHeaderWithCallback:^{
         if (weakself.meizi.count == 0) {
             [weakself loadMeiziWithpage:1 completion:^(NSInteger count, NSString *message) {
-                [weakself appendCellsize:count];
                 [weakself.collectionView reloadData];
                 [weakself.collectionView headerEndRefreshing];
             }];
@@ -47,7 +45,6 @@
     //上拉加载更多
     [self.collectionView addFooterWithCallback:^{
         [weakself loadMeiziWithpage:weakself.page completion:^(NSInteger count, NSString *message) {
-            [weakself appendCellsize:count];
             [weakself.collectionView reloadData];
             [weakself.collectionView footerEndRefreshing];
         }];
@@ -56,11 +53,31 @@
     [self.collectionView headerBeginRefreshing];
 }
 
-- (void)appendCellsize:(NSInteger)count {
-    for (int n = 0; n < count; n++) {
-        CGSize cell = CGSizeMake(arc4random()%50 + 50, arc4random()%50 + 50);
-        [self.cellSize addObject:[NSValue valueWithCGSize:cell]];
-    }
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(deviceOrientationDidChange:)
+                                                 name:UIDeviceOrientationDidChangeNotification
+                                               object:nil];
+    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:YES];
+    [[UIDevice currentDevice] endGeneratingDeviceOrientationNotifications];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIDeviceOrientationDidChangeNotification
+                                                  object:nil];
+}
+
+- (void)deviceOrientationDidChange:(NSNotification *)notification {
+    UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
+    [self willRotateToInterfaceOrientation:orientation duration:1.0];
+}
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
+    [self.collectionView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -91,12 +108,6 @@
     return YES;
 }
 
-#pragma marl <CHTCollectionViewDelegateWaterfallLayout>
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake((CGRectGetWidth(self.view.bounds)/3 - 1), (CGRectGetWidth(self.view.bounds)/3 - 1));
-}
-
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -105,6 +116,15 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.meizi.count;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortrait) {
+        return CGSizeMake(CGRectGetWidth(self.view.bounds) / 3 - 1, CGRectGetWidth(self.view.bounds) / 3 - 1);
+    }else {
+        return CGSizeMake(CGRectGetWidth(self.view.bounds) / 5 - 1, CGRectGetWidth(self.view.bounds) / 5 - 1);
+    }
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
