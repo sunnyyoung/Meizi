@@ -136,9 +136,14 @@
     
     NSDictionary *meizi = [(TFHppleElement*)[self.meizi objectAtIndex:indexPath.row] attributes];
     
-    cell.thumburl = [meizi valueForKey:@"data-src"];
-    cell.imageurl = [meizi valueForKey:@"data-bigimg"];
-    cell.detail = [meizi valueForKey:@"alt"];
+    if ([_datasource isEqualToString:MEIZI_RANK]) {
+        cell.thumburl = [meizi valueForKey:@"src"];
+        cell.imageurl = [meizi valueForKey:@"src"];
+    }else {
+        cell.thumburl = [meizi valueForKey:@"data-src"];
+        cell.imageurl = [meizi valueForKey:@"data-bigimg"];
+        cell.detail = [meizi valueForKey:@"alt"];
+    }
     
     [cell.imageView sd_setImageWithURL:[NSURL URLWithString:cell.thumburl]
                              completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {

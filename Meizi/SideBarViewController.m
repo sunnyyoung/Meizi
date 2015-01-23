@@ -68,6 +68,9 @@
                     [collectionView setTitle:@"美臀"];
                     [collectionView setValue:MEIZI_CALLIPYGE forKey:@"datasource"];
                     break;
+                case 7:
+                    [collectionView setTitle:@"排行榜"];
+                    [collectionView setValue:MEIZI_RANK forKey:@"datasource"];
             }
             //跳转MainCollectionView
             [[SlideNavigationController sharedInstance] popToRootAndSwitchToViewController:collectionView
