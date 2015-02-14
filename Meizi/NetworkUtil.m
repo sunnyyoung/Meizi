@@ -7,7 +7,6 @@
 //
 
 #import "NetworkUtil.h"
-#import <hpple/TFHpple.h>
 
 @implementation NetworkUtil
 
@@ -16,27 +15,29 @@ static NetworkUtil *singleton;
 + (NetworkUtil*)sharedNetworkUtil {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        singleton = [[NetworkUtil alloc]initWithBaseURL:nil];
+        singleton = [[NetworkUtil alloc]init];
         singleton.requestSerializer.timeoutInterval = NETWORK_TIMOUT;
-        singleton.responseSerializer = [AFHTTPResponseSerializer serializer];
+        singleton.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingMutableContainers];
+        singleton.responseSerializer.acceptableContentTypes = [singleton.responseSerializer.acceptableContentTypes setByAddingObjectsFromSet:[NSSet setWithObject:@"text/html"]];
     });
     return singleton;
 }
 
-- (void)getMeizi:(NSString*)url
-           pages:(NSInteger)pages
-         success:(void (^)(NSString *succMsg,NSArray *meiziArray))success
-         failure:(void (^)(NSString *failMsg,NSError *error))failure {
-    NSNumber *page = [NSNumber numberWithInteger:pages];
-    [self GET:url parameters:@{@"p": page} success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSArray *meiziArray = [[TFHpple hppleWithHTMLData:responseObject]searchWithXPathQuery:@"/html/body/div[2]/ul[2]/li[@*]/div/div/span/img"];
-        if (meiziArray.count != 0) {
-            success(GOT_MEIZI_MSG,meiziArray);
+- (void)getMeiziWithUrl:(NSString*)url page:(NSInteger)page completion:(void (^)(NSArray *meiziArray, NSInteger nextPage))completion {
+    [self GET:url parameters:@{@"maxid": [@(page) stringValue]} success:^(NSURLSessionDataTask *task, id responseJSON) {
+        
+        BOOL isNetWorkOK = [responseJSON[@"data"] isEqualToString:@"ok"]; //判断返回是否正确
+        NSArray *resultArray = responseJSON[@"imgs"];   //妹子数组
+        
+        if (isNetWorkOK) {
+            completion(resultArray,[[resultArray lastObject][@"id"] integerValue]);
         }else {
-            failure(NO_MEIZI_MSG,nil);
+            [SVProgressHUD showErrorWithStatus:NO_MEIZI_MSG];
+            completion(nil,0);
         }
+        
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        failure(NETWORK_ERR_MSG,error);
+        [SVProgressHUD showErrorWithStatus:NETWORK_ERR_MSG maskType:SVProgressHUDMaskTypeGradient];
     }];
 }
 

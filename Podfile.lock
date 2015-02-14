@@ -20,28 +20,25 @@ PODS:
   - AFNetworking/UIKit (2.5.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - hpple (0.2.0)
   - iOS-Slide-Menu (1.4.4)
   - JTSImageViewController (1.4)
-  - KVNProgress (2.1.5)
   - SDWebImage (3.7.1):
     - SDWebImage/Core (= 3.7.1)
   - SDWebImage/Core (3.7.1)
+  - SVProgressHUD (1.1.2)
 
 DEPENDENCIES:
   - AFNetworking
-  - hpple
   - iOS-Slide-Menu
   - JTSImageViewController
-  - KVNProgress
   - SDWebImage
+  - SVProgressHUD
 
 SPEC CHECKSUMS:
   AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
-  hpple: f4eb7c21a8db83ec264e5d614ec7509e10e5adec
   iOS-Slide-Menu: 7891c4e4180aac2b23fb2e5459ff61b8691a8496
   JTSImageViewController: 9fe6402194b7679f0e28d0c1002d6164301fc34a
-  KVNProgress: 7b92508a8e3e9ee6c41962f70d20f6f7403ee27d
   SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
+  SVProgressHUD: da7a49e789af645d9279ffbca62318945a832438
 
 COCOAPODS: 0.35.0

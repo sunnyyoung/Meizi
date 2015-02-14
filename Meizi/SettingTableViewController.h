@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <SDWebImage/SDImageCache.h>
-#import <KVNProgress/KVNProgress.h>
 #import <AFNetworking/AFNetworking.h>
+#import <SVProgressHUD/SVProgressHUD.h>
 #import <iOS-Slide-Menu/SlideNavigationController.h>
 
 @interface SettingTableViewController : UITableViewController<SlideNavigationControllerDelegate, UIActionSheetDelegate>

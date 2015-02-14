@@ -127,7 +127,7 @@
 				7DA9F52F1A4625B8007BAEDF /* RootViewController.h */,
 				7DA9F5301A4625B8007BAEDF /* RootViewController.m */,
 				7DA9F5221A45B4A8007BAEDF /* SideBar */,
-				7DA9F5231A45B4B9007BAEDF /* Main */,
+				7DA9F5231A45B4B9007BAEDF /* MainView */,
 				7D4349DA1A49649200C9C674 /* Setting */,
 			);
 			name = Controllers;
@@ -151,13 +151,13 @@
 			name = SideBar;
 			sourceTree = "<group>";
 		};
-		7DA9F5231A45B4B9007BAEDF /* Main */ = {
+		7DA9F5231A45B4B9007BAEDF /* MainView */ = {
 			isa = PBXGroup;
 			children = (
 				7DA9F4E11A457716007BAEDF /* MainCollectionViewController.h */,
 				7DA9F4E21A457716007BAEDF /* MainCollectionViewController.m */,
 			);
-			name = Main;
+			name = MainView;
 			sourceTree = "<group>";
 		};
 		7DA9F5241A45CD0D007BAEDF /* Util */ = {

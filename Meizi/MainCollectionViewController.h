@@ -7,15 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <hpple/TFHpple.h>
-#import <KVNProgress/KVNProgress.h>
 #import <AFNetworking/AFNetworking.h>
+#import <SVProgressHUD/SVProgressHUD.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <iOS-Slide-Menu/SlideNavigationController.h>
 #import <JTSImageViewController/JTSImageViewController.h>
 
 @interface MainCollectionViewController : UICollectionViewController<SlideNavigationControllerDelegate, JTSImageViewControllerInteractionsDelegate, UIActionSheetDelegate>
 
-@property (nonatomic, strong)NSString *datasource;
+@property (nonatomic, strong)NSString *datasource;  //数据源
 
 @end

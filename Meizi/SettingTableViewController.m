@@ -19,11 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //获取Caches文件夹大小并刷新Label
-    if ([NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject]) {
-        self.cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
-        [self refreshCacheSize:_CachesSizeLabel];
-    }
+    [self refreshCacheSize];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,63 +43,29 @@
                                             delegate:self
                                    cancelButtonTitle:@"取消"
                               destructiveButtonTitle:@"确认清除"
-                                   otherButtonTitles:nil, nil]showInView:tableView];
+                                   otherButtonTitles:nil, nil]showInView:self.view];
             }
             break;
         }
     }
 }
 
-#pragma mark GetCacheSize
-
-- (long long) fileSizeAtPath:(NSString*) filePath{
-    NSFileManager *manager = [NSFileManager defaultManager];
-    if ([manager fileExistsAtPath:filePath]){
-        return [[manager attributesOfItemAtPath:filePath error:nil] fileSize];
-    }
-    return 0;
-}
-
 #pragma mark RefreshCacheSize
 
-- (void)refreshCacheSize:(UILabel*)lable {
-    NSFileManager *manager = [NSFileManager defaultManager];
-    if (![manager fileExistsAtPath:self.cachesPath]) {
-        lable.text = @"0.0M";
-    }
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSEnumerator *childFilesEnumerator = [[manager subpathsAtPath:self.cachesPath] objectEnumerator];
-        NSString *fileName;
-        long long folderSize = 0;
-        while ((fileName = [childFilesEnumerator nextObject]) != nil){
-            NSString *fileAbsolutePath = [self.cachesPath stringByAppendingPathComponent:fileName];
-            folderSize += [self fileSizeAtPath:fileAbsolutePath];
-        }
-        dispatch_async(dispatch_get_main_queue(), ^{
-            lable.text = [NSString stringWithFormat:@"%.2fM",folderSize/(1024.0*1024.0)];
-        });
-    });
+- (void)refreshCacheSize {
+    [[SDImageCache sharedImageCache]calculateSizeWithCompletionBlock:^(NSUInteger fileCount, NSUInteger totalSize) {
+        _CachesSizeLabel.text = [NSString stringWithFormat:@"%.2f M",totalSize/1048576.];
+    }];
 }
 
 #pragma mark DeleteCaches
 
 - (void)deleteCaches {
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSString *bundleCachePath = [self.cachesPath stringByAppendingPathComponent:[[NSBundle mainBundle] bundleIdentifier]];
-    if ([fileManager fileExistsAtPath: bundleCachePath]) {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            [fileManager removeItemAtPath:bundleCachePath error:nil];
-            [[SDImageCache sharedImageCache]clearMemory];
-            [[SDImageCache sharedImageCache]clearDisk];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [KVNProgress showSuccessWithStatus:DELETE_SUCCESS_MSG];
-                [self refreshCacheSize:self.CachesSizeLabel];
-            });
-        });
-    }else {
-        [KVNProgress showSuccessWithStatus:CACHES_IS_EMPTY];
-        [self refreshCacheSize:self.CachesSizeLabel];
-    }
+    [SVProgressHUD showWithStatus:DELETE_ING maskType:SVProgressHUDMaskTypeGradient];
+    [[SDImageCache sharedImageCache]clearDiskOnCompletion:^{
+        [self refreshCacheSize];
+        [SVProgressHUD showSuccessWithStatus:DELETE_SUCCESS_MSG];
+    }];
 }
 
 #pragma mark <UIActionSheetDelegate>

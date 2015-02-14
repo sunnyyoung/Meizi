@@ -13,48 +13,36 @@
 
 @interface MainCollectionViewController ()
 
-@property (nonatomic, assign) NSInteger      page;
-@property (nonatomic, weak  ) UIImage        *selectedImage;
+@property (nonatomic, assign) NSInteger      page;;
 @property (nonatomic, strong) NSMutableArray *meizi;
+@property (nonatomic, weak  ) UIImage        *selectedImage;
 
 @end
 
 @implementation MainCollectionViewController
 
+#pragma mark initialize
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        _datasource = _datasource?_datasource:MEIZI_ALL;
+        _meizi = [[NSMutableArray alloc]init];
+    }
+    return self;
+}
+
 #pragma mark view
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.page       = 1;                                            //设置初始页数
-    self.datasource = !self.datasource ? MEIZI_ALL:self.datasource; //设置API地址
-    self.meizi      = [[NSMutableArray alloc]init];                 //初始化数组
-    
-    __weak typeof(self) weakself = self;
-    //下拉刷新
-    [self.collectionView addHeaderWithCallback:^{
-        if (weakself.meizi.count == 0) {
-            [weakself loadMeiziWithpage:1 completion:^(NSInteger count, NSString *message) {
-                [weakself.collectionView reloadData];
-                [weakself.collectionView headerEndRefreshing];
-            }];
-        }else {
-            [weakself.collectionView headerEndRefreshing];
-        }
-    }];
-    //上拉加载更多
-    [self.collectionView addFooterWithCallback:^{
-        [weakself loadMeiziWithpage:weakself.page completion:^(NSInteger count, NSString *message) {
-            [weakself.collectionView reloadData];
-            [weakself.collectionView footerEndRefreshing];
-        }];
-    }];
-    //开始刷新啦哈哈哈哈哈!!!
+    [self addNotification];
+    [self.collectionView addHeaderWithTarget:self action:@selector(refreshMeizi)];
+    [self.collectionView addFooterWithTarget:self action:@selector(loadMoreMeizi)];
     [self.collectionView headerBeginRefreshing];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:YES];
+- (void)addNotification {
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(deviceOrientationDidChange:)
                                                  name:UIDeviceOrientationDidChangeNotification
@@ -62,8 +50,7 @@
     [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:YES];
+- (void)removeNotification {
     [[UIDevice currentDevice] endGeneratingDeviceOrientationNotifications];
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:UIDeviceOrientationDidChangeNotification
@@ -80,42 +67,51 @@
     [self.collectionView reloadData];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
 #pragma marl loadMeizi
 
-/**
- *  加载妹子图
- *
- *  @param page 页数
- */
-- (void)loadMeiziWithpage:(NSInteger)page completion:(void (^)(NSInteger count, NSString *message))completion{
-    [[NetworkUtil sharedNetworkUtil]getMeizi:self.datasource pages:page success:^(NSString *succMsg, NSArray *meiziArray) {
-        self.page++;
-        [self.meizi addObjectsFromArray:meiziArray];
-        completion(meiziArray.count, succMsg);
-    } failure:^(NSString *failMsg, NSError *error) {
-        [KVNProgress showErrorWithStatus:failMsg];
-        completion(0, failMsg);
+- (void)refreshMeizi {
+    [[NetworkUtil sharedNetworkUtil]getMeiziWithUrl:_datasource page:0 completion:^(NSArray *meiziArray, NSInteger nextPage) {
+        if (meiziArray.count > 0) {
+            [_meizi removeAllObjects];
+            [_meizi addObjectsFromArray:meiziArray];
+            _page = nextPage;
+            NSLog(@"%@",@(_page));
+            [self.collectionView reloadData];
+        }else {
+            [self.collectionView setFooterHidden:YES];
+        }
+        [self.collectionView headerEndRefreshing];
     }];
 }
 
-#pragma mark <SlideNavigationControllerDelegate>
+- (void)loadMoreMeizi {
+    [[NetworkUtil sharedNetworkUtil]getMeiziWithUrl:_datasource page:_page completion:^(NSArray *meiziArray, NSInteger nextPage) {
+        if (meiziArray.count > 0) {
+            [_meizi addObjectsFromArray:meiziArray];
+            _page = nextPage;
+            NSLog(@"%@",@(_page));
+            [self.collectionView reloadData];
+        }else {
+            [self.collectionView setFooterHidden:YES];
+        }
+        [self.collectionView footerEndRefreshing];
+    }];
+}
+
+#pragma mark SlideNavigationControllerDelegate
 
 - (BOOL)slideNavigationControllerShouldDisplayLeftMenu {
     return YES;
 }
 
-#pragma mark <UICollectionViewDataSource>
+#pragma mark UICollectionViewDataSource
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.meizi.count;
+    return _meizi.count;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -129,31 +125,13 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ImageCell" forIndexPath:indexPath];
-    
     cell.imageView.image = nil;
-    [cell.indicator setHidesWhenStopped:YES];
+    NSString *imageurl = [NSString stringWithFormat:@"%@%@", PIC_HOST,[_meizi objectAtIndex:indexPath.row][@"path"]];
+    
     [cell.indicator startAnimating];
-    
-    NSDictionary *meizi = [(TFHppleElement*)[self.meizi objectAtIndex:indexPath.row] attributes];
-    
-    if ([_datasource isEqualToString:MEIZI_RANK]) {
-        cell.thumburl = [meizi valueForKey:@"src"];
-        cell.imageurl = [meizi valueForKey:@"src"];
-    }else {
-        cell.thumburl = [meizi valueForKey:@"data-src"];
-        cell.imageurl = [meizi valueForKey:@"data-bigimg"];
-        cell.detail = [meizi valueForKey:@"alt"];
-    }
-    
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:cell.thumburl]
-                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-                                 if (image && !error) {
-                                     [cell.indicator stopAnimating];
-                                     [cell.imageView setImage:image];
-                                 }else {
-                                     [cell.indicator stopAnimating];
-                                     [cell.imageView setImage:[UIImage imageNamed:@"PlacholderImage"]];
-                                 }
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:imageurl] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        [cell.indicator stopAnimating];
+        [cell.indicator setHidden:YES];
     }];
     
     return cell;
@@ -166,8 +144,7 @@
     ImageCell *cell = (ImageCell*)[collectionView cellForItemAtIndexPath:indexPath];
     //创建图片信息
     JTSImageInfo *imageInfo = [[JTSImageInfo alloc]init];
-    imageInfo.imageURL = [NSURL URLWithString:cell.imageurl];
-    imageInfo.altText = cell.detail;
+    imageInfo.image = cell.imageView.image;
     imageInfo.referenceRect = cell.frame;
     imageInfo.referenceView = cell.superview;
     //图片浏览Viewer
@@ -176,7 +153,7 @@
     [imageViewer showFromViewController:self transition:JTSImageViewControllerTransition_FromOriginalPosition];
 }
 
-#pragma mark <JTSImageViewControllerInteractionsDelegate>
+#pragma mark JTSImageViewControllerInteractionsDelegate
 
 - (BOOL)imageViewerAllowCopyToPasteboard:(JTSImageViewController *)imageViewer {
     return YES;
@@ -187,7 +164,7 @@
 }
 
 - (void)imageViewerDidLongPress:(JTSImageViewController *)imageViewer atRect:(CGRect)rect {
-    self.selectedImage = imageViewer.image;
+    _selectedImage = imageViewer.image;
     [[[UIActionSheet alloc]initWithTitle:nil
                                 delegate:self
                        cancelButtonTitle:@"取消"
@@ -195,31 +172,30 @@
                        otherButtonTitles:nil, nil]showInView:self.view];
 }
 
-#pragma mark <UIActionSheetDelegate>
+#pragma mark UIActionSheetDelegate
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     switch (buttonIndex) {
         case 0: {
-            [KVNProgress showWithStatus:@"正在保存..."];
-            UIImageWriteToSavedPhotosAlbum(self.selectedImage, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+            [SVProgressHUD showWithStatus:@"正在保存..."];
+            UIImageWriteToSavedPhotosAlbum(_selectedImage, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
             break;
         }
         case 1: {
             [actionSheet dismissWithClickedButtonIndex:buttonIndex animated:YES];
             break;
         }
-        default:
-            break;
     }
 }
 
 #pragma mark SavePhotoToPhone
+
 - (void)image: (UIImage *) image didFinishSavingWithError: (NSError *) error contextInfo: (void *) contextInfo
 {
-    if(error) {
-        [KVNProgress showErrorWithStatus:@"保存图片失败"];
-    }else{
-        [KVNProgress showSuccessWithStatus:@"保存图片成功"];
+    if (error) {
+        [SVProgressHUD showErrorWithStatus:@"保存失败"];
+    }else {
+        [SVProgressHUD showSuccessWithStatus:@"保存成功"];
     }
 }
 

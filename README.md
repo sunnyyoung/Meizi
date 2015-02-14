@@ -13,6 +13,12 @@ Update
 ---
 - 2015-01-22 直接写死一种样式了,其他样式感觉不好看= =,支持横屏并改变Cell的大小
 - 2015-01-23 此App无法上架,增加**`排行榜`**
+- 2015-02-15 **大更新**
+
+	1. 全新接口
+	2. JSON数据格式的解析
+	3. 清除图片缓存优化
+	4. 细节优化
 
 Screen Shot
 ---
@@ -20,17 +26,10 @@ Screen Shot
 
 第三方库
 ---
-**hpple**
- 
-- https://github.com/topfunky/hpple
 
 **MJRefresh**
 
 - https://github.com/CoderMJLee/MJRefresh
-
-**KVNProgress**
-
-- https://github.com/kevin-hirsch/KVNProgress
 
 **SDWebImage**
 
@@ -40,6 +39,10 @@ Screen Shot
 
 - https://github.com/AFNetworking/AFNetworking
 
+**SVProgressHUD**
+
+- https://github.com/TransitApp/SVProgressHUD
+
 **iOS-Slide-Menu**
 
 - https://github.com/aryaxt/iOS-Slide-Menu
@@ -47,10 +50,6 @@ Screen Shot
 **JTSImageViewController**
 
 - https://github.com/jaredsinclair/JTSImageViewController
-
-**CHTCollectionViewWaterfallLayout**
-
-- https://github.com/chiahsien/CHTCollectionViewWaterfallLayout
 
 Platform
 ---
@@ -79,7 +78,8 @@ Todo
 - √ 样式选择
 - √ 缓存清除
 - √ ReloadData Cell大小刷新问题
-- ✗ 采用json解析获取数据
+- √ 采用json解析获取数据
+- 图片加载Loader
 
 License
 ---

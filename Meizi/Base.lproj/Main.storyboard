@@ -114,7 +114,20 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="blP-2k-X2J" id="lCq-d7-jVE">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="排行榜" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lVS-vB-pBA">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="有点意思" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lVS-vB-pBA">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="qqI-p1-ZF9" style="IBUITableViewCellStyleDefault" id="aEX-DX-vBb">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aEX-DX-vBb" id="UWD-d7-9lN">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="尺度🔞" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qqI-p1-ZF9">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -301,24 +314,24 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="flr-Uh-Dtg">
                                             <rect key="frame" x="0.0" y="0.0" width="105" height="105"/>
                                         </imageView>
-                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="oAf-lx-vBk">
-                                            <rect key="frame" x="43" y="43" width="20" height="20"/>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="4JE-vK-rln">
+                                            <rect key="frame" x="42" y="43" width="20" height="20"/>
                                         </activityIndicatorView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstAttribute="centerY" secondItem="4JE-vK-rln" secondAttribute="centerY" constant="-0.5" id="3s4-9m-gM4"/>
                                     <constraint firstItem="flr-Uh-Dtg" firstAttribute="leading" secondItem="iMt-2D-W6O" secondAttribute="leading" id="6Ut-PY-wZ7"/>
                                     <constraint firstItem="flr-Uh-Dtg" firstAttribute="top" secondItem="iMt-2D-W6O" secondAttribute="top" id="PAt-V5-0IJ"/>
-                                    <constraint firstItem="flr-Uh-Dtg" firstAttribute="centerX" secondItem="oAf-lx-vBk" secondAttribute="centerX" id="QAN-Wm-pa4"/>
+                                    <constraint firstAttribute="centerX" secondItem="4JE-vK-rln" secondAttribute="centerX" constant="0.5" id="jlJ-Bu-fP8"/>
                                     <constraint firstAttribute="trailing" secondItem="flr-Uh-Dtg" secondAttribute="trailing" id="n1o-V2-2hc"/>
                                     <constraint firstAttribute="bottom" secondItem="flr-Uh-Dtg" secondAttribute="bottom" id="ovA-Wj-d9k"/>
-                                    <constraint firstItem="flr-Uh-Dtg" firstAttribute="centerY" secondItem="oAf-lx-vBk" secondAttribute="centerY" id="uVN-d1-fZg"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="imageView" destination="flr-Uh-Dtg" id="SXe-cb-xk4"/>
-                                    <outlet property="indicator" destination="oAf-lx-vBk" id="EKL-3Z-3Da"/>
+                                    <outlet property="indicator" destination="4JE-vK-rln" id="U2T-2V-Og0"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>

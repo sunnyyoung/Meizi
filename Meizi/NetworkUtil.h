@@ -8,14 +8,14 @@
 
 #import "AFHTTPSessionManager.h"
 #import "Meizi.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 
 @interface NetworkUtil : AFHTTPSessionManager
 
 + (NetworkUtil*)sharedNetworkUtil;
 
-- (void)getMeizi:(NSString*)url
-           pages:(NSInteger)pages
-         success:(void (^)(NSString *succMsg,NSArray *meiziArray))success
-         failure:(void (^)(NSString *failMsg,NSError *error))failure;
+- (void)getMeiziWithUrl:(NSString*)url
+                   page:(NSInteger)page
+             completion:(void (^)(NSArray *meiziArray, NSInteger nextPage))completion;
 
 @end

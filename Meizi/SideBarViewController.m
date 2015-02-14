@@ -22,7 +22,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
-     NSIndexPath *selectedIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    NSIndexPath *selectedIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView selectRowAtIndexPath:selectedIndexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
 }
 
@@ -31,7 +31,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
+#pragma mark - TableViewDataSource
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
@@ -69,8 +69,11 @@
                     [collectionView setValue:MEIZI_CALLIPYGE forKey:@"datasource"];
                     break;
                 case 7:
-                    [collectionView setTitle:@"排行榜"];
-                    [collectionView setValue:MEIZI_RANK forKey:@"datasource"];
+                    [collectionView setTitle:@"有点意思"];
+                    [collectionView setValue:MEIZI_FUNNY forKey:@"datasource"];
+                case 8:
+                    [collectionView setTitle:@"尺度"];
+                    [collectionView setValue:MEIZI_RATING forKey:@"datasource"];
             }
             //跳转MainCollectionView
             [[SlideNavigationController sharedInstance] popToRootAndSwitchToViewController:collectionView
