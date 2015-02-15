@@ -37,6 +37,7 @@ static NetworkUtil *singleton;
         }
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        completion(nil,0);
         [SVProgressHUD showErrorWithStatus:NETWORK_ERR_MSG maskType:SVProgressHUDMaskTypeGradient];
     }];
 }

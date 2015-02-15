@@ -71,9 +71,11 @@
                 case 7:
                     [collectionView setTitle:@"有点意思"];
                     [collectionView setValue:MEIZI_FUNNY forKey:@"datasource"];
+                    break;
                 case 8:
                     [collectionView setTitle:@"尺度"];
                     [collectionView setValue:MEIZI_RATING forKey:@"datasource"];
+                    break;
             }
             //跳转MainCollectionView
             [[SlideNavigationController sharedInstance] popToRootAndSwitchToViewController:collectionView
