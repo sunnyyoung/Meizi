@@ -169,7 +169,7 @@
                                 delegate:self
                        cancelButtonTitle:@"取消"
                   destructiveButtonTitle:@"保存到手机"
-                       otherButtonTitles:nil, nil]showInView:self.view];
+                       otherButtonTitles:nil, nil]showInView:imageViewer.view];
 }
 
 #pragma mark UIActionSheetDelegate
