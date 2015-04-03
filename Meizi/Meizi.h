@@ -2,44 +2,30 @@
 //  Meizi.h
 //  Meizi
 //
-//  Created by Sunnyyoung on 14-12-20.
-//  Copyright (c) 2014年 Sunnyyoung. All rights reserved.
+//  Created by Sunnyyoung on 15/4/4.
+//  Copyright (c) 2015年 Sunnyyoung. All rights reserved.
 //
 
-#ifndef Meizi_Meizi_h
-#define Meizi_Meizi_h
+#import <Foundation/Foundation.h>
+#import <NYTPhotoViewer/NYTPhoto.h>
 
-#define NETWORK_TIMOUT      30.0
-#define NETWORK_ERR_MSG     @"网络不给力~"
+@interface Meizi : NSObject <NYTPhoto>
 
-#define CACHES_IS_EMPTY     @"已经清空了啦"
-#define DELETE_ING          @"正在清除缓存"
-#define DELETE_SUCCESS_MSG  @"清除成功"
-#define DELETE_ERR_MSG      @"清除失败"
+@property (nonatomic, strong) NSString *path;
+@property (nonatomic, strong) NSString *width;
+@property (nonatomic, strong) NSString *height;
+@property (nonatomic, strong) NSString *source;
+@property (nonatomic, strong) NSString *gtopic_id;
+@property (nonatomic, strong) NSString *id;
+@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *user;
+@property (nonatomic, strong) NSString *url;
+@property (nonatomic, strong) NSString *selected;
 
-#define GOT_MEIZI_MSG       @"妹子到手~"
-#define NO_MEIZI_MSG        @"没有更多妹子咯~"
+@property (nonatomic) UIImage *image;
+@property (nonatomic) UIImage *placeholderImage;
+@property (nonatomic) NSAttributedString *attributedCaptionTitle;
+@property (nonatomic) NSAttributedString *attributedCaptionSummary;
+@property (nonatomic) NSAttributedString *attributedCaptionCredit;
 
-//******废弃旧接口******//
-//#define MEIZI_ALL           @"http://www.dbmeizi.com/category/10"
-//#define MEIZI_SEX           @"http://www.dbmeizi.com/category/1"
-//#define MEIZI_CLEAVAGE      @"http://www.dbmeizi.com/category/2"
-//#define MEIZI_LEGS          @"http://www.dbmeizi.com/category/3"
-//#define MEIZI_FRESH         @"http://www.dbmeizi.com/category/11"
-//#define MEIZI_LITERATURE    @"http://www.dbmeizi.com/category/12"
-//#define MEIZI_CALLIPYGE     @"http://www.dbmeizi.com/category/14"
-//#define MEIZI_RANK          @"http://www.dbmeizi.com/img/rank"
-
-#define PIC_HOST            @"http://23.92.26.220/"
-#define MEIZI               @"http://www.dbmeizi.com"
-#define MEIZI_ALL           MEIZI@"/m/category_new/10"
-#define MEIZI_SEX           MEIZI@"/m/category_new/1"
-#define MEIZI_CLEAVAGE      MEIZI@"/m/category_new/2"
-#define MEIZI_LEGS          MEIZI@"/m/category_new/3"
-#define MEIZI_FRESH         MEIZI@"/m/category_new/11"
-#define MEIZI_LITERATURE    MEIZI@"/m/category_new/12"
-#define MEIZI_CALLIPYGE     MEIZI@"/m/category_new/14"
-#define MEIZI_FUNNY         MEIZI@"/m/category_new/9"
-#define MEIZI_RATING        MEIZI@"/m/category_new/5"
-
-#endif
+@end

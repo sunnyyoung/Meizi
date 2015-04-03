@@ -2,12 +2,13 @@
 //  AppDelegate.h
 //  Meizi
 //
-//  Created by Sunnyyoung on 14-12-12.
-//  Copyright (c) 2014年 Sunnyyoung. All rights reserved.
+//  Created by Sunnyyoung on 15/4/4.
+//  Copyright (c) 2015年 Sunnyyoung. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import <CoreData/CoreData.h>
+#import <iOS-Slide-Menu/SlideNavigationController.h>
+#import <AFNetworking/AFNetworkActivityIndicatorManager.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

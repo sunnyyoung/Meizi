@@ -1,20 +1,19 @@
 //
-//  SideBarViewController.m
+//  LeftMenuViewController.m
 //  Meizi
 //
-//  Created by Sunnyyoung on 14-12-20.
-//  Copyright (c) 2014年 Sunnyyoung. All rights reserved.
+//  Created by Sunnyyoung on 15/4/8.
+//  Copyright (c) 2015年 Sunnyyoung. All rights reserved.
 //
 
-#import "SideBarViewController.h"
-#import "Meizi.h"
-#import "MainCollectionViewController.h"
+#import "LeftMenuViewController.h"
+#import "MainViewController.h"
 
-@interface SideBarViewController ()
+@interface LeftMenuViewController ()
 
 @end
 
-@implementation SideBarViewController
+@implementation LeftMenuViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,55 +25,48 @@
     [self.tableView selectRowAtIndexPath:selectedIndexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - TableViewDataSource
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
     switch (indexPath.section) {
         case 0: {
             //取MainCollectionView
-            UICollectionViewController *collectionView = [storyboard instantiateViewControllerWithIdentifier:@"MainCollectionView"];
+            MainViewController *collectionView = [storyboard instantiateViewControllerWithIdentifier:@"MainCollectionView"];
             switch (indexPath.row) {
                 case 0:
-                    [collectionView setTitle:@"所有妹子"];
-                    [collectionView setValue:MEIZI_ALL forKey:@"datasource"];
+                    collectionView.title = @"所有妹子";
+                    collectionView.datasource = MEIZI_ALL;
                     break;
                 case 1:
-                    [collectionView setTitle:@"性感"];
-                    [collectionView setValue:MEIZI_SEX forKey:@"datasource"];
+                    collectionView.title = @"性感";
+                    collectionView.datasource = MEIZI_SEX;
                     break;
                 case 2:
-                    [collectionView setTitle:@"有沟"];
-                    [collectionView setValue:MEIZI_CLEAVAGE forKey:@"datasource"];
+                    collectionView.title = @"有沟";
+                    collectionView.datasource = MEIZI_CLEAVAGE;
                     break;
                 case 3:
-                    [collectionView setTitle:@"美腿"];
-                    [collectionView setValue:MEIZI_LEGS forKey:@"datasource"];
+                    collectionView.title = @"美腿";
+                    collectionView.datasource = MEIZI_LEGS;
                     break;
                 case 4:
-                    [collectionView setTitle:@"小清新"];
-                    [collectionView setValue:MEIZI_FRESH forKey:@"datasource"];
+                    collectionView.title = @"小清新";
+                    collectionView.datasource = MEIZI_FRESH;
                     break;
                 case 5:
-                    [collectionView setTitle:@"文艺"];
-                    [collectionView setValue:MEIZI_LITERATURE forKey:@"datasource"];
+                    collectionView.title = @"文艺";
+                    collectionView.datasource = MEIZI_LITERATURE;
                     break;
                 case 6:
-                    [collectionView setTitle:@"美臀"];
-                    [collectionView setValue:MEIZI_CALLIPYGE forKey:@"datasource"];
+                    collectionView.title = @"美臀";
+                    collectionView.datasource = MEIZI_CALLIPYGE;
                     break;
                 case 7:
-                    [collectionView setTitle:@"有点意思"];
-                    [collectionView setValue:MEIZI_FUNNY forKey:@"datasource"];
+                    collectionView.title = @"有点意思";
+                    collectionView.datasource = MEIZI_FUNNY;
                     break;
                 case 8:
-                    [collectionView setTitle:@"尺度"];
-                    [collectionView setValue:MEIZI_RATING forKey:@"datasource"];
+                    collectionView.title = @"尺度";
+                    collectionView.datasource =  MEIZI_RATING;
                     break;
             }
             //跳转MainCollectionView

@@ -1,17 +1,11 @@
 platform :ios, '7.0'
-inhibit_all_warnings!
 
-target 'Meizi' do
-
-pod 'SDWebImage'
 pod 'AFNetworking'
+pod 'MJRefresh'
+pod 'MJExtension'
+pod 'SDWebImage'
 pod 'SVProgressHUD'
+pod 'NHBalancedFlowLayout'
 pod 'iOS-Slide-Menu'
-pod 'JTSImageViewController'
-
-end
-
-target 'MeiziTests' do
-
-end
-
+pod 'NYTPhotoViewer'
+pod 'UIActivityIndicator-for-SDWebImage'
