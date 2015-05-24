@@ -7,7 +7,7 @@ Discription
 ---
 图片来源:
 
-- http://www.dbmeizi.com
+- http://www.dbmeizi.com ``**目前网站已挂掉，本项目等待更新**``
 
 Update
 ---
@@ -18,6 +18,7 @@ Update
 	2. JSON数据格式的解析
 	3. 清除图片缓存优化
 	4. 细节优化
+- 2015-05-24 **网站挂掉，等待更新**
 
 Screen Shot
 ---
