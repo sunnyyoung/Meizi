@@ -1,16 +1,14 @@
-Meizi
-=====
+#Meizi
 
 豆瓣妹子图iOS客户端
 
-Discription
----
+##Discription
 图片来源:
 
-- http://www.dbmeizi.com ``**目前网站已挂掉，本项目等待更新**``
+- http://www.dbmeinv.com
+- ~~http://www.dbmeizi.com~~ ``**该网站已挂掉**``
 
-Update
----
+##Update
 - 2015-01-22 直接写死一种样式了,其他样式感觉不好看= =,支持横屏并改变Cell的大小
 - 2015-01-23 此App无法上架,增加**`排行榜`**
 - 2015-02-15 **大更新**
@@ -19,68 +17,35 @@ Update
 	3. 清除图片缓存优化
 	4. 细节优化
 - 2015-05-24 **网站挂掉，等待更新**
+- 2015-07-14 **更新API，丰富内容**
 
-Screen Shot
----
-![image](https://raw.githubusercontent.com/Sunnyyoung/Meizi/master/ScreenShot/Screen%20Shot.png)
+##Screen Shot
 
-第三方库
----
+##第三方库
+- [MJRefresh](https://github.com/CoderMJLee/MJRefresh)
+- [SDWebImage](https://github.com/rs/SDWebImage)
+- [AFNetworking](https://github.com/AFNetworking/AFNetworking)
+- [SVProgressHUD](https://github.com/TransitApp/SVProgressHUD)
 
-**MJRefresh**
+- [iOS-Slide-Menu](https://github.com/aryaxt/iOS-Slide-Menu)
+- [JTSImageViewController](https://github.com/jaredsinclair/JTSImageViewController)
 
-- https://github.com/CoderMJLee/MJRefresh
+##Platform
+iMac 5K:
 
-**SDWebImage**
-
-- https://github.com/rs/SDWebImage
-
-**AFNetworking**
-
-- https://github.com/AFNetworking/AFNetworking
-
-**SVProgressHUD**
-
-- https://github.com/TransitApp/SVProgressHUD
-
-**iOS-Slide-Menu**
-
-- https://github.com/aryaxt/iOS-Slide-Menu
-
-**JTSImageViewController**
-
-- https://github.com/jaredsinclair/JTSImageViewController
-
-Platform
----
-MacBook Air:
-
-- OS X 10.9.5 (13F34)
+- OS X 10.10.4 (14E46)
 
 Xcode:
 
-- Version: 6.1.1 (6A2008a)
-- SDK: iOS SDK 8.1
+- Version 6.4 (6E35b)
+- SDK: iOS SDK 8.4
 - Deployment Taget: 7.0
 
-Build
----
+##Build
 ```
 cd Meizi
 pod install
 ```
 
-Todo
----
-- √ 瀑布流样式
-- √ 优化
-- √ 设置页面
-- √ 样式选择
-- √ 缓存清除
-- √ ReloadData Cell大小刷新问题
-- √ 采用json解析获取数据
-- 图片加载Loader
-
-License
----
+##License
 The [MIT License](LICENSE).

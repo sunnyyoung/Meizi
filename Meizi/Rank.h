@@ -1,14 +1,14 @@
 //
-//  Meizi.h
+//  Rank.h
 //  Meizi
 //
-//  Created by Sunnyyoung on 15/4/4.
+//  Created by Sunnyyoung on 15/7/14.
 //  Copyright (c) 2015年 Sunnyyoung. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface Meizi : NSObject
+@interface Rank : NSObject
 
 @property (nonatomic, copy) NSString *topic_id;
 @property (nonatomic, copy) NSString *topic_title;

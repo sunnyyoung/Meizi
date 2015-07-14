@@ -1,13 +1,13 @@
 //
-//  MeiziCell.m
+//  RankCell.m
 //  Meizi
 //
 //  Created by Sunnyyoung on 15/7/14.
 //  Copyright (c) 2015年 Sunnyyoung. All rights reserved.
 //
 
-#import "MeiziCell.h"
+#import "RankCell.h"
 
-@implementation MeiziCell
+@implementation RankCell
 
 @end

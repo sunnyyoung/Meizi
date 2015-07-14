@@ -9,20 +9,34 @@
 #ifndef Meizi_Constant_h
 #define Meizi_Constant_h
 
-#define SCREEN_WIDTH    CGRectGetWidth(self.window.bounds)
-#define SCREEN_HEIGHT    CGRectGetHeight(self.window.bounds)
+#define SCREEN_WIDTH    CGRectGetWidth([UIApplication sharedApplication].keyWindow.bounds)
+#define SCREEN_HEIGHT    CGRectGetHeight([UIApplication sharedApplication].keyWindow.bounds)
 
-static NSString * const BASE_URL         = @"http://www.dbmeizi.com";
-static NSString * const PIC_HOST         = @"http://23.92.26.220/";
+static NSString * const BaseURL       = @"http://api.xiaojianjian.net";
 
-static NSString * const MEIZI_ALL        = @"/m/category_new/10";
-static NSString * const MEIZI_SEX        = @"/m/category_new/1";
-static NSString * const MEIZI_CLEAVAGE   = @"/m/category_new/2";
-static NSString * const MEIZI_LEGS       = @"/m/category_new/3";
-static NSString * const MEIZI_FRESH      = @"/m/category_new/11";
-static NSString * const MEIZI_LITERATURE = @"/m/category_new/12";
-static NSString * const MEIZI_CALLIPYGE  = @"/m/category_new/14";
-static NSString * const MEIZI_FUNNY      = @"/m/category_new/9";
-static NSString * const MEIZI_RATING     = @"/m/category_new/5";
+static NSString * const Meizi_All     = @"0";
+static NSString * const Meizi_DaXiong = @"2";
+static NSString * const Meizi_QiaoTun = @"6";
+static NSString * const Meizi_HeiSi   = @"7";
+static NSString * const Meizi_MeiTui  = @"3";
+static NSString * const Meizi_QingXin = @"4";
+static NSString * const Meizi_ZaHui   = @"5";
 
 #endif
+
+
+//API: http://api.xiaojianjian.net/api/dbmeinv.htm
+//
+//m = images & pageIndex = 0
+//
+//- 所有: cagegoryID = 0
+//- 大胸: cagegoryID = 2
+//- 翘臀: cagegoryID = 6
+//- 黑丝: cagegoryID = 7
+//- 美腿: cagegoryID = 3
+//- 清新: cagegoryID = 4
+//- 杂烩: cagegoryID = 5
+//
+//- 精选: queryType = rank & pageIndex = 1
+//- 小组: m = groups
+//- 搜妹: m = topic_users & key = 关键词 & pageIndex = 1

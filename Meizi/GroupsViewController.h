@@ -1,5 +1,5 @@
 //
-//  MeiziCell.h
+//  GroupViewController.h
 //  Meizi
 //
 //  Created by Sunnyyoung on 15/7/14.
@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MeiziCell : UICollectionViewCell
+@interface GroupsViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end

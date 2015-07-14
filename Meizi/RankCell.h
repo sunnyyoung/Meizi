@@ -1,5 +1,5 @@
 //
-//  MeiziCell.h
+//  RankCell.h
 //  Meizi
 //
 //  Created by Sunnyyoung on 15/7/14.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MeiziCell : UICollectionViewCell
+@interface RankCell : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 

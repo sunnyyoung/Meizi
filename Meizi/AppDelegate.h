@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <iOS-Slide-Menu/SlideNavigationController.h>
+#import <YTKNetwork/YTKNetworkConfig.h>
 #import <AFNetworking/AFNetworkActivityIndicatorManager.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
