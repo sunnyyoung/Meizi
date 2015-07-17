@@ -158,7 +158,16 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    //Meizi *meizi = [self.meiziArray objectAtIndex:indexPath.row];
+    NSMutableArray *photoArray = [NSMutableArray array];
+    for (Meizi *meizi in self.meiziArray) {
+        MWPhoto *photo = [MWPhoto photoWithURL:[NSURL URLWithString:meizi.img_url]];
+        photo.caption = meizi.topic_title;
+        [photoArray addObject:photo];
+    }
+    MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithPhotos:photoArray];
+    browser.alwaysShowControls = YES;
+    [browser setCurrentPhotoIndex:indexPath.row];
+    [self.navigationController pushViewController:browser animated:YES];
 }
 
 @end

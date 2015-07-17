@@ -22,28 +22,19 @@
 		7D7510A11B565D67003CAF34 /* SearchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D7510A01B565D67003CAF34 /* SearchRequest.m */; };
 		7D7510A41B565E7D003CAF34 /* Result.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D7510A31B565E7D003CAF34 /* Result.m */; };
 		7D7510A71B5660AD003CAF34 /* ResultTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D7510A61B5660AD003CAF34 /* ResultTableViewCell.m */; };
-		7D7510AD1B5672B7003CAF34 /* GroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D7510AC1B5672B7003CAF34 /* GroupViewController.m */; };
-		7D7510B01B5672DE003CAF34 /* GroupRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D7510AF1B5672DE003CAF34 /* GroupRequest.m */; };
+		7D7510AD1B5672B7003CAF34 /* TopicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D7510AC1B5672B7003CAF34 /* TopicViewController.m */; };
+		7D7510B01B5672DE003CAF34 /* TopicRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D7510AF1B5672DE003CAF34 /* TopicRequest.m */; };
 		7D7510B31B5673B0003CAF34 /* Topic.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D7510B21B5673B0003CAF34 /* Topic.m */; };
 		7D7510B61B56767C003CAF34 /* TopicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D7510B51B56767C003CAF34 /* TopicTableViewCell.m */; };
+		7D8A0AA41B58AA83001EDD42 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8A0AA31B58AA83001EDD42 /* WebViewController.m */; };
+		7D8A0AA81B58B482001EDD42 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8A0AA71B58B482001EDD42 /* SettingViewController.m */; };
 		7D93B84F1ACFD7CF00453452 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D93B84E1ACFD7CF00453452 /* main.m */; };
 		7D93B8521ACFD7CF00453452 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D93B8511ACFD7CF00453452 /* AppDelegate.m */; };
 		7D93B8581ACFD7CF00453452 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D93B8561ACFD7CF00453452 /* Main.storyboard */; };
 		7D93B85A1ACFD7CF00453452 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D93B8591ACFD7CF00453452 /* Images.xcassets */; };
-		7D93B8691ACFD7CF00453452 /* MeiziTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D93B8681ACFD7CF00453452 /* MeiziTests.m */; };
 		7D93B87C1ACFDD2900453452 /* Meizi.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D93B87B1ACFDD2900453452 /* Meizi.m */; };
 		E07A9DDEC7193BA0132EB02F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EACF44A594DBA190E5C5FF /* libPods.a */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		7D93B8631ACFD7CF00453452 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7D93B8411ACFD7CF00453452 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7D93B8481ACFD7CF00453452;
-			remoteInfo = Meizi;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		24BB35E908950D1B8B54B819 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -80,14 +71,18 @@
 		7D7510A31B565E7D003CAF34 /* Result.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Result.m; sourceTree = "<group>"; };
 		7D7510A51B5660AD003CAF34 /* ResultTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultTableViewCell.h; sourceTree = "<group>"; };
 		7D7510A61B5660AD003CAF34 /* ResultTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultTableViewCell.m; sourceTree = "<group>"; };
-		7D7510AB1B5672B7003CAF34 /* GroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupViewController.h; sourceTree = "<group>"; };
-		7D7510AC1B5672B7003CAF34 /* GroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupViewController.m; sourceTree = "<group>"; };
-		7D7510AE1B5672DE003CAF34 /* GroupRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupRequest.h; sourceTree = "<group>"; };
-		7D7510AF1B5672DE003CAF34 /* GroupRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupRequest.m; sourceTree = "<group>"; };
+		7D7510AB1B5672B7003CAF34 /* TopicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicViewController.h; sourceTree = "<group>"; };
+		7D7510AC1B5672B7003CAF34 /* TopicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicViewController.m; sourceTree = "<group>"; };
+		7D7510AE1B5672DE003CAF34 /* TopicRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicRequest.h; sourceTree = "<group>"; };
+		7D7510AF1B5672DE003CAF34 /* TopicRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicRequest.m; sourceTree = "<group>"; };
 		7D7510B11B5673B0003CAF34 /* Topic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Topic.h; sourceTree = "<group>"; };
 		7D7510B21B5673B0003CAF34 /* Topic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Topic.m; sourceTree = "<group>"; };
 		7D7510B41B56767C003CAF34 /* TopicTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicTableViewCell.h; sourceTree = "<group>"; };
 		7D7510B51B56767C003CAF34 /* TopicTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicTableViewCell.m; sourceTree = "<group>"; };
+		7D8A0AA21B58AA83001EDD42 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		7D8A0AA31B58AA83001EDD42 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		7D8A0AA61B58B482001EDD42 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		7D8A0AA71B58B482001EDD42 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		7D93B8491ACFD7CF00453452 /* Meizi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meizi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D93B84D1ACFD7CF00453452 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D93B84E1ACFD7CF00453452 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -95,9 +90,6 @@
 		7D93B8511ACFD7CF00453452 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		7D93B8571ACFD7CF00453452 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7D93B8591ACFD7CF00453452 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		7D93B8621ACFD7CF00453452 /* MeiziTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeiziTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7D93B8671ACFD7CF00453452 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7D93B8681ACFD7CF00453452 /* MeiziTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeiziTests.m; sourceTree = "<group>"; };
 		7D93B8761ACFDA1F00453452 /* Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
 		7D93B87A1ACFDD2900453452 /* Meizi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Meizi.h; sourceTree = "<group>"; };
 		7D93B87B1ACFDD2900453452 /* Meizi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Meizi.m; sourceTree = "<group>"; };
@@ -109,13 +101,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E07A9DDEC7193BA0132EB02F /* libPods.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7D93B85F1ACFD7CF00453452 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,6 +118,8 @@
 		7D4375DC1B54FAFB001CEBC9 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				7D8A0AAD1B58B783001EDD42 /* WebView */,
+				7D8A0AA51B58B46F001EDD42 /* Setting */,
 				7D75109B1B565C92003CAF34 /* Search */,
 				7D4375FA1B552688001CEBC9 /* Groups */,
 				7D4375EA1B551B83001CEBC9 /* Rank */,
@@ -232,14 +219,9 @@
 		7D75109B1B565C92003CAF34 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				7D75109C1B565CA6003CAF34 /* SearchViewController.h */,
-				7D75109D1B565CA6003CAF34 /* SearchViewController.m */,
-				7D75109F1B565D67003CAF34 /* SearchRequest.h */,
-				7D7510A01B565D67003CAF34 /* SearchRequest.m */,
-				7D7510A21B565E7D003CAF34 /* Result.h */,
-				7D7510A31B565E7D003CAF34 /* Result.m */,
-				7D7510A51B5660AD003CAF34 /* ResultTableViewCell.h */,
-				7D7510A61B5660AD003CAF34 /* ResultTableViewCell.m */,
+				7D8A0AAC1B58B714001EDD42 /* View */,
+				7D8A0AAB1B58B70C001EDD42 /* Model */,
+				7D8A0AAA1B58B705001EDD42 /* Controller */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -249,8 +231,8 @@
 			children = (
 				7D4375FB1B552695001CEBC9 /* GroupsViewController.h */,
 				7D4375FC1B552695001CEBC9 /* GroupsViewController.m */,
-				7D7510AB1B5672B7003CAF34 /* GroupViewController.h */,
-				7D7510AC1B5672B7003CAF34 /* GroupViewController.m */,
+				7D7510AB1B5672B7003CAF34 /* TopicViewController.h */,
+				7D7510AC1B5672B7003CAF34 /* TopicViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -262,8 +244,8 @@
 				7D7510961B5652DA003CAF34 /* Groups.m */,
 				7D7510921B565221003CAF34 /* GroupsRequest.h */,
 				7D7510931B565221003CAF34 /* GroupsRequest.m */,
-				7D7510AE1B5672DE003CAF34 /* GroupRequest.h */,
-				7D7510AF1B5672DE003CAF34 /* GroupRequest.m */,
+				7D7510AE1B5672DE003CAF34 /* TopicRequest.h */,
+				7D7510AF1B5672DE003CAF34 /* TopicRequest.m */,
 				7D7510B11B5673B0003CAF34 /* Topic.h */,
 				7D7510B21B5673B0003CAF34 /* Topic.m */,
 			);
@@ -281,11 +263,65 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		7D8A0AA51B58B46F001EDD42 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				7D8A0AA91B58B6FB001EDD42 /* Controller */,
+			);
+			name = Setting;
+			sourceTree = "<group>";
+		};
+		7D8A0AA91B58B6FB001EDD42 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7D8A0AA61B58B482001EDD42 /* SettingViewController.h */,
+				7D8A0AA71B58B482001EDD42 /* SettingViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		7D8A0AAA1B58B705001EDD42 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7D75109C1B565CA6003CAF34 /* SearchViewController.h */,
+				7D75109D1B565CA6003CAF34 /* SearchViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		7D8A0AAB1B58B70C001EDD42 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7D75109F1B565D67003CAF34 /* SearchRequest.h */,
+				7D7510A01B565D67003CAF34 /* SearchRequest.m */,
+				7D7510A21B565E7D003CAF34 /* Result.h */,
+				7D7510A31B565E7D003CAF34 /* Result.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		7D8A0AAC1B58B714001EDD42 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7D7510A51B5660AD003CAF34 /* ResultTableViewCell.h */,
+				7D7510A61B5660AD003CAF34 /* ResultTableViewCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		7D8A0AAD1B58B783001EDD42 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				7D8A0AA21B58AA83001EDD42 /* WebViewController.h */,
+				7D8A0AA31B58AA83001EDD42 /* WebViewController.m */,
+			);
+			name = WebView;
+			sourceTree = "<group>";
+		};
 		7D93B8401ACFD7CF00453452 = {
 			isa = PBXGroup;
 			children = (
 				7D93B84B1ACFD7CF00453452 /* Meizi */,
-				7D93B8651ACFD7CF00453452 /* MeiziTests */,
 				7D93B84A1ACFD7CF00453452 /* Products */,
 				C6919C82553A09D6334AA21F /* Pods */,
 				62894ABC69E3FA73693CBE1C /* Frameworks */,
@@ -296,7 +332,6 @@
 			isa = PBXGroup;
 			children = (
 				7D93B8491ACFD7CF00453452 /* Meizi.app */,
-				7D93B8621ACFD7CF00453452 /* MeiziTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -306,9 +341,9 @@
 			children = (
 				7D93B8501ACFD7CF00453452 /* AppDelegate.h */,
 				7D93B8511ACFD7CF00453452 /* AppDelegate.m */,
+				7D93B8561ACFD7CF00453452 /* Main.storyboard */,
 				7D93B8721ACFD9CE00453452 /* Util */,
 				7D4375DC1B54FAFB001CEBC9 /* Module */,
-				7D93B8561ACFD7CF00453452 /* Main.storyboard */,
 				7D93B8591ACFD7CF00453452 /* Images.xcassets */,
 				7D93B84C1ACFD7CF00453452 /* Supporting Files */,
 			);
@@ -321,23 +356,6 @@
 				7D93B84D1ACFD7CF00453452 /* Info.plist */,
 				7D93B84E1ACFD7CF00453452 /* main.m */,
 				7D465E5D1AD03D5F00D68ED7 /* PrefixHeader.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		7D93B8651ACFD7CF00453452 /* MeiziTests */ = {
-			isa = PBXGroup;
-			children = (
-				7D93B8681ACFD7CF00453452 /* MeiziTests.m */,
-				7D93B8661ACFD7CF00453452 /* Supporting Files */,
-			);
-			path = MeiziTests;
-			sourceTree = "<group>";
-		};
-		7D93B8661ACFD7CF00453452 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				7D93B8671ACFD7CF00453452 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -381,24 +399,6 @@
 			productReference = 7D93B8491ACFD7CF00453452 /* Meizi.app */;
 			productType = "com.apple.product-type.application";
 		};
-		7D93B8611ACFD7CF00453452 /* MeiziTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 7D93B86F1ACFD7CF00453452 /* Build configuration list for PBXNativeTarget "MeiziTests" */;
-			buildPhases = (
-				7D93B85E1ACFD7CF00453452 /* Sources */,
-				7D93B85F1ACFD7CF00453452 /* Frameworks */,
-				7D93B8601ACFD7CF00453452 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				7D93B8641ACFD7CF00453452 /* PBXTargetDependency */,
-			);
-			name = MeiziTests;
-			productName = MeiziTests;
-			productReference = 7D93B8621ACFD7CF00453452 /* MeiziTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -410,10 +410,6 @@
 				TargetAttributes = {
 					7D93B8481ACFD7CF00453452 = {
 						CreatedOnToolsVersion = 6.2;
-					};
-					7D93B8611ACFD7CF00453452 = {
-						CreatedOnToolsVersion = 6.2;
-						TestTargetID = 7D93B8481ACFD7CF00453452;
 					};
 				};
 			};
@@ -431,7 +427,6 @@
 			projectRoot = "";
 			targets = (
 				7D93B8481ACFD7CF00453452 /* Meizi */,
-				7D93B8611ACFD7CF00453452 /* MeiziTests */,
 			);
 		};
 /* End PBXProject section */
@@ -443,13 +438,6 @@
 			files = (
 				7D93B8581ACFD7CF00453452 /* Main.storyboard in Resources */,
 				7D93B85A1ACFD7CF00453452 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7D93B8601ACFD7CF00453452 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,7 +484,7 @@
 				7D7510A71B5660AD003CAF34 /* ResultTableViewCell.m in Sources */,
 				7D75109A1B56572A003CAF34 /* GroupsTableViewCell.m in Sources */,
 				7D4375F61B55210D001CEBC9 /* Rank.m in Sources */,
-				7D7510AD1B5672B7003CAF34 /* GroupViewController.m in Sources */,
+				7D7510AD1B5672B7003CAF34 /* TopicViewController.m in Sources */,
 				7D93B87C1ACFDD2900453452 /* Meizi.m in Sources */,
 				7D4375E21B54FB72001CEBC9 /* MeiziViewController.m in Sources */,
 				7D4375F91B5522E7001CEBC9 /* RankCell.m in Sources */,
@@ -510,31 +498,17 @@
 				7D7510A11B565D67003CAF34 /* SearchRequest.m in Sources */,
 				7D93B84F1ACFD7CF00453452 /* main.m in Sources */,
 				7D7510971B5652DA003CAF34 /* Groups.m in Sources */,
-				7D7510B01B5672DE003CAF34 /* GroupRequest.m in Sources */,
+				7D7510B01B5672DE003CAF34 /* TopicRequest.m in Sources */,
 				7D4375F31B5520AF001CEBC9 /* RankRequest.m in Sources */,
+				7D8A0AA41B58AA83001EDD42 /* WebViewController.m in Sources */,
 				7D4375E81B550BC6001CEBC9 /* MeiziCell.m in Sources */,
 				7D4375FD1B552695001CEBC9 /* GroupsViewController.m in Sources */,
 				7D4375E51B5508D3001CEBC9 /* MeiziRequest.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7D93B85E1ACFD7CF00453452 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7D93B8691ACFD7CF00453452 /* MeiziTests.m in Sources */,
+				7D8A0AA81B58B482001EDD42 /* SettingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		7D93B8641ACFD7CF00453452 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 7D93B8481ACFD7CF00453452 /* Meizi */;
-			targetProxy = 7D93B8631ACFD7CF00453452 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		7D93B8561ACFD7CF00453452 /* Main.storyboard */ = {
@@ -582,7 +556,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -617,7 +591,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -633,7 +607,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Meizi/PrefixHeader.pch";
 				INFOPLIST_FILE = Meizi/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -649,44 +623,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Meizi/PrefixHeader.pch";
 				INFOPLIST_FILE = Meizi/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Release;
-		};
-		7D93B8701ACFD7CF00453452 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = MeiziTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Meizi.app/Meizi";
-			};
-			name = Debug;
-		};
-		7D93B8711ACFD7CF00453452 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = MeiziTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Meizi.app/Meizi";
 			};
 			name = Release;
 		};
@@ -707,15 +647,6 @@
 			buildConfigurations = (
 				7D93B86D1ACFD7CF00453452 /* Debug */,
 				7D93B86E1ACFD7CF00453452 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		7D93B86F1ACFD7CF00453452 /* Build configuration list for PBXNativeTarget "MeiziTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7D93B8701ACFD7CF00453452 /* Debug */,
-				7D93B8711ACFD7CF00453452 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

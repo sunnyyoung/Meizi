@@ -11,6 +11,8 @@
 @implementation TopicTableViewCell
 
 - (void)awakeFromNib {
+    self.avatarImageView.layer.masksToBounds = YES;
+    self.avatarImageView.layer.cornerRadius = CGRectGetWidth(self.avatarImageView.frame)/2;
 }
 
 @end

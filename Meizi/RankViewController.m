@@ -109,4 +109,17 @@
     return cell;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSMutableArray *photoArray = [NSMutableArray array];
+    for (Rank *rank in self.rankArray) {
+        MWPhoto *photo = [MWPhoto photoWithURL:[NSURL URLWithString:rank.img_url]];
+        photo.caption = rank.topic_title;
+        [photoArray addObject:photo];
+    }
+    MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithPhotos:photoArray];
+    browser.alwaysShowControls = YES;
+    [browser setCurrentPhotoIndex:indexPath.row];
+    [self.navigationController pushViewController:browser animated:YES];
+}
+
 @end

@@ -1,5 +1,5 @@
 //
-//  GroupRequest.h
+//  TopicRequest.h
 //  Meizi
 //
 //  Created by Sunnyyoung on 15/7/15.
@@ -8,7 +8,7 @@
 
 #import <YTKNetwork/YTKRequest.h>
 
-@interface GroupRequest : YTKRequest
+@interface TopicRequest : YTKRequest
 
 - (instancetype)initWithPage:(NSInteger)page groupdID:(NSString *)groupID;
 

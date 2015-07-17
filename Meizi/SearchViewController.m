@@ -7,6 +7,7 @@
 //
 
 #import "SearchViewController.h"
+#import "WebViewController.h"
 #import "ResultTableViewCell.h"
 #import "SearchRequest.h"
 #import "Result.h"
@@ -109,6 +110,12 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    Result *result = [self.resultArray objectAtIndex:indexPath.row];
+    [self performSegueWithIdentifier:@"toWebViewSection" sender:@{@"title": result.c_nick_name,
+                                                                  @"url": [NSURL URLWithString:result.c_people_url]}];
+}
+
 #pragma mark - SearchBar Delegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [_searchBar resignFirstResponder];
@@ -130,6 +137,14 @@
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     self.key = searchText;
     [self refreshResult];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"toWebViewSection"]) {
+        WebViewController *webViewController = segue.destinationViewController;
+        webViewController.title = sender[@"title"];
+        webViewController.url = sender[@"url"];
+    }
 }
 
 @end

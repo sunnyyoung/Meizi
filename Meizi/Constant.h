@@ -22,6 +22,10 @@ static NSString * const Meizi_MeiTui  = @"3";
 static NSString * const Meizi_QingXin = @"4";
 static NSString * const Meizi_ZaHui   = @"5";
 
+static NSString * const DoubanGroupURL= @"http://www.douban.com/group/";
+static NSString * const DoubanTopicURL= @"http://www.douban.com/group/topic/";
+static NSString * const DBMeiNvTopicURL = @"http://www.dbmeinv.com/dbgroup/app/topic_detail.htm?id=";
+
 #endif
 
 

@@ -7,6 +7,7 @@
 //
 
 #import "GroupsViewController.h"
+#import "TopicViewController.h"
 #import "GroupsTableViewCell.h"
 #import "GroupsRequest.h"
 #import "Groups.h"
@@ -82,6 +83,21 @@
     cell.titleLabel.text = group.c_group_name;
     cell.descriptionLabel.text = group.c_group_ab_name;
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    Groups *group = [self.groupArray objectAtIndex:indexPath.row];
+    [self performSegueWithIdentifier:@"toGroupViewSection" sender:@{@"title": group.c_group_name,
+                                                                    @"groupID": group.c_group_id}];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"toGroupViewSection"]) {
+        TopicViewController *destination = segue.destinationViewController;
+        destination.title = sender[@"title"];
+        destination.groupID = sender[@"groupID"];
+    }
 }
 
 @end

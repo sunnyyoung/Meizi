@@ -1,4 +1,5 @@
-platform :ios, '7.0'
+platform :ios, '8.0'
+inhibit_all_warnings!
 
 pod 'AFNetworking'
 pod 'MJRefresh'
@@ -9,3 +10,5 @@ pod 'NHBalancedFlowLayout'
 pod 'UIActivityIndicator-for-SDWebImage'
 pod 'HMSegmentedControl'
 pod 'YTKNetwork'
+pod 'MWPhotoBrowser'
+pod 'KINWebBrowser'

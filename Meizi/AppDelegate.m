@@ -11,7 +11,8 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    //[AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+    self.window.backgroundColor = [UIColor whiteColor];
+    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     [YTKNetworkConfig sharedInstance].baseUrl = BaseURL;
     return YES;
 }

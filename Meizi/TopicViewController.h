@@ -1,5 +1,5 @@
 //
-//  GroupViewController.h
+//  TopicViewController.h
 //  Meizi
 //
 //  Created by Sunnyyoung on 15/7/15.
@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GroupViewController : UIViewController
+@interface TopicViewController : UIViewController
 
+@property (nonatomic, copy) NSString *groupID;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end

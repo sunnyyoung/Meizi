@@ -1,21 +1,21 @@
 //
-//  GroupRequest.m
+//  TopicRequest.m
 //  Meizi
 //
 //  Created by Sunnyyoung on 15/7/15.
 //  Copyright (c) 2015年 Sunnyyoung. All rights reserved.
 //
 
-#import "GroupRequest.h"
+#import "TopicRequest.h"
 
-@interface GroupRequest()
+@interface TopicRequest()
 
 @property (nonatomic) NSInteger page;
 @property (nonatomic) NSString *groupID;
 
 @end
 
-@implementation GroupRequest
+@implementation TopicRequest
 
 - (instancetype)initWithPage:(NSInteger)page groupdID:(NSString *)groupID {
     self = [super init];
