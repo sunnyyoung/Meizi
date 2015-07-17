@@ -50,7 +50,7 @@ Xcode:
 
 - Version 6.4 (6E35b)
 - SDK: iOS SDK 8.4
-- Deployment Taget: 7.0
+- Deployment Taget: 8.0
 
 ##Build
 ```bash

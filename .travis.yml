@@ -1,0 +1,10 @@
+language: objective-c
+osx_image: xcode6.4
+xcode_workspace: Meizi.xcworkspace
+xcode_scheme: Meizi
+
+before_install:
+- export LANG=en_US.UTF-8
+- gem install cocoapods
+- brew update
+- if brew outdated | grep -qx xctool; then brew upgrade xctool; fi
