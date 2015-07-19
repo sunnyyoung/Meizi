@@ -18,6 +18,7 @@
 	4. 细节优化
 - 2015-05-24 **网站挂掉，等待更新**
 - 2015-07-14 **更新API，丰富内容**
+- 2015-07-19 新的WebView显示内容
 
 ##Screen Shot
 ![](https://raw.githubusercontent.com/Sunnyyoung/Meizi/master/ScreenShot/One.png)
