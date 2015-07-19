@@ -22,15 +22,11 @@ PODS:
   - AFNetworking/UIKit (2.5.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - ARChromeActivity (1.0.2)
   - DACircularProgress (2.3.1)
   - HMSegmentedControl (1.5.2)
-  - KINWebBrowser (1.2.5):
-    - ARChromeActivity (= 1.0.2)
-    - TUSafariActivity (= 1.0.2)
   - MBProgressHUD (0.9.1)
-  - MJExtension (2.5.0)
-  - MJRefresh (2.2.1)
+  - MJExtension (2.5.2)
+  - MJRefresh (2.3.1)
   - MWPhotoBrowser (2.1.1):
     - DACircularProgress (~> 2.3)
     - MBProgressHUD (~> 0.9)
@@ -40,7 +36,6 @@ PODS:
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
   - SVProgressHUD (1.1.3)
-  - TUSafariActivity (1.0.2)
   - UIActivityIndicator-for-SDWebImage (1.2):
     - SDWebImage (~> 3.7)
   - YTKNetwork (0.5.0):
@@ -50,7 +45,6 @@ PODS:
 DEPENDENCIES:
   - AFNetworking
   - HMSegmentedControl
-  - KINWebBrowser
   - MJExtension
   - MJRefresh
   - MWPhotoBrowser
@@ -63,18 +57,15 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFDownloadRequestOperation: 748a1643423e1ddb23f2178f778087d4f0ae8ac7
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
-  ARChromeActivity: 6488aedc8dd0624b103ea8caf6218e52692aaf77
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   HMSegmentedControl: 83b9686022d2176fb6457d2bdb61e5d6393fed7d
-  KINWebBrowser: 773e75882717d735cc37772cf71d5eb2b28554fe
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
-  MJExtension: 002dbd55e0d66ff0808dc74e014437d25c0220ac
-  MJRefresh: c3fa0387e8e97a11a9666639d2f815607edd1c2f
+  MJExtension: 73e812aca0846e4a7b4d7aca34cfacf48d1f3310
+  MJRefresh: fa22d5d753aaceb4e76232ce264cb2dca90b323f
   MWPhotoBrowser: ba0d0c09ffda3a7ea10093518738c502c1c7141c
   NHBalancedFlowLayout: fd253023c6754e605acdb180d50123e582cc62bb
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
-  TUSafariActivity: 32e3e5dc9123e5533a42d41e1c3246d12911a4a2
   UIActivityIndicator-for-SDWebImage: 7bf7ebbf0ed1747dedc0d6e949c4603a6d0f9e0c
   YTKNetwork: 3f163c181ce5f03d52cf88f39d6757f46894280c
 

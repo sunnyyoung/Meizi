@@ -2,14 +2,19 @@
 //  WebViewController.h
 //  Meizi
 //
-//  Created by Sunnyyoung on 15/7/17.
+//  Created by Sunnyyoung on 15/7/19.
 //  Copyright (c) 2015年 Sunnyyoung. All rights reserved.
 //
 
-#import <KINWebBrowser/KINWebBrowserViewController.h>
+#import <UIKit/UIKit.h>
 
-@interface WebViewController : KINWebBrowserViewController
+@interface WebViewController : UIViewController
 
-@property (nonatomic, copy) NSURL *url;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *goBackButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *goForwardButton;
+
+@property (nonatomic, strong) NSURL *url;
+@property (nonatomic, copy) NSString *referer;
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
 
 @end

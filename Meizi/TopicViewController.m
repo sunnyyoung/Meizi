@@ -113,11 +113,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     Topic *topic = [self.topicArray objectAtIndex:indexPath.row];
-    NSURL *url = [NSURL URLWithString:[DBMeiNvTopicURL stringByAppendingString:@(topic.topic_id).stringValue]];
-//    KINWebBrowserViewController *webViewController = [KINWebBrowserViewController webBrowser];
-//    [self.navigationController pushViewController:webViewController animated:YES];
-//    [webViewController loadURL:url];
+    NSString *referer = [DoubanGroupURL stringByAppendingString:topic.douban_group_id];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@/", DoubanTopicURL, @(topic.douban_topic_id)]];
     [self performSegueWithIdentifier:@"toWebViewSection" sender:@{@"title": topic.topic_title,
+                                                                  @"referer": referer,
                                                                   @"url": url}];
 }
 
@@ -126,6 +125,7 @@
         WebViewController *webViewController = segue.destinationViewController;
         webViewController.title = sender[@"title"];
         webViewController.url = sender[@"url"];
+        webViewController.referer = sender[@"referer"];
     }
 }
 

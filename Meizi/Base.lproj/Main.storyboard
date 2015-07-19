@@ -382,7 +382,7 @@
         <!--Web View Controller-->
         <scene sceneID="nxM-t7-6Li">
             <objects>
-                <viewController id="X1o-kV-HSe" customClass="WebViewController" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="X1o-kV-HSe" customClass="WebViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xxs-v7-IwX"/>
                         <viewControllerLayoutGuide type="bottom" id="6CN-0K-ULD"/>
@@ -390,8 +390,59 @@
                     <view key="view" contentMode="scaleToFill" id="qxu-b2-gvi">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView opaque="NO" contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5IX-e3-kPG">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="delegate" destination="X1o-kV-HSe" id="dm9-eU-qxh"/>
+                                </connections>
+                            </webView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mlg-11-Wgb">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem enabled="NO" image="GoBack" id="osX-p4-DBh">
+                                        <connections>
+                                            <action selector="goBack" destination="5IX-e3-kPG" id="mDO-Gh-Ll2"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="dy5-x9-PEG"/>
+                                    <barButtonItem enabled="NO" image="GoForward" id="P0g-61-UOs">
+                                        <connections>
+                                            <action selector="goForward" destination="5IX-e3-kPG" id="13w-Iq-hNW"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="cB1-KK-eaz"/>
+                                    <barButtonItem systemItem="stop" id="2KB-Am-nP2">
+                                        <connections>
+                                            <action selector="stopLoading" destination="5IX-e3-kPG" id="8r2-WK-qSU"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Xoe-f3-Klc"/>
+                                    <barButtonItem systemItem="refresh" id="O2m-gj-YI4">
+                                        <connections>
+                                            <action selector="reload" destination="5IX-e3-kPG" id="q0Q-1j-cRc"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5IX-e3-kPG" firstAttribute="leading" secondItem="qxu-b2-gvi" secondAttribute="leading" id="QkJ-nZ-qfc"/>
+                            <constraint firstItem="5IX-e3-kPG" firstAttribute="top" secondItem="qxu-b2-gvi" secondAttribute="top" id="Wes-it-BdO"/>
+                            <constraint firstAttribute="bottom" secondItem="Mlg-11-Wgb" secondAttribute="bottom" id="Wme-W8-5X2"/>
+                            <constraint firstAttribute="bottom" secondItem="5IX-e3-kPG" secondAttribute="bottom" id="eXA-kU-ecT"/>
+                            <constraint firstAttribute="trailing" secondItem="Mlg-11-Wgb" secondAttribute="trailing" id="f9g-Kh-zw5"/>
+                            <constraint firstItem="Mlg-11-Wgb" firstAttribute="leading" secondItem="qxu-b2-gvi" secondAttribute="leading" id="gai-EV-0DH"/>
+                            <constraint firstAttribute="trailing" secondItem="5IX-e3-kPG" secondAttribute="trailing" id="zmg-ed-0ad"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="goBackButton" destination="osX-p4-DBh" id="fuC-Fs-DAa"/>
+                        <outlet property="goForwardButton" destination="P0g-61-UOs" id="F6m-f3-lqH"/>
+                        <outlet property="webView" destination="5IX-e3-kPG" id="znM-b2-mbN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oug-Vw-3Xv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -643,6 +694,8 @@
     </scenes>
     <resources>
         <image name="Avatar" width="25" height="25"/>
+        <image name="GoBack" width="22" height="22"/>
+        <image name="GoForward" width="22" height="22"/>
         <image name="Group" width="25" height="25"/>
         <image name="Home" width="25" height="25"/>
         <image name="Rank" width="25" height="25"/>
@@ -650,7 +703,7 @@
         <image name="Setting" width="25" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="M7Z-g2-il8"/>
+        <segue reference="zdF-wh-WCW"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.1450980392" green="0.67843137249999996" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

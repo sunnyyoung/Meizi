@@ -12,19 +12,19 @@
 #define SCREEN_WIDTH    CGRectGetWidth([UIApplication sharedApplication].keyWindow.bounds)
 #define SCREEN_HEIGHT    CGRectGetHeight([UIApplication sharedApplication].keyWindow.bounds)
 
-static NSString * const BaseURL       = @"http://api.xiaojianjian.net";
+static NSString * const BaseURL         = @"http://api.xiaojianjian.net";
 
-static NSString * const Meizi_All     = @"0";
-static NSString * const Meizi_DaXiong = @"2";
-static NSString * const Meizi_QiaoTun = @"6";
-static NSString * const Meizi_HeiSi   = @"7";
-static NSString * const Meizi_MeiTui  = @"3";
-static NSString * const Meizi_QingXin = @"4";
-static NSString * const Meizi_ZaHui   = @"5";
+static NSString * const Meizi_All       = @"0";
+static NSString * const Meizi_DaXiong   = @"2";
+static NSString * const Meizi_QiaoTun   = @"6";
+static NSString * const Meizi_HeiSi     = @"7";
+static NSString * const Meizi_MeiTui    = @"3";
+static NSString * const Meizi_QingXin   = @"4";
+static NSString * const Meizi_ZaHui     = @"5";
 
-static NSString * const DoubanGroupURL= @"http://www.douban.com/group/";
-static NSString * const DoubanTopicURL= @"http://www.douban.com/group/topic/";
-static NSString * const DBMeiNvTopicURL = @"http://www.dbmeinv.com/dbgroup/app/topic_detail.htm?id=";
+static NSString * const DoubanGroupURL  = @"http://www.douban.com/group/";
+static NSString * const DoubanTopicURL  = @"http://www.douban.com/group/topic/";
+static NSString * const DoubanPeopleURL = @"http://www.douban.com/group/people/";
 
 #endif
 
@@ -44,3 +44,4 @@ static NSString * const DBMeiNvTopicURL = @"http://www.dbmeinv.com/dbgroup/app/t
 //- 精选: queryType = rank & pageIndex = 1
 //- 小组: m = groups
 //- 搜妹: m = topic_users & key = 关键词 & pageIndex = 1
+//static NSString * const DBMeinvTopicURL = @"http://www.dbmeinv.com/dbgroup/app/topic_detail.htm?id=";

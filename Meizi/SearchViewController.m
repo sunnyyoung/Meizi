@@ -111,9 +111,11 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     Result *result = [self.resultArray objectAtIndex:indexPath.row];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@/", DoubanPeopleURL, result.c_user_id]];
     [self performSegueWithIdentifier:@"toWebViewSection" sender:@{@"title": result.c_nick_name,
-                                                                  @"url": [NSURL URLWithString:result.c_people_url]}];
+                                                                  @"url": url}];
 }
 
 #pragma mark - SearchBar Delegate

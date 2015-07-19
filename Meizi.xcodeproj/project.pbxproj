@@ -26,13 +26,13 @@
 		7D7510B01B5672DE003CAF34 /* TopicRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D7510AF1B5672DE003CAF34 /* TopicRequest.m */; };
 		7D7510B31B5673B0003CAF34 /* Topic.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D7510B21B5673B0003CAF34 /* Topic.m */; };
 		7D7510B61B56767C003CAF34 /* TopicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D7510B51B56767C003CAF34 /* TopicTableViewCell.m */; };
-		7D8A0AA41B58AA83001EDD42 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8A0AA31B58AA83001EDD42 /* WebViewController.m */; };
 		7D8A0AA81B58B482001EDD42 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8A0AA71B58B482001EDD42 /* SettingViewController.m */; };
 		7D93B84F1ACFD7CF00453452 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D93B84E1ACFD7CF00453452 /* main.m */; };
 		7D93B8521ACFD7CF00453452 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D93B8511ACFD7CF00453452 /* AppDelegate.m */; };
 		7D93B8581ACFD7CF00453452 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D93B8561ACFD7CF00453452 /* Main.storyboard */; };
 		7D93B85A1ACFD7CF00453452 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D93B8591ACFD7CF00453452 /* Images.xcassets */; };
 		7D93B87C1ACFDD2900453452 /* Meizi.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D93B87B1ACFDD2900453452 /* Meizi.m */; };
+		7DFF243D1B5B95800069BB4D /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFF243C1B5B95800069BB4D /* WebViewController.m */; };
 		E07A9DDEC7193BA0132EB02F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EACF44A594DBA190E5C5FF /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -79,8 +79,6 @@
 		7D7510B21B5673B0003CAF34 /* Topic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Topic.m; sourceTree = "<group>"; };
 		7D7510B41B56767C003CAF34 /* TopicTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicTableViewCell.h; sourceTree = "<group>"; };
 		7D7510B51B56767C003CAF34 /* TopicTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicTableViewCell.m; sourceTree = "<group>"; };
-		7D8A0AA21B58AA83001EDD42 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
-		7D8A0AA31B58AA83001EDD42 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		7D8A0AA61B58B482001EDD42 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		7D8A0AA71B58B482001EDD42 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		7D93B8491ACFD7CF00453452 /* Meizi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meizi.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,6 +91,8 @@
 		7D93B8761ACFDA1F00453452 /* Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
 		7D93B87A1ACFDD2900453452 /* Meizi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Meizi.h; sourceTree = "<group>"; };
 		7D93B87B1ACFDD2900453452 /* Meizi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Meizi.m; sourceTree = "<group>"; };
+		7DFF243B1B5B95800069BB4D /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		7DFF243C1B5B95800069BB4D /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -312,8 +312,8 @@
 		7D8A0AAD1B58B783001EDD42 /* WebView */ = {
 			isa = PBXGroup;
 			children = (
-				7D8A0AA21B58AA83001EDD42 /* WebViewController.h */,
-				7D8A0AA31B58AA83001EDD42 /* WebViewController.m */,
+				7DFF243B1B5B95800069BB4D /* WebViewController.h */,
+				7DFF243C1B5B95800069BB4D /* WebViewController.m */,
 			);
 			name = WebView;
 			sourceTree = "<group>";
@@ -500,7 +500,7 @@
 				7D7510971B5652DA003CAF34 /* Groups.m in Sources */,
 				7D7510B01B5672DE003CAF34 /* TopicRequest.m in Sources */,
 				7D4375F31B5520AF001CEBC9 /* RankRequest.m in Sources */,
-				7D8A0AA41B58AA83001EDD42 /* WebViewController.m in Sources */,
+				7DFF243D1B5B95800069BB4D /* WebViewController.m in Sources */,
 				7D4375E81B550BC6001CEBC9 /* MeiziCell.m in Sources */,
 				7D4375FD1B552695001CEBC9 /* GroupsViewController.m in Sources */,
 				7D4375E51B5508D3001CEBC9 /* MeiziRequest.m in Sources */,
