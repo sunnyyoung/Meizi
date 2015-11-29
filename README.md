@@ -5,7 +5,7 @@
 ##Discription
 图片来源:
 
-- http://www.dbmeinv.com
+- ~~http://www.dbmeinv.com~~ **该网站API已被加密**
 - ~~http://www.dbmeizi.com~~ **该网站已挂掉**
 
 ##Update
@@ -19,13 +19,10 @@
 - 2015-05-24 **网站挂掉，等待更新**
 - 2015-07-14 **更新API，丰富内容**
 - 2015-07-19 新的WebView显示内容
+- 2015-08-?? **API已被加密，等待更新**
 
 ##Screen Shot
 ![](https://raw.githubusercontent.com/Sunnyyoung/Meizi/master/ScreenShot/One.png)
-![](https://raw.githubusercontent.com/Sunnyyoung/Meizi/master/ScreenShot/Two.png)
-![](https://raw.githubusercontent.com/Sunnyyoung/Meizi/master/ScreenShot/Three.png)
-![](https://raw.githubusercontent.com/Sunnyyoung/Meizi/master/ScreenShot/Four.png)
-![](https://raw.githubusercontent.com/Sunnyyoung/Meizi/master/ScreenShot/Five.png)
 
 ##Dependency
 - [AFNetworking](https://github.com/AFNetworking/AFNetworking)
