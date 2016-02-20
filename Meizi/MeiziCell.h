@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class Meizi;
+
 @interface MeiziCell : UICollectionViewCell
 
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+- (void)setMeizi:(Meizi *)meizi;
 
 @end

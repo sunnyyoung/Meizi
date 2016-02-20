@@ -21,6 +21,8 @@
 
 @implementation MeiziViewController
 
+#pragma mark - LifeCycle
+
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
@@ -38,6 +40,7 @@
 }
 
 #pragma mark - Setup
+
 - (void)setupCagegoryMenuView {
     __weak typeof(self) weakSelf = self;
     self.cagegoryMenu.sectionTitles = @[@"所有", @"大胸", @"翘臀", @"黑丝", @"美腿", @"清新", @"杂烩"];
@@ -76,7 +79,7 @@
             default:
                 break;
         }
-        [weakSelf.collectionView.header beginRefreshing];
+        [weakSelf.collectionView.mj_header beginRefreshing];
     }];
 }
 
@@ -84,84 +87,93 @@
     self.collectionView.contentInset = UIEdgeInsetsMake(40, 0, 0, 0);
     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshMeizi)];
     MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreMeizi)];
-    header.autoChangeAlpha = YES;
-    footer.automaticallyRefresh = NO;
-    self.collectionView.header = header;
-    self.collectionView.footer = footer;
-    [self.collectionView.header beginRefreshing];
+    header.automaticallyChangeAlpha = YES;
+    footer.automaticallyRefresh = YES;
+    self.collectionView.mj_header = header;
+    self.collectionView.mj_footer = footer;
+    [self.collectionView.mj_header beginRefreshing];
 }
 
-#pragma mark - Refresh And LoadMore
+#pragma mark - Refresh method
+
 - (void)refreshMeizi {
     self.page = 1;
-    MeiziRequest *request = [[MeiziRequest alloc] initWithPage:self.page meiziType:self.type];
-    [request startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
-        
-        [self.meiziArray removeAllObjects];
-        NSDictionary *data = [request.responseJSONObject objectForKey:@"data"];
-        NSArray *meiziArray = [Meizi objectArrayWithKeyValuesArray:data];
-        
-        [self.meiziArray addObjectsFromArray:meiziArray];
-        [self.collectionView reloadData];
-        [self.collectionView.header endRefreshing];
-        
-    } failure:^(YTKBaseRequest *request) {
-        
-        [self.meiziArray removeAllObjects];
-        [self.collectionView reloadData];
-        [self.collectionView.header endRefreshing];
-        
+    [MeiziRequest requestWithPage:self.page meiziType:self.type success:^(NSArray<Meizi *> *meiziArray) {
+        [self.collectionView.mj_header endRefreshing];
+        [self reloadDataWithMeiziArray:meiziArray emptyBeforeReload:YES];
+    } failure:^(NSString *message) {
+        [SVProgressHUD showWithStatus:message];
+        [self.collectionView.mj_header endRefreshing];
     }];
 }
 
 - (void)loadMoreMeizi {
-    MeiziRequest *request = [[MeiziRequest alloc] initWithPage:self.page+1 meiziType:self.type];
-    [request startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
-        
-        self.page++;
-        NSDictionary *data = [request.responseJSONObject objectForKey:@"data"];
-        NSArray *meiziArray = [Meizi objectArrayWithKeyValuesArray:data];
-        
-        [self.meiziArray addObjectsFromArray:meiziArray];
-        [self.collectionView reloadData];
-        [self.collectionView.footer endRefreshing];
-        
-    } failure:^(YTKBaseRequest *request) {
-        
-        [self.meiziArray removeAllObjects];
-        [self.collectionView reloadData];
-        [self.collectionView.footer endRefreshing];
-        
+    [MeiziRequest requestWithPage:self.page meiziType:self.type+1 success:^(NSArray<Meizi *> *meiziArray) {
+        [self.collectionView.mj_footer endRefreshing];
+        [self reloadDataWithMeiziArray:meiziArray emptyBeforeReload:NO];
+    } failure:^(NSString *message) {
+        [SVProgressHUD showWithStatus:message];
+        [self.collectionView.mj_footer endRefreshing];
     }];
 }
 
-#pragma mark - CollectionView DataSource && Delegate
+- (void)reloadDataWithMeiziArray:(NSArray<Meizi *> *)meiziArray emptyBeforeReload:(BOOL)emptyBeforeReload {
+    if (emptyBeforeReload) {
+        self.page = 1;
+        [self.meiziArray removeAllObjects];
+        [self.meiziArray addObjectsFromArray:meiziArray];
+        [self.collectionView.mj_footer resetNoMoreData];
+    } else {
+        if (meiziArray.count) {
+            [self.meiziArray addObjectsFromArray:meiziArray];
+            self.page++;
+        } else {
+            [self.collectionView.mj_footer endRefreshingWithNoMoreData];
+        }
+    }
+    [self.collectionView reloadData];
+}
+
+#pragma mark - CollectionView DataSource
+
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    collectionView.footer.hidden = self.meiziArray.count == 0;
+    collectionView.mj_footer.hidden = self.meiziArray.count == 0;
     return self.meiziArray.count;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(SCREEN_WIDTH/3-1, SCREEN_WIDTH/3-1);
+    NSInteger perLine = UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation)?3:5;
+    return CGSizeMake(kScreenWidth/perLine-1, kScreenWidth/perLine-1);
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     MeiziCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MeiziCell" forIndexPath:indexPath];
-    Meizi *meizi = [self.meiziArray objectAtIndex:indexPath.row];
-    NSURL *imageURL = [NSURL URLWithString:meizi.img_url];
-    [cell.imageView setImageWithURL:imageURL usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    [cell setMeizi:self.meiziArray[indexPath.row]];
     return cell;
 }
+
+#pragma mark - Orientation method
+
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
+    [coordinator animateAlongsideTransition:nil completion:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+        [self.collectionView performBatchUpdates:^{
+            [self.collectionView setCollectionViewLayout:self.collectionView.collectionViewLayout animated:YES];
+        } completion:nil];
+    }];
+}
+
+#pragma mark - CollectionView Delegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSMutableArray *photoArray = [NSMutableArray array];
     for (Meizi *meizi in self.meiziArray) {
-        MWPhoto *photo = [MWPhoto photoWithURL:[NSURL URLWithString:meizi.img_url]];
-        photo.caption = meizi.topic_title;
+        MWPhoto *photo = [MWPhoto photoWithURL:[NSURL URLWithString:meizi.src]];
+        photo.caption = meizi.title;
         [photoArray addObject:photo];
     }
     MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithPhotos:photoArray];

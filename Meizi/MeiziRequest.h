@@ -7,6 +7,9 @@
 //
 
 #import <YTKNetwork/YTKRequest.h>
+#import <hpple/TFHpple.h>
+
+@class Meizi;
 
 typedef NS_ENUM(NSUInteger, MeiziType) {
     MeiziTypeAll     = 0,
@@ -20,6 +23,9 @@ typedef NS_ENUM(NSUInteger, MeiziType) {
 
 @interface MeiziRequest : YTKRequest
 
-- (instancetype)initWithPage:(NSInteger)page meiziType:(MeiziType)type;
++ (MeiziRequest *)requestWithPage:(NSInteger)page
+                        meiziType:(MeiziType)type
+                          success:(void (^)(NSArray<Meizi *> *meiziArray))success
+                          failure:(void (^)(NSString *message))failure;
 
 @end

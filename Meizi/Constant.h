@@ -9,10 +9,10 @@
 #ifndef Meizi_Constant_h
 #define Meizi_Constant_h
 
-#define SCREEN_WIDTH    CGRectGetWidth([UIApplication sharedApplication].keyWindow.bounds)
-#define SCREEN_HEIGHT    CGRectGetHeight([UIApplication sharedApplication].keyWindow.bounds)
+#define kScreenWidth    CGRectGetWidth([UIApplication   sharedApplication].keyWindow.bounds)
+#define kScreenHeight    CGRectGetHeight([UIApplication sharedApplication].keyWindow.bounds)
 
-static NSString * const BaseURL         = @"http://api.xiaojianjian.net";
+static NSString * const BaseURL         = @"http://www.dbmeinv.com";
 
 static NSString * const Meizi_All       = @"0";
 static NSString * const Meizi_DaXiong   = @"2";
@@ -21,10 +21,6 @@ static NSString * const Meizi_HeiSi     = @"7";
 static NSString * const Meizi_MeiTui    = @"3";
 static NSString * const Meizi_QingXin   = @"4";
 static NSString * const Meizi_ZaHui     = @"5";
-
-static NSString * const DoubanGroupURL  = @"http://www.douban.com/group/";
-static NSString * const DoubanTopicURL  = @"http://www.douban.com/group/topic/";
-static NSString * const DoubanPeopleURL = @"http://www.douban.com/group/people/";
 
 #endif
 

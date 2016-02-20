@@ -1,50 +1,52 @@
 PODS:
   - AFDownloadRequestOperation (2.0.1):
     - AFNetworking (~> 2.0)
-  - AFNetworking (2.5.4):
-    - AFNetworking/NSURLConnection (= 2.5.4)
-    - AFNetworking/NSURLSession (= 2.5.4)
-    - AFNetworking/Reachability (= 2.5.4)
-    - AFNetworking/Security (= 2.5.4)
-    - AFNetworking/Serialization (= 2.5.4)
-    - AFNetworking/UIKit (= 2.5.4)
-  - AFNetworking/NSURLConnection (2.5.4):
+  - AFNetworking (2.6.3):
+    - AFNetworking/NSURLConnection (= 2.6.3)
+    - AFNetworking/NSURLSession (= 2.6.3)
+    - AFNetworking/Reachability (= 2.6.3)
+    - AFNetworking/Security (= 2.6.3)
+    - AFNetworking/Serialization (= 2.6.3)
+    - AFNetworking/UIKit (= 2.6.3)
+  - AFNetworking/NSURLConnection (2.6.3):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.5.4):
+  - AFNetworking/NSURLSession (2.6.3):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.5.4)
-  - AFNetworking/Security (2.5.4)
-  - AFNetworking/Serialization (2.5.4)
-  - AFNetworking/UIKit (2.5.4):
+  - AFNetworking/Reachability (2.6.3)
+  - AFNetworking/Security (2.6.3)
+  - AFNetworking/Serialization (2.6.3)
+  - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - DACircularProgress (2.3.1)
   - HMSegmentedControl (1.5.2)
-  - MBProgressHUD (0.9.1)
-  - MJExtension (2.5.2)
-  - MJRefresh (2.3.1)
+  - hpple (0.2.0)
+  - MBProgressHUD (0.9.2)
+  - MJExtension (3.0.10)
+  - MJRefresh (3.1.0)
   - MWPhotoBrowser (2.1.1):
     - DACircularProgress (~> 2.3)
     - MBProgressHUD (~> 0.9)
     - SDWebImage (!= 3.7.2, ~> 3.7)
   - NHBalancedFlowLayout (0.2)
-  - SDWebImage (3.7.3):
-    - SDWebImage/Core (= 3.7.3)
-  - SDWebImage/Core (3.7.3)
+  - SDWebImage (3.7.5):
+    - SDWebImage/Core (= 3.7.5)
+  - SDWebImage/Core (3.7.5)
   - SVProgressHUD (1.1.3)
   - UIActivityIndicator-for-SDWebImage (1.2):
     - SDWebImage (~> 3.7)
-  - YTKNetwork (0.5.0):
+  - YTKNetwork (0.6.0):
     - AFDownloadRequestOperation (~> 2.0)
     - AFNetworking (~> 2.0)
 
 DEPENDENCIES:
   - AFNetworking
   - HMSegmentedControl
+  - hpple
   - MJExtension
   - MJRefresh
   - MWPhotoBrowser
@@ -56,17 +58,18 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFDownloadRequestOperation: 748a1643423e1ddb23f2178f778087d4f0ae8ac7
-  AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
+  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   HMSegmentedControl: 83b9686022d2176fb6457d2bdb61e5d6393fed7d
-  MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
-  MJExtension: 73e812aca0846e4a7b4d7aca34cfacf48d1f3310
-  MJRefresh: fa22d5d753aaceb4e76232ce264cb2dca90b323f
+  hpple: 3b765f96fc2cd56ad1a49aef6f7be5cb2aa64b57
+  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
+  MJExtension: d86aacb740c87519d20e3cca55b6fa4be6cc7548
+  MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
   MWPhotoBrowser: ba0d0c09ffda3a7ea10093518738c502c1c7141c
   NHBalancedFlowLayout: fd253023c6754e605acdb180d50123e582cc62bb
-  SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
+  SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
   SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
   UIActivityIndicator-for-SDWebImage: 7bf7ebbf0ed1747dedc0d6e949c4603a6d0f9e0c
-  YTKNetwork: 3f163c181ce5f03d52cf88f39d6757f46894280c
+  YTKNetwork: 988660d5fab310a55895239751ecfa74c3224a77
 
-COCOAPODS: 0.37.2
+COCOAPODS: 0.39.0

@@ -10,10 +10,7 @@
 
 @interface Meizi : NSObject
 
-@property (nonatomic, copy) NSString *topic_id;
-@property (nonatomic, copy) NSString *topic_title;
-@property (nonatomic, copy) NSString *douban_group_id;
-@property (nonatomic, copy) NSString *douban_topic_id;
-@property (nonatomic, copy) NSString *img_url;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *src;
 
 @end
