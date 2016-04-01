@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "SYNetwork.h"
 
 @implementation AppDelegate
 
@@ -14,8 +15,7 @@
     
     //Set Network
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
-    [YTKNetworkConfig sharedInstance].baseUrl = BaseURL;
-    [[YTKNetworkAgent sharedInstance] setValue:[NSSet setWithObjects:@"application/json", @"text/plain", @"text/javascript", @"text/json", @"text/html", @"text/css", nil] forKeyPath :@"_manager.responseSerializer.acceptableContentTypes"];
+    [SYNetworkConfig sharedInstance].baseURL = BaseURL;
     
     //Set SVProgressHUD
     [SVProgressHUD setBackgroundColor:[UIColor colorWithWhite:0.0 alpha:0.9]];

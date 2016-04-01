@@ -2,6 +2,7 @@ platform :ios, '8.0'
 inhibit_all_warnings!
 
 pod 'AFNetworking'
+pod 'YYCache'
 pod 'hpple'
 pod 'MJRefresh'
 pod 'MJExtension'
@@ -10,5 +11,4 @@ pod 'SVProgressHUD'
 pod 'NHBalancedFlowLayout'
 pod 'UIActivityIndicator-for-SDWebImage'
 pod 'HMSegmentedControl'
-pod 'YTKNetwork'
 pod 'MWPhotoBrowser'

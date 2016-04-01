@@ -7,11 +7,15 @@
 //
 
 #import "MeiziViewController.h"
+#import "MeiziCategoryMenuView.h"
 #import "MeiziRequest.h"
 #import "MeiziCell.h"
 #import "Meizi.h"
 
 @interface MeiziViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+
+@property (weak, nonatomic) IBOutlet MeiziCategoryMenuView *cagegoryMenu;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @property (nonatomic, assign) NSInteger page;
 @property (nonatomic, assign) MeiziType type;
@@ -28,7 +32,6 @@
     if (self) {
         _page = 1;
         _type = MeiziTypeAll;
-        _meiziArray = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -36,23 +39,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupCagegoryMenuView];
-    [self setupRefreshHeaderAndFooter];
+    [self.collectionView.mj_header beginRefreshing];
 }
 
 #pragma mark - Setup
 
 - (void)setupCagegoryMenuView {
     __weak typeof(self) weakSelf = self;
-    self.cagegoryMenu.sectionTitles = @[@"所有", @"大胸", @"翘臀", @"黑丝", @"美腿", @"清新", @"杂烩"];
-    self.cagegoryMenu.selectionStyle = HMSegmentedControlSelectionStyleBox;
-    self.cagegoryMenu.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
-    self.cagegoryMenu.selectionIndicatorHeight = 3.0;
-    self.cagegoryMenu.borderType = HMSegmentedControlBorderTypeBottom;
-    self.cagegoryMenu.borderColor = [UIColor lightGrayColor];
-    self.cagegoryMenu.borderWidth = 0.3;
-    self.cagegoryMenu.alpha = 0.9;
-    self.cagegoryMenu.titleTextAttributes = @{NSFontAttributeName: [UIFont systemFontOfSize:14.0]};
-    self.cagegoryMenu.selectedTitleTextAttributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:17.0]};
     [self.cagegoryMenu setIndexChangeBlock:^(NSInteger index) {
         switch (index) {
             case 0:
@@ -81,17 +74,6 @@
         }
         [weakSelf.collectionView.mj_header beginRefreshing];
     }];
-}
-
-- (void)setupRefreshHeaderAndFooter {
-    self.collectionView.contentInset = UIEdgeInsetsMake(40, 0, 0, 0);
-    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshMeizi)];
-    MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreMeizi)];
-    header.automaticallyChangeAlpha = YES;
-    footer.automaticallyRefresh = YES;
-    self.collectionView.mj_header = header;
-    self.collectionView.mj_footer = footer;
-    [self.collectionView.mj_header beginRefreshing];
 }
 
 #pragma mark - Refresh method
@@ -180,6 +162,37 @@
     browser.alwaysShowControls = YES;
     [browser setCurrentPhotoIndex:indexPath.row];
     [self.navigationController pushViewController:browser animated:YES];
+}
+
+#pragma mark - Property method
+
+- (UICollectionView *)collectionView {
+    if (_collectionView.mj_footer == nil) {
+        MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshMeizi)];
+        header.automaticallyChangeAlpha = YES;
+        _collectionView.mj_header = header;
+        _collectionView.contentInset = UIEdgeInsetsMake(40, 0, 0, 0);
+    }
+    if (_collectionView.mj_footer == nil) {
+        MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreMeizi)];
+        footer.automaticallyRefresh = YES;
+        _collectionView.mj_footer = footer;
+    }
+    return _collectionView;
+}
+
+- (NSMutableArray *)meiziArray {
+    if (_meiziArray == nil) {
+        _meiziArray = [NSMutableArray arrayWithArray:[MeiziRequest cachedMeiziArrayWithType:MeiziTypeAll]];
+    }
+    return _meiziArray;
+}
+
+- (void)setType:(MeiziType)type {
+    _type = type;
+    [self.meiziArray removeAllObjects];
+    [self.meiziArray addObjectsFromArray:[MeiziRequest cachedMeiziArrayWithType:type]];
+    [self.collectionView reloadData];
 }
 
 @end

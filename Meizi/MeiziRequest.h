@@ -6,8 +6,8 @@
 //  Copyright (c) 2015年 Sunnyyoung. All rights reserved.
 //
 
-#import <YTKNetwork/YTKRequest.h>
 #import <hpple/TFHpple.h>
+#import "SYNetwork/SYBaseRequest.h"
 
 @class Meizi;
 
@@ -21,11 +21,13 @@ typedef NS_ENUM(NSUInteger, MeiziType) {
     MeiziTypeZaHui   = 5
 };
 
-@interface MeiziRequest : YTKRequest
+@interface MeiziRequest : SYBaseRequest
 
 + (MeiziRequest *)requestWithPage:(NSInteger)page
                         meiziType:(MeiziType)type
                           success:(void (^)(NSArray<Meizi *> *meiziArray))success
                           failure:(void (^)(NSString *message))failure;
+
++ (NSArray<Meizi *> *)cachedMeiziArrayWithType:(MeiziType)type;
 
 @end

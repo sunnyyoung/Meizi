@@ -29,32 +29,44 @@
 
 + (MeiziRequest *)requestWithPage:(NSInteger)page meiziType:(MeiziType)type success:(void (^)(NSArray<Meizi *> *))success failure:(void (^)(NSString *))failure {
     MeiziRequest *request = [[MeiziRequest alloc] initWithPage:page meiziType:type];
-    [request startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest *request) {
+    [request startWithBlockSuccess:^(__kindof SYBaseRequest *request) {
         MeiziRequest *meiziRequest = (MeiziRequest *)request;
         success?success([meiziRequest meiziArray]):nil;
-    } failure:^(__kindof YTKBaseRequest *request) {
+    } failure:^(__kindof SYBaseRequest *request, NSError *error) {
         MeiziRequest *meiziRequest = (MeiziRequest *)request;
         failure?failure(@(meiziRequest.responseStatusCode).stringValue):nil;
     }];
     return request;
 }
 
-- (NSString *)requestUrl {
+- (BOOL)enableCache {
+    return (_page == 1)?YES:NO;
+}
+
+- (SYRequestMethod)requestMethod {
+    return SYRequestMethodGET;
+}
+
+- (NSString *)requestPath {
     return @"/dbgroup/show.htm";
 }
 
-- (YTKRequestMethod)requestMethod {
-    return YTKRequestMethodGet;
-}
-
-- (id)requestArgument {
+- (id)requestParameters {
     return @{@"pager_offset": @(_page),
              @"cid": @(_type)};
 }
 
 - (NSArray<Meizi *> *)meiziArray {
-    NSString *htmlString = self.responseString;
-    TFHpple *rootDocument = [TFHpple hppleWithHTMLData:[htmlString dataUsingEncoding:NSUTF8StringEncoding]];
+    return [MeiziRequest meiziArrayWithHTMLData:[self.responseString dataUsingEncoding:NSUTF8StringEncoding]];
+}
+
++ (NSArray<Meizi *> *)cachedMeiziArrayWithType:(MeiziType)type {
+    MeiziRequest *request = [[MeiziRequest alloc] initWithPage:1 meiziType:type];
+    return [MeiziRequest meiziArrayWithHTMLData:request.cacheData];
+}
+
++ (NSArray<Meizi *> *)meiziArrayWithHTMLData:(NSData *)htmlData {
+    TFHpple *rootDocument = [TFHpple hppleWithHTMLData:htmlData];
     NSArray *liElements = [rootDocument searchWithXPathQuery:@"//*[@id=\"main\"]/div[3]/div[2]/ul/li"];
     NSMutableArray *meiziArray = [NSMutableArray array];
     for (TFHppleElement *liElement in liElements) {

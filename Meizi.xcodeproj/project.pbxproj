@@ -10,6 +10,16 @@
 		7D4375E21B54FB72001CEBC9 /* MeiziViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D4375E11B54FB72001CEBC9 /* MeiziViewController.m */; };
 		7D4375E51B5508D3001CEBC9 /* MeiziRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D4375E41B5508D3001CEBC9 /* MeiziRequest.m */; };
 		7D4375E81B550BC6001CEBC9 /* MeiziCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D4375E71B550BC6001CEBC9 /* MeiziCell.m */; };
+		7D75F98B1CAF5EFE00D703E3 /* SYNetworkUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D75F97A1CAF5EFE00D703E3 /* SYNetworkUtil.m */; };
+		7D75F98C1CAF5EFE00D703E3 /* SYNetworkConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D75F97C1CAF5EFE00D703E3 /* SYNetworkConfig.m */; };
+		7D75F98D1CAF5EFE00D703E3 /* SYNetworkCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D75F97E1CAF5EFE00D703E3 /* SYNetworkCacheManager.m */; };
+		7D75F98E1CAF5EFE00D703E3 /* SYBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D75F9801CAF5EFE00D703E3 /* SYBaseRequest.m */; };
+		7D75F98F1CAF5EFE00D703E3 /* SYNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D75F9821CAF5EFE00D703E3 /* SYNetworkManager.m */; };
+		7D75F9901CAF5EFE00D703E3 /* SYBatchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D75F9841CAF5EFE00D703E3 /* SYBatchRequest.m */; };
+		7D75F9911CAF5EFE00D703E3 /* SYBatchRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D75F9861CAF5EFE00D703E3 /* SYBatchRequestManager.m */; };
+		7D75F9921CAF5EFE00D703E3 /* SYChainRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D75F9881CAF5EFE00D703E3 /* SYChainRequest.m */; };
+		7D75F9931CAF5EFE00D703E3 /* SYChainRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D75F98A1CAF5EFE00D703E3 /* SYChainRequestManager.m */; };
+		7D760CDC1CAE87C8009A295C /* MeiziCategoryMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D760CDB1CAE87C8009A295C /* MeiziCategoryMenuView.m */; };
 		7D8A0AA81B58B482001EDD42 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8A0AA71B58B482001EDD42 /* SettingViewController.m */; };
 		7D93B84F1ACFD7CF00453452 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D93B84E1ACFD7CF00453452 /* main.m */; };
 		7D93B8521ACFD7CF00453452 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D93B8511ACFD7CF00453452 /* AppDelegate.m */; };
@@ -30,6 +40,27 @@
 		7D4375E61B550BC6001CEBC9 /* MeiziCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeiziCell.h; sourceTree = "<group>"; };
 		7D4375E71B550BC6001CEBC9 /* MeiziCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeiziCell.m; sourceTree = "<group>"; };
 		7D465E5D1AD03D5F00D68ED7 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		7D75F9781CAF5EFE00D703E3 /* SYNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYNetwork.h; sourceTree = "<group>"; };
+		7D75F9791CAF5EFE00D703E3 /* SYNetworkUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYNetworkUtil.h; sourceTree = "<group>"; };
+		7D75F97A1CAF5EFE00D703E3 /* SYNetworkUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYNetworkUtil.m; sourceTree = "<group>"; };
+		7D75F97B1CAF5EFE00D703E3 /* SYNetworkConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYNetworkConfig.h; sourceTree = "<group>"; };
+		7D75F97C1CAF5EFE00D703E3 /* SYNetworkConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYNetworkConfig.m; sourceTree = "<group>"; };
+		7D75F97D1CAF5EFE00D703E3 /* SYNetworkCacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYNetworkCacheManager.h; sourceTree = "<group>"; };
+		7D75F97E1CAF5EFE00D703E3 /* SYNetworkCacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYNetworkCacheManager.m; sourceTree = "<group>"; };
+		7D75F97F1CAF5EFE00D703E3 /* SYBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYBaseRequest.h; sourceTree = "<group>"; };
+		7D75F9801CAF5EFE00D703E3 /* SYBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYBaseRequest.m; sourceTree = "<group>"; };
+		7D75F9811CAF5EFE00D703E3 /* SYNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYNetworkManager.h; sourceTree = "<group>"; };
+		7D75F9821CAF5EFE00D703E3 /* SYNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYNetworkManager.m; sourceTree = "<group>"; };
+		7D75F9831CAF5EFE00D703E3 /* SYBatchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYBatchRequest.h; sourceTree = "<group>"; };
+		7D75F9841CAF5EFE00D703E3 /* SYBatchRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYBatchRequest.m; sourceTree = "<group>"; };
+		7D75F9851CAF5EFE00D703E3 /* SYBatchRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYBatchRequestManager.h; sourceTree = "<group>"; };
+		7D75F9861CAF5EFE00D703E3 /* SYBatchRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYBatchRequestManager.m; sourceTree = "<group>"; };
+		7D75F9871CAF5EFE00D703E3 /* SYChainRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYChainRequest.h; sourceTree = "<group>"; };
+		7D75F9881CAF5EFE00D703E3 /* SYChainRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYChainRequest.m; sourceTree = "<group>"; };
+		7D75F9891CAF5EFE00D703E3 /* SYChainRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYChainRequestManager.h; sourceTree = "<group>"; };
+		7D75F98A1CAF5EFE00D703E3 /* SYChainRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYChainRequestManager.m; sourceTree = "<group>"; };
+		7D760CDA1CAE87C8009A295C /* MeiziCategoryMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeiziCategoryMenuView.h; sourceTree = "<group>"; };
+		7D760CDB1CAE87C8009A295C /* MeiziCategoryMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeiziCategoryMenuView.m; sourceTree = "<group>"; };
 		7D8A0AA61B58B482001EDD42 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		7D8A0AA71B58B482001EDD42 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		7D93B8491ACFD7CF00453452 /* Meizi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meizi.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,8 +147,36 @@
 			children = (
 				7D4375E61B550BC6001CEBC9 /* MeiziCell.h */,
 				7D4375E71B550BC6001CEBC9 /* MeiziCell.m */,
+				7D760CDA1CAE87C8009A295C /* MeiziCategoryMenuView.h */,
+				7D760CDB1CAE87C8009A295C /* MeiziCategoryMenuView.m */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		7D760CBD1CAE81FF009A295C /* SYNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				7D75F9781CAF5EFE00D703E3 /* SYNetwork.h */,
+				7D75F9791CAF5EFE00D703E3 /* SYNetworkUtil.h */,
+				7D75F97A1CAF5EFE00D703E3 /* SYNetworkUtil.m */,
+				7D75F97B1CAF5EFE00D703E3 /* SYNetworkConfig.h */,
+				7D75F97C1CAF5EFE00D703E3 /* SYNetworkConfig.m */,
+				7D75F97D1CAF5EFE00D703E3 /* SYNetworkCacheManager.h */,
+				7D75F97E1CAF5EFE00D703E3 /* SYNetworkCacheManager.m */,
+				7D75F97F1CAF5EFE00D703E3 /* SYBaseRequest.h */,
+				7D75F9801CAF5EFE00D703E3 /* SYBaseRequest.m */,
+				7D75F9811CAF5EFE00D703E3 /* SYNetworkManager.h */,
+				7D75F9821CAF5EFE00D703E3 /* SYNetworkManager.m */,
+				7D75F9831CAF5EFE00D703E3 /* SYBatchRequest.h */,
+				7D75F9841CAF5EFE00D703E3 /* SYBatchRequest.m */,
+				7D75F9851CAF5EFE00D703E3 /* SYBatchRequestManager.h */,
+				7D75F9861CAF5EFE00D703E3 /* SYBatchRequestManager.m */,
+				7D75F9871CAF5EFE00D703E3 /* SYChainRequest.h */,
+				7D75F9881CAF5EFE00D703E3 /* SYChainRequest.m */,
+				7D75F9891CAF5EFE00D703E3 /* SYChainRequestManager.h */,
+				7D75F98A1CAF5EFE00D703E3 /* SYChainRequestManager.m */,
+			);
+			path = SYNetwork;
 			sourceTree = "<group>";
 		};
 		7D8A0AA51B58B46F001EDD42 /* Setting */ = {
@@ -183,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				7D93B8761ACFDA1F00453452 /* Constant.h */,
+				7D760CBD1CAE81FF009A295C /* SYNetwork */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -317,12 +377,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D93B87C1ACFDD2900453452 /* Meizi.m in Sources */,
+				7D75F98F1CAF5EFE00D703E3 /* SYNetworkManager.m in Sources */,
+				7D75F9901CAF5EFE00D703E3 /* SYBatchRequest.m in Sources */,
+				7D75F9921CAF5EFE00D703E3 /* SYChainRequest.m in Sources */,
+				7D75F98B1CAF5EFE00D703E3 /* SYNetworkUtil.m in Sources */,
 				7D4375E21B54FB72001CEBC9 /* MeiziViewController.m in Sources */,
 				7D93B8521ACFD7CF00453452 /* AppDelegate.m in Sources */,
+				7D75F98D1CAF5EFE00D703E3 /* SYNetworkCacheManager.m in Sources */,
+				7D75F9931CAF5EFE00D703E3 /* SYChainRequestManager.m in Sources */,
 				7D93B84F1ACFD7CF00453452 /* main.m in Sources */,
+				7D75F98E1CAF5EFE00D703E3 /* SYBaseRequest.m in Sources */,
+				7D75F9911CAF5EFE00D703E3 /* SYBatchRequestManager.m in Sources */,
 				7D4375E81B550BC6001CEBC9 /* MeiziCell.m in Sources */,
 				7D4375E51B5508D3001CEBC9 /* MeiziRequest.m in Sources */,
 				7D8A0AA81B58B482001EDD42 /* SettingViewController.m in Sources */,
+				7D75F98C1CAF5EFE00D703E3 /* SYNetworkConfig.m in Sources */,
+				7D760CDC1CAE87C8009A295C /* MeiziCategoryMenuView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

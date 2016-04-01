@@ -12,7 +12,4 @@
 
 @interface MeiziViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet HMSegmentedControl *cagegoryMenu;
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-
 @end

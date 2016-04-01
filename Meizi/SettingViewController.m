@@ -36,7 +36,7 @@
         __weak typeof(self) weakSelf = self;
         [SVProgressHUD show];
         [[SDImageCache sharedImageCache] clearDiskOnCompletion:^{
-            [SVProgressHUD showSuccessWithStatus:@"清理完成" maskType:SVProgressHUDMaskTypeClear];
+            [SVProgressHUD showSuccessWithStatus:@"清理完成"];
             [weakSelf calculateImageCacheSize];
         }];
     }

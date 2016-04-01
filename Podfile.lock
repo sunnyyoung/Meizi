@@ -1,26 +1,18 @@
 PODS:
-  - AFDownloadRequestOperation (2.0.1):
-    - AFNetworking (~> 2.0)
-  - AFNetworking (2.6.3):
-    - AFNetworking/NSURLConnection (= 2.6.3)
-    - AFNetworking/NSURLSession (= 2.6.3)
-    - AFNetworking/Reachability (= 2.6.3)
-    - AFNetworking/Security (= 2.6.3)
-    - AFNetworking/Serialization (= 2.6.3)
-    - AFNetworking/UIKit (= 2.6.3)
-  - AFNetworking/NSURLConnection (2.6.3):
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.6.3):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.6.3)
-  - AFNetworking/Security (2.6.3)
-  - AFNetworking/Serialization (2.6.3)
-  - AFNetworking/UIKit (2.6.3):
-    - AFNetworking/NSURLConnection
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - DACircularProgress (2.3.1)
   - HMSegmentedControl (1.5.2)
@@ -36,12 +28,10 @@ PODS:
   - SDWebImage (3.7.5):
     - SDWebImage/Core (= 3.7.5)
   - SDWebImage/Core (3.7.5)
-  - SVProgressHUD (1.1.3)
+  - SVProgressHUD (2.0.2)
   - UIActivityIndicator-for-SDWebImage (1.2):
     - SDWebImage (~> 3.7)
-  - YTKNetwork (0.6.0):
-    - AFDownloadRequestOperation (~> 2.0)
-    - AFNetworking (~> 2.0)
+  - YYCache (1.0.2)
 
 DEPENDENCIES:
   - AFNetworking
@@ -54,11 +44,10 @@ DEPENDENCIES:
   - SDWebImage
   - SVProgressHUD
   - UIActivityIndicator-for-SDWebImage
-  - YTKNetwork
+  - YYCache
 
 SPEC CHECKSUMS:
-  AFDownloadRequestOperation: 748a1643423e1ddb23f2178f778087d4f0ae8ac7
-  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   HMSegmentedControl: 83b9686022d2176fb6457d2bdb61e5d6393fed7d
   hpple: 3b765f96fc2cd56ad1a49aef6f7be5cb2aa64b57
@@ -68,8 +57,8 @@ SPEC CHECKSUMS:
   MWPhotoBrowser: ba0d0c09ffda3a7ea10093518738c502c1c7141c
   NHBalancedFlowLayout: fd253023c6754e605acdb180d50123e582cc62bb
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
-  SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
+  SVProgressHUD: e4020e23badbd7cc61bc4a80d3c1da57f166a978
   UIActivityIndicator-for-SDWebImage: 7bf7ebbf0ed1747dedc0d6e949c4603a6d0f9e0c
-  YTKNetwork: 988660d5fab310a55895239751ecfa74c3224a77
+  YYCache: c159ab4bb51e1ca4872ddadaf1778f9ec4ae40bb
 
 COCOAPODS: 0.39.0
