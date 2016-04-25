@@ -11,8 +11,8 @@
 
 @interface MeiziRequest()
 
-@property (nonatomic) NSInteger page;
-@property (nonatomic) MeiziType type;
+@property (nonatomic, assign) NSInteger page;
+@property (nonatomic, assign) MeiziType type;
 
 @end
 
@@ -21,8 +21,8 @@
 - (instancetype)initWithPage:(NSInteger)page meiziType:(MeiziType)type {
     self = [super init];
     if (self) {
-        _page = page;
-        _type = type;
+        self.page = page;
+        self.type = type;
     }
     return self;
 }
@@ -40,7 +40,7 @@
 }
 
 - (BOOL)enableCache {
-    return (_page == 1)?YES:NO;
+    return (self.page == 1)?YES:NO;
 }
 
 - (SYRequestMethod)requestMethod {
@@ -52,8 +52,8 @@
 }
 
 - (id)requestParameters {
-    return @{@"pager_offset": @(_page),
-             @"cid": @(_type)};
+    return @{@"pager_offset": @(self.page),
+             @"cid": @(self.type)};
 }
 
 - (NSArray<Meizi *> *)meiziArray {
@@ -67,13 +67,11 @@
 
 + (NSArray<Meizi *> *)meiziArrayWithHTMLData:(NSData *)htmlData {
     TFHpple *rootDocument = [TFHpple hppleWithHTMLData:htmlData];
-    NSArray *liElements = [rootDocument searchWithXPathQuery:@"//*[@id=\"main\"]/div[3]/div[2]/ul/li"];
+    NSArray *liElementArray = [rootDocument searchWithXPathQuery:@"//*[@id=\"main\"]/div[2]/div[3]/ul/li"];
     NSMutableArray *meiziArray = [NSMutableArray array];
-    for (TFHppleElement *liElement in liElements) {
-        TFHppleElement *imageElement = [[[[liElement firstChildWithClassName:@"thumbnail"]
-                                          firstChildWithClassName:@"img_single"]
-                                         firstChildWithClassName:@"link"]
-                                        firstChildWithTagName:@"img"];
+    for (TFHppleElement *liElement in liElementArray) {
+        TFHpple *elementDocument = [TFHpple hppleWithHTMLData:[liElement.raw dataUsingEncoding:NSUTF8StringEncoding]];
+        TFHppleElement *imageElement = [elementDocument peekAtSearchWithXPathQuery:@"//div/div[1]/a/img"];
         Meizi *meizi = [Meizi mj_objectWithKeyValues:imageElement.attributes];
         if (meizi != nil) {
             [meiziArray addObject:meizi];
