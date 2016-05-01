@@ -12,5 +12,6 @@
 
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *src;
+@property (nonatomic, copy, readonly) NSString *largeSrc;
 
 @end

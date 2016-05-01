@@ -154,7 +154,7 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSMutableArray *photoArray = [NSMutableArray array];
     for (Meizi *meizi in self.meiziArray) {
-        MWPhoto *photo = [MWPhoto photoWithURL:[NSURL URLWithString:meizi.src]];
+        MWPhoto *photo = [MWPhoto photoWithURL:[NSURL URLWithString:meizi.largeSrc]];
         photo.caption = meizi.title;
         [photoArray addObject:photo];
     }

@@ -10,4 +10,12 @@
 
 @implementation Meizi
 
+- (NSString *)largeSrc {
+    if ([self.src containsString:@"bmiddle"]) {
+        return [self.src stringByReplacingOccurrencesOfString:@"bmiddle" withString:@"large"];
+    } else {
+        return self.src;
+    }
+}
+
 @end
