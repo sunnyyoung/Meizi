@@ -67,7 +67,7 @@
 
 + (NSArray<Meizi *> *)meiziArrayWithHTMLData:(NSData *)htmlData {
     TFHpple *rootDocument = [TFHpple hppleWithHTMLData:htmlData];
-    NSArray *liElementArray = [rootDocument searchWithXPathQuery:@"//*[@id=\"main\"]/div[2]/div[3]/ul/li"];
+    NSArray *liElementArray = [rootDocument searchWithXPathQuery:@"//*[@id=\"main\"]/div[2]/div[2]/ul/li"];
     NSMutableArray *meiziArray = [NSMutableArray array];
     for (TFHppleElement *liElement in liElementArray) {
         TFHpple *elementDocument = [TFHpple hppleWithHTMLData:[liElement.raw dataUsingEncoding:NSUTF8StringEncoding]];
