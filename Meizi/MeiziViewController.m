@@ -11,6 +11,7 @@
 #import "MeiziRequest.h"
 #import "MeiziCell.h"
 #import "Meizi.h"
+#import "AppDelegate.h"
 
 @interface MeiziViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
@@ -128,7 +129,7 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSInteger perLine = UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation)?3:5;
+    NSInteger perLine = ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortrait)?3:5;
     return CGSizeMake(kScreenWidth/perLine-1, kScreenWidth/perLine-1);
 }
 
@@ -142,26 +143,21 @@
 
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
     [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
-    [coordinator animateAlongsideTransition:nil completion:^(id<UIViewControllerTransitionCoordinatorContext> context) {
-        [self.collectionView performBatchUpdates:^{
-            [self.collectionView setCollectionViewLayout:self.collectionView.collectionViewLayout animated:YES];
-        } completion:nil];
-    }];
+    [self.collectionView.collectionViewLayout invalidateLayout];
+    [self.collectionView.collectionViewLayout finalizeCollectionViewUpdates];
 }
 
 #pragma mark - CollectionView Delegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSMutableArray *photoArray = [NSMutableArray array];
+    NSMutableArray *photoURLArray = [NSMutableArray array];
     for (Meizi *meizi in self.meiziArray) {
-        MWPhoto *photo = [MWPhoto photoWithURL:[NSURL URLWithString:meizi.largeSrc]];
-        photo.caption = meizi.title;
-        [photoArray addObject:photo];
+        [photoURLArray addObject:meizi.src];
     }
-    MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithPhotos:photoArray];
-    browser.alwaysShowControls = YES;
-    [browser setCurrentPhotoIndex:indexPath.row];
-    [self.navigationController pushViewController:browser animated:YES];
+    SYPhotoBrowser *photoBrowser = [[SYPhotoBrowser alloc] initWithImageSourceArray:photoURLArray caption:nil delegate:self];
+    photoBrowser.enableStatusBarHidden = NO;
+    photoBrowser.pageControlStyle = SYPhotoBrowserPageControlStyleLabel;
+    [((AppDelegate *)[UIApplication sharedApplication].delegate).window.rootViewController presentViewController:photoBrowser animated:YES completion:nil];
 }
 
 #pragma mark - Property method

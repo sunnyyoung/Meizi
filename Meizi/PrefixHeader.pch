@@ -15,7 +15,6 @@
 #import <MJRefresh/MJRefresh.h>
 #import <MJExtension/MJExtension.h>
 #import <SVProgressHUD/SVProgressHUD.h>
-#import <MWPhotoBrowser/MWPhotoBrowser.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <UIActivityIndicator-for-SDWebImage/UIImageView+UIActivityIndicatorForSDWebImage.h>
 
