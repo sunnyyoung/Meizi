@@ -12,29 +12,27 @@
 @interface MeiziRequest()
 
 @property (nonatomic, assign) NSInteger page;
-@property (nonatomic, assign) MeiziType type;
+@property (nonatomic, assign) MeiziCategory category;
 
 @end
 
 @implementation MeiziRequest
 
-- (instancetype)initWithPage:(NSInteger)page meiziType:(MeiziType)type {
+- (instancetype)initWithPage:(NSInteger)page category:(MeiziCategory)category {
     self = [super init];
     if (self) {
         self.page = page;
-        self.type = type;
+        self.category = category;
     }
     return self;
 }
 
-+ (MeiziRequest *)requestWithPage:(NSInteger)page meiziType:(MeiziType)type success:(void (^)(NSArray<Meizi *> *))success failure:(void (^)(NSString *))failure {
-    MeiziRequest *request = [[MeiziRequest alloc] initWithPage:page meiziType:type];
++ (MeiziRequest *)requestWithPage:(NSInteger)page category:(MeiziCategory)category success:(void (^)(NSArray<Meizi *> *))success failure:(void (^)(NSString *))failure {
+    MeiziRequest *request = [[MeiziRequest alloc] initWithPage:page category:category];
     [request startWithBlockSuccess:^(__kindof SYBaseRequest *request) {
-        MeiziRequest *meiziRequest = (MeiziRequest *)request;
-        success?success([meiziRequest meiziArray]):nil;
+        success?success(((MeiziRequest *)request).meiziArray):nil;
     } failure:^(__kindof SYBaseRequest *request, NSError *error) {
-        MeiziRequest *meiziRequest = (MeiziRequest *)request;
-        failure?failure(@(meiziRequest.responseStatusCode).stringValue):nil;
+        failure?failure(error.localizedDescription):nil;
     }];
     return request;
 }
@@ -47,37 +45,48 @@
     return SYRequestMethodGET;
 }
 
-- (NSString *)requestPath {
-    return @"/dbgroup/show.htm";
+- (NSString *)baseURL {
+    return @"http://meizi.leanapp.cn";
 }
 
-- (id)requestParameters {
-    return @{@"pager_offset": @(self.page),
-             @"cid": @(self.type)};
+- (NSString *)requestPath {
+    NSString *category = @"";
+    switch (self.category) {
+        case MeiziCategoryAll:
+            category = @"All";
+            break;
+        case MeiziCategoryDaXiong:
+            category = @"DaXiong";
+            break;
+        case MeiziCategoryQiaoTun:
+            category = @"QiaoTun";
+            break;
+        case MeiziCategoryHeisi:
+            category = @"HeiSi";
+            break;
+        case MeiziCategoryMeiTui:
+            category = @"MeiTui";
+            break;
+        case MeiziCategoryQingXin:
+            category = @"QingXin";
+            break;
+        case MeiziCategoryZaHui:
+            category = @"ZaHui";
+            break;
+        default:
+            category = @"All";
+            break;
+    }
+    return [NSString stringWithFormat:@"/category/%@/page/%@", category, @(self.page)];
 }
 
 - (NSArray<Meizi *> *)meiziArray {
-    return [MeiziRequest meiziArrayWithHTMLData:[self.responseString dataUsingEncoding:NSUTF8StringEncoding]];
+    return [Meizi mj_objectArrayWithKeyValuesArray:self.responseJSONObject[@"results"]];
 }
 
-+ (NSArray<Meizi *> *)cachedMeiziArrayWithType:(MeiziType)type {
-    MeiziRequest *request = [[MeiziRequest alloc] initWithPage:1 meiziType:type];
-    return [MeiziRequest meiziArrayWithHTMLData:request.cacheData];
-}
-
-+ (NSArray<Meizi *> *)meiziArrayWithHTMLData:(NSData *)htmlData {
-    TFHpple *rootDocument = [TFHpple hppleWithHTMLData:htmlData];
-    NSArray *liElementArray = [rootDocument searchWithXPathQuery:@"//*[@id=\"main\"]/div[2]/div[2]/ul/li"];
-    NSMutableArray *meiziArray = [NSMutableArray array];
-    for (TFHppleElement *liElement in liElementArray) {
-        TFHpple *elementDocument = [TFHpple hppleWithHTMLData:[liElement.raw dataUsingEncoding:NSUTF8StringEncoding]];
-        TFHppleElement *imageElement = [elementDocument peekAtSearchWithXPathQuery:@"//div/div[1]/a/img"];
-        Meizi *meizi = [Meizi mj_objectWithKeyValues:imageElement.attributes];
-        if (meizi != nil) {
-            [meiziArray addObject:meizi];
-        }
-    }
-    return meiziArray;
++ (NSArray<Meizi *> *)cachedMeiziArrayWithCategory:(MeiziCategory)category {
+    MeiziRequest *request = [[MeiziRequest alloc] initWithPage:1 category:category];
+    return [Meizi mj_objectArrayWithKeyValuesArray:request.cacheJSONObject[@"results"]];
 }
 
 @end

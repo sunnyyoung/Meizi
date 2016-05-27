@@ -32,6 +32,10 @@
     return SYRequestSerializerTypeHTTP;
 }
 
+- (NSURLRequestCachePolicy)requestCachePolicy {
+    return NSURLRequestUseProtocolCachePolicy;
+}
+
 - (NSString *)baseURL {
     return @"";
 }
@@ -69,8 +73,9 @@
 
 - (void)stop {
     self.delegate = nil;
-    [[SYNetworkManager sharedInstance] removeRequest:self];
-    [self toggleAccessoriesStopCallBack];
+    [[SYNetworkManager sharedInstance] removeRequest:self completion:^{
+        [self toggleAccessoriesStopCallBack];
+    }];
 }
 
 - (void)startWithBlockSuccess:(SYRequestSuccessBlock)success
@@ -123,10 +128,16 @@
 }
 
 - (NSString *)responseString {
+    if (self.responseData == nil) {
+        return nil;
+    }
     return [[NSString alloc] initWithData:self.responseData encoding:NSUTF8StringEncoding];
 }
 
 - (id)responseJSONObject {
+    if (self.responseData == nil) {
+        return nil;
+    }
     NSError *error = nil;
     id responseJSONObject = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingMutableContainers error:&error];
     if (error) {
@@ -143,10 +154,11 @@
 }
 
 - (id)cacheJSONObject {
+    if (self.cacheData == nil) {
+        return nil;
+    }
     NSError *error = nil;
-    NSString *cacheKey = [SYNetworkUtil cacheKeyWithRequest:self];
-    NSData *cacheData = (NSData *)[[SYNetworkCacheManager sharedInstance] objectForKey:cacheKey];
-    id cacheJSONObject = [NSJSONSerialization JSONObjectWithData:cacheData options:NSJSONReadingMutableContainers error:&error];
+    id cacheJSONObject = [NSJSONSerialization JSONObjectWithData:self.cacheData options:NSJSONReadingMutableContainers error:&error];
     if (error) {
         SYNetworkLog(@"%@", error.localizedDescription);
         return nil;

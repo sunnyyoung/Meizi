@@ -11,7 +11,7 @@
 @interface Meizi : NSObject
 
 @property (nonatomic, copy) NSString *title;
-@property (nonatomic, copy) NSString *src;
-@property (nonatomic, copy, readonly) NSString *largeSrc;
+@property (nonatomic, copy) NSString *thumb_url;
+@property (nonatomic, copy) NSString *image_url;
 
 @end

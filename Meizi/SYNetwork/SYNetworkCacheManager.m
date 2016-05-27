@@ -35,6 +35,14 @@
     [self.cache setObject:object forKey:key];
 }
 
+- (void)removeObjectForKey:(NSString *)key {
+    [self.cache removeObjectForKey:key];
+}
+
+- (void)clearCache {
+    [self.cache removeAllObjects];
+}
+
 #pragma mark - Property method
 
 - (YYCache *)cache {

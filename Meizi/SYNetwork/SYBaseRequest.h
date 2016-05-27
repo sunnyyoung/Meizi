@@ -73,6 +73,7 @@ typedef NS_ENUM(NSUInteger, SYRequestSerializerType) {
 - (BOOL)enableAccessory;
 - (SYRequestMethod)requestMethod;
 - (SYRequestSerializerType)requestSerializerType;
+- (NSURLRequestCachePolicy)requestCachePolicy;
 - (NSString *)baseURL;
 - (NSString *)requestPath;
 - (id)requestParameters;

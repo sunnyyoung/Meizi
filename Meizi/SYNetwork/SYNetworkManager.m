@@ -16,6 +16,7 @@
 
 @property (nonatomic, strong) AFHTTPSessionManager *manager;
 @property (nonatomic, strong) NSMutableDictionary *requestIdentifierDictionary;
+@property (nonatomic, strong) dispatch_queue_t requestProcessingQueue;
 
 @end
 
@@ -44,122 +45,128 @@
 #pragma mark - Public method
 
 - (void)addRequest:(SYBaseRequest *)request {
-    NSString *url = request.requestURLString;
-    SYRequestMethod method = request.requestMethod;
-    id parameters = request.requestParameters;
-    //Request Serializer
-    switch (request.requestSerializerType) {
-        case SYRequestSerializerTypeHTTP: {
-            self.manager.requestSerializer = [AFHTTPRequestSerializer serializer];
-            break;
-        }
-        case SYRequestSerializerTypeJSON: {
-            self.manager.requestSerializer = [AFJSONRequestSerializer serializer];
-            break;
-        }
-        default: {
-            SYNetworkLog(@"Error, unsupport method type");
-            break;
-        }
-    }
-    self.manager.requestSerializer.timeoutInterval = request.requestTimeoutInterval;
-    //HTTPHeaderFields
-    NSDictionary *requestHeaderFieldDictionary = request.requestHeader;
-    if (requestHeaderFieldDictionary) {
-        for (NSString *key in requestHeaderFieldDictionary.allKeys) {
-            NSString *value = requestHeaderFieldDictionary[key];
-            [self.manager.requestSerializer setValue:value forHTTPHeaderField:key];
-        }
-    }
-    switch (method) {
-        case SYRequestMethodGET: {
-            request.sessionDataTask = [self.manager GET:url
-                                             parameters:parameters
-                                               progress:^(NSProgress * _Nonnull downloadProgress) {
-                                                   [self handleRequest:request progress:downloadProgress];
-                                               } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                                                   [self handleRequestSuccessWithSessionDataTask:task responseObject:responseObject];
-                                               } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                                                   [self handleRequestFailureWithSessionDatatask:task error:error];
-                                               }];
-            break;
-        }
-        case SYRequestMethodPOST: {
-            if (request.constructingBodyBlock) {
-                request.sessionDataTask = [self.manager POST:url
-                                                  parameters:parameters
-                                   constructingBodyWithBlock:request.constructingBodyBlock
-                                                    progress:^(NSProgress * _Nonnull uploadProgress) {
-                                                        [self handleRequest:request progress:uploadProgress];
-                                                    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                                                        [self handleRequestSuccessWithSessionDataTask:task responseObject:responseObject];
-                                                    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                                                        [self handleRequestFailureWithSessionDatatask:task error:error];
-                                                    }];
-            } else {
-                request.sessionDataTask = [self.manager POST:url
-                                                  parameters:parameters
-                                                    progress:^(NSProgress * _Nonnull downloadProgress) {
-                                                        [self handleRequest:request progress:downloadProgress];
-                                                    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                                                        [self handleRequestSuccessWithSessionDataTask:task responseObject:responseObject];
-                                                    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                                                        [self handleRequestFailureWithSessionDatatask:task error:error];
-                                                    }];
+    dispatch_async(self.requestProcessingQueue, ^{
+        NSString *url = request.requestURLString;
+        SYRequestMethod method = request.requestMethod;
+        id parameters = request.requestParameters;
+        //Request Serializer
+        switch (request.requestSerializerType) {
+                case SYRequestSerializerTypeHTTP: {
+                    self.manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+                    break;
+                }
+                case SYRequestSerializerTypeJSON: {
+                    self.manager.requestSerializer = [AFJSONRequestSerializer serializer];
+                    break;
+                }
+            default: {
+                SYNetworkLog(@"Error, unsupport method type");
+                break;
             }
-            break;
         }
-        case SYRequestMethodHEAD: {
-            request.sessionDataTask = [self.manager HEAD:url
-                                              parameters:parameters
-                                                 success:^(NSURLSessionDataTask * _Nonnull task) {
-                                                     [self handleRequestSuccessWithSessionDataTask:task responseObject:nil];
-                                                 } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                                                     [self handleRequestFailureWithSessionDatatask:task error:error];
-                                                 }];
-            break;
+        self.manager.requestSerializer.cachePolicy = request.requestCachePolicy;
+        self.manager.requestSerializer.timeoutInterval = request.requestTimeoutInterval;
+        //HTTPHeaderFields
+        NSDictionary *requestHeaderFieldDictionary = request.requestHeader;
+        if (requestHeaderFieldDictionary) {
+            for (NSString *key in requestHeaderFieldDictionary.allKeys) {
+                NSString *value = requestHeaderFieldDictionary[key];
+                [self.manager.requestSerializer setValue:value forHTTPHeaderField:key];
+            }
         }
-        case SYRequestMethodPUT: {
-            request.sessionDataTask = [self.manager PUT:url
-                                             parameters:parameters
-                                                success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                                                    [self handleRequestSuccessWithSessionDataTask:task responseObject:responseObject];
-                                                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                                                    [self handleRequestFailureWithSessionDatatask:task error:error];
-                                                }];
-            break;
+        switch (method) {
+                case SYRequestMethodGET: {
+                    request.sessionDataTask = [self.manager GET:url
+                                                     parameters:parameters
+                                                       progress:^(NSProgress * _Nonnull downloadProgress) {
+                                                           [self handleRequest:request progress:downloadProgress];
+                                                       } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                                                           [self handleRequestSuccessWithSessionDataTask:task responseObject:responseObject];
+                                                       } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                                           [self handleRequestFailureWithSessionDatatask:task error:error];
+                                                       }];
+                    break;
+                }
+                case SYRequestMethodPOST: {
+                    if (request.constructingBodyBlock) {
+                        request.sessionDataTask = [self.manager POST:url
+                                                          parameters:parameters
+                                           constructingBodyWithBlock:request.constructingBodyBlock
+                                                            progress:^(NSProgress * _Nonnull uploadProgress) {
+                                                                [self handleRequest:request progress:uploadProgress];
+                                                            } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                                                                [self handleRequestSuccessWithSessionDataTask:task responseObject:responseObject];
+                                                            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                                                [self handleRequestFailureWithSessionDatatask:task error:error];
+                                                            }];
+                    } else {
+                        request.sessionDataTask = [self.manager POST:url
+                                                          parameters:parameters
+                                                            progress:^(NSProgress * _Nonnull downloadProgress) {
+                                                                [self handleRequest:request progress:downloadProgress];
+                                                            } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                                                                [self handleRequestSuccessWithSessionDataTask:task responseObject:responseObject];
+                                                            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                                                [self handleRequestFailureWithSessionDatatask:task error:error];
+                                                            }];
+                    }
+                    break;
+                }
+                case SYRequestMethodHEAD: {
+                    request.sessionDataTask = [self.manager HEAD:url
+                                                      parameters:parameters
+                                                         success:^(NSURLSessionDataTask * _Nonnull task) {
+                                                             [self handleRequestSuccessWithSessionDataTask:task responseObject:nil];
+                                                         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                                             [self handleRequestFailureWithSessionDatatask:task error:error];
+                                                         }];
+                    break;
+                }
+                case SYRequestMethodPUT: {
+                    request.sessionDataTask = [self.manager PUT:url
+                                                     parameters:parameters
+                                                        success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                                                            [self handleRequestSuccessWithSessionDataTask:task responseObject:responseObject];
+                                                        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                                            [self handleRequestFailureWithSessionDatatask:task error:error];
+                                                        }];
+                    break;
+                }
+                case SYRequestMethodDELETE: {
+                    request.sessionDataTask = [self.manager DELETE:url
+                                                        parameters:parameters
+                                                           success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                                                               [self handleRequestSuccessWithSessionDataTask:task responseObject:responseObject];
+                                                           } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                                               [self handleRequestFailureWithSessionDatatask:task error:error];
+                                                           }];
+                    break;
+                }
+                case SYRequestMethodPATCH: {
+                    request.sessionDataTask = [self.manager PATCH:url
+                                                       parameters:parameters
+                                                          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                                                              [self handleRequestSuccessWithSessionDataTask:task responseObject:responseObject];
+                                                          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                                              [self handleRequestFailureWithSessionDatatask:task error:error];
+                                                          }];
+                    break;
+                }
+            default: {
+                SYNetworkLog(@"Error, unsupport method type");
+                break;
+            }
         }
-        case SYRequestMethodDELETE: {
-            request.sessionDataTask = [self.manager DELETE:url
-                                                parameters:parameters
-                                                   success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                                                       [self handleRequestSuccessWithSessionDataTask:task responseObject:responseObject];
-                                                   } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                                                       [self handleRequestFailureWithSessionDatatask:task error:error];
-                                                   }];
-            break;
-        }
-        case SYRequestMethodPATCH: {
-            request.sessionDataTask = [self.manager PATCH:url
-                                               parameters:parameters
-                                                  success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                                                      [self handleRequestSuccessWithSessionDataTask:task responseObject:responseObject];
-                                                  } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                                                      [self handleRequestFailureWithSessionDatatask:task error:error];
-                                                  }];
-            break;
-        }
-        default: {
-            SYNetworkLog(@"Error, unsupport method type");
-            break;
-        }
-    }
-    [self addRequestIdentifierWithRequest:request];
+        [self addRequestIdentifierWithRequest:request];
+    });
 }
 
-- (void)removeRequest:(SYBaseRequest *)request {
-    [request.sessionDataTask cancel];
-    [self removeRequestIdentifierWithRequest:request];
+- (void)removeRequest:(SYBaseRequest *)request completion:(void (^)())completion {
+    dispatch_async(self.requestProcessingQueue, ^{
+        [request.sessionDataTask cancel];
+        [self removeRequestIdentifierWithRequest:request];
+        completion?completion():nil;
+    });
 }
 
 - (void)removeAllRequest {
@@ -276,6 +283,13 @@
         _requestIdentifierDictionary = [NSMutableDictionary dictionary];
     }
     return _requestIdentifierDictionary;
+}
+
+- (dispatch_queue_t)requestProcessingQueue {
+    if (_requestProcessingQueue == nil) {
+        _requestProcessingQueue = dispatch_queue_create("net.sunnyyoung.synetwork.request.processing", DISPATCH_QUEUE_SERIAL);
+    }
+    return _requestProcessingQueue;
 }
 
 @end

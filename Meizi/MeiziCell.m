@@ -20,7 +20,7 @@
 #pragma mark - Public method
 
 - (void)setMeizi:(Meizi *)meizi {
-    NSURL *imageURL = [NSURL URLWithString:meizi.src];
+    NSURL *imageURL = [NSURL URLWithString:meizi.thumb_url];
     [self.imageView setImageWithURL:imageURL usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
 }
 

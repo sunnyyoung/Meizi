@@ -11,7 +11,6 @@ pod 'MJExtension'
 pod 'SDWebImage'
 pod 'SVProgressHUD'
 pod 'UIActivityIndicator-for-SDWebImage'
-pod 'HMSegmentedControl'
 pod 'SYPhotoBrowser'
 
 end

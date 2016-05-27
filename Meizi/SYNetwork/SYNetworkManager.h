@@ -17,7 +17,7 @@
 + (SYNetworkManager *)sharedInstance;
 
 - (void)addRequest:(SYBaseRequest *)request;
-- (void)removeRequest:(SYBaseRequest *)request;
+- (void)removeRequest:(SYBaseRequest *)request completion:(void (^)())completion;
 - (void)removeAllRequest;
 
 @end

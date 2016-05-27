@@ -15,7 +15,6 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - DACircularProgress (2.3.1)
-  - HMSegmentedControl (1.5.2)
   - hpple (0.2.0)
   - MJExtension (3.0.10)
   - MJRefresh (3.1.0)
@@ -32,7 +31,6 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
-  - HMSegmentedControl
   - hpple
   - MJExtension
   - MJRefresh
@@ -45,7 +43,6 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
-  HMSegmentedControl: 83b9686022d2176fb6457d2bdb61e5d6393fed7d
   hpple: 3b765f96fc2cd56ad1a49aef6f7be5cb2aa64b57
   MJExtension: d86aacb740c87519d20e3cca55b6fa4be6cc7548
   MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
@@ -55,4 +52,6 @@ SPEC CHECKSUMS:
   UIActivityIndicator-for-SDWebImage: 7bf7ebbf0ed1747dedc0d6e949c4603a6d0f9e0c
   YYCache: 282f35b5b0990833d0b7a06d864a87141a021da2
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: a0b2c4fa177636b61b1af648af13c1764f989a31
+
+COCOAPODS: 1.0.0

@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <SYPhotoBrowser/SYPhotoBrowser.h>
-#import <HMSegmentedControl/HMSegmentedControl.h>
 
-@interface MeiziViewController : UIViewController
+@interface MeiziViewController : UICollectionViewController
 
 @end

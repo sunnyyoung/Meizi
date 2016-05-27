@@ -32,8 +32,8 @@
 
 - (void)start;
 - (void)stop;
-- (void)startWithBlockSuccess:(void (^)(SYBatchRequest *request))success
-                      failure:(void (^)(SYBatchRequest *request))failure;
+- (void)startWithBlockSuccess:(void (^)(SYBatchRequest *batchRequest))success
+                      failure:(void (^)(SYBatchRequest *batchRequest))failure;
 
 - (void)clearCompletionBlock;
 

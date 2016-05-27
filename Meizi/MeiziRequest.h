@@ -11,23 +11,23 @@
 
 @class Meizi;
 
-typedef NS_ENUM(NSUInteger, MeiziType) {
-    MeiziTypeAll     = 0,
-    MeiziTypeDaXiong = 2,
-    MeiziTypeQiaoTun = 6,
-    MeiziTypeHeisi   = 7,
-    MeiziTypeMeiTui  = 3,
-    MeiziTypeQingXin = 4,
-    MeiziTypeZaHui   = 5
+typedef NS_ENUM(NSUInteger, MeiziCategory) {
+    MeiziCategoryAll = 0,
+    MeiziCategoryDaXiong,
+    MeiziCategoryQiaoTun,
+    MeiziCategoryHeisi,
+    MeiziCategoryMeiTui,
+    MeiziCategoryQingXin,
+    MeiziCategoryZaHui
 };
 
 @interface MeiziRequest : SYBaseRequest
 
 + (MeiziRequest *)requestWithPage:(NSInteger)page
-                        meiziType:(MeiziType)type
+                         category:(MeiziCategory)category
                           success:(void (^)(NSArray<Meizi *> *meiziArray))success
                           failure:(void (^)(NSString *message))failure;
 
-+ (NSArray<Meizi *> *)cachedMeiziArrayWithType:(MeiziType)type;
++ (NSArray<Meizi *> *)cachedMeiziArrayWithCategory:(MeiziCategory)category;
 
 @end

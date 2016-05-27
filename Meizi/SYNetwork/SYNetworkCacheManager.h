@@ -15,5 +15,8 @@
 
 - (id<NSCoding>)objectForKey:(NSString *)key;
 - (void)setObject:(id<NSCoding>)object forKey:(NSString *)key;
+- (void)removeObjectForKey:(NSString *)key;
+
+- (void)clearCache;
 
 @end
