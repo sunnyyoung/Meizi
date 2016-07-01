@@ -6,7 +6,6 @@
 //  Copyright (c) 2015年 Sunnyyoung. All rights reserved.
 //
 
-#import <hpple/TFHpple.h>
 #import "SYNetwork/SYBaseRequest.h"
 
 @class Meizi;

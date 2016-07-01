@@ -5,7 +5,6 @@ target 'Meizi' do
 
 pod 'AFNetworking'
 pod 'YYCache'
-pod 'hpple'
 pod 'MJRefresh'
 pod 'MJExtension'
 pod 'SDWebImage'
