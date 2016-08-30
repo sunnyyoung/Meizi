@@ -2,7 +2,7 @@
 
 豆瓣妹子图iOS客户端
 
-[![BuddyBuild](https://dashboard.buddybuild.com/api/statusImage?appID=5775d6c1492bcb0100162e03&branch=master&build=latest)](https://dashboard.buddybuild.com/apps/5775d6c1492bcb0100162e03/build/latest)
+[![Build Status](https://travis-ci.org/Sunnyyoung/Meizi.svg?branch=master)](https://travis-ci.org/Sunnyyoung/Meizi)
 
 ##Discription
 图片来源:
