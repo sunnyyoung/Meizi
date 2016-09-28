@@ -13,8 +13,9 @@
 
 - 采用`LeanCloud`作为后端支持，提供稳定接口
 
-##Screen Shot
-![](https://raw.githubusercontent.com/Sunnyyoung/Meizi/master/ScreenShot/One.png)
+##Screenshot
+![](https://raw.githubusercontent.com/Sunnyyoung/Meizi/master/Screenshots/One.png)
+![](https://raw.githubusercontent.com/Sunnyyoung/Meizi/master/Screenshots/Two.png)
 
 ##Dependency
 - [AFNetworking](https://github.com/AFNetworking/AFNetworking)
