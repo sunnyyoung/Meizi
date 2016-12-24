@@ -46,7 +46,7 @@
 }
 
 - (NSString *)baseURL {
-    return @"http://meizi.leanapp.cn";
+    return @"https://meizi.leanapp.cn";
 }
 
 - (NSString *)requestPath {
