@@ -7,12 +7,17 @@
 //
 
 #import "SettingViewController.h"
+#import "CacheSizeLabel+Manager.h"
 
 @interface SettingViewController ()
+
+@property (weak, nonatomic) IBOutlet CacheSizeLabel *cacheSizeLabel;
 
 @end
 
 @implementation SettingViewController
+
+#pragma mark - Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -20,25 +25,15 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self calculateImageCacheSize];
+    [self.cacheSizeLabel reloadCacheSize];
 }
 
-- (void)calculateImageCacheSize {
-    __weak typeof(self) weakSelf = self;
-    [[SDImageCache sharedImageCache] calculateSizeWithCompletionBlock:^(NSUInteger fileCount, NSUInteger totalSize) {
-        weakSelf.cacheSizeLabel.text = [NSString stringWithFormat:@"%.2f M", totalSize/1024.0/1024.0];
-    }];
-}
+#pragma mark - TableView Delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.row == 0) {
-        __weak typeof(self) weakSelf = self;
-        [SVProgressHUD show];
-        [[SDImageCache sharedImageCache] clearDiskOnCompletion:^{
-            [SVProgressHUD showSuccessWithStatus:@"清理完成"];
-            [weakSelf calculateImageCacheSize];
-        }];
+        [self.cacheSizeLabel clearCache];
     }
 }
 

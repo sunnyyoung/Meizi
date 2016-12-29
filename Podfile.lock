@@ -20,7 +20,7 @@ PODS:
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
-  - SVProgressHUD (2.0.3)
+  - SVProgressHUD (2.1.2)
   - SYPhotoBrowser (2.1):
     - DACircularProgress
     - SDWebImage
@@ -44,11 +44,11 @@ SPEC CHECKSUMS:
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
-  SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
+  SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
   SYPhotoBrowser: 68be184ed938d9fa23cc94c60e638e9322a53677
   UIActivityIndicator-for-SDWebImage: 7bf7ebbf0ed1747dedc0d6e949c4603a6d0f9e0c
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
 
-PODFILE CHECKSUM: 8c2005d234a6dc5b501b42f903b3d4f4f26d657f
+PODFILE CHECKSUM: e4fc85b8299d81b9f66ebad536c86fa4aff5428f
 
 COCOAPODS: 1.0.1

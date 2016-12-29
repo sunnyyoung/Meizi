@@ -10,6 +10,4 @@
 
 @interface SettingViewController : UITableViewController
 
-@property (weak, nonatomic) IBOutlet UILabel *cacheSizeLabel;
-
 @end

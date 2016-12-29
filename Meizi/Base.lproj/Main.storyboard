@@ -9,11 +9,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--妹子-->
+        <!--Navigation Controller-->
         <scene sceneID="gGw-zf-PUk">
             <objects>
                 <navigationController id="Ixr-ZN-jVk" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="妹子" image="Home" id="kFR-bV-p5b"/>
+                    <tabBarItem key="tabBarItem" title="" image="Home" id="kFR-bV-p5b"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="olh-jg-Mb1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -75,11 +75,11 @@
             </objects>
             <point key="canvasLocation" x="1151" y="1264"/>
         </scene>
-        <!--设置-->
+        <!--Navigation Controller-->
         <scene sceneID="7l6-d2-2qh">
             <objects>
                 <navigationController id="rBo-zl-irj" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="设置" image="Setting" id="w7I-Zt-OeI"/>
+                    <tabBarItem key="tabBarItem" title="" image="Setting" id="w7I-Zt-OeI"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="exd-kV-I7Y">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -108,28 +108,32 @@
                         <sections>
                             <tableViewSection id="m6k-Od-lqf">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="7A7-sc-8LD" detailTextLabel="Oxa-Kc-xlK" style="IBUITableViewCellStyleValue1" id="3pP-LK-BQz">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="3pP-LK-BQz">
                                         <rect key="frame" x="0.0" y="12" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3pP-LK-BQz" id="2ff-fm-4Dn">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="清除缓存" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7A7-sc-8LD">
-                                                    <rect key="frame" x="15" y="12" width="65.5" height="19.5"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="清除缓存" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="12O-Et-EQs">
+                                                    <rect key="frame" x="15" y="12" width="66" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="0.0 M" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Oxa-Kc-xlK">
-                                                    <rect key="frame" x="319" y="12" width="41" height="19.5"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00M" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KMF-QI-NBe" customClass="CacheSizeLabel">
+                                                    <rect key="frame" x="313.5" y="12.5" width="46.5" height="19.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="KMF-QI-NBe" secondAttribute="trailing" constant="15" id="4gr-jc-5Ft"/>
+                                                <constraint firstItem="12O-Et-EQs" firstAttribute="centerY" secondItem="2ff-fm-4Dn" secondAttribute="centerY" id="d1V-qp-hfT"/>
+                                                <constraint firstItem="12O-Et-EQs" firstAttribute="leading" secondItem="2ff-fm-4Dn" secondAttribute="leading" constant="15" id="khu-hP-qH8"/>
+                                                <constraint firstItem="KMF-QI-NBe" firstAttribute="centerY" secondItem="2ff-fm-4Dn" secondAttribute="centerY" id="u9M-Qp-gHt"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -142,7 +146,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="设置" id="DYH-0M-2zc"/>
                     <connections>
-                        <outlet property="cacheSizeLabel" destination="Oxa-Kc-xlK" id="B3Q-qs-eyF"/>
+                        <outlet property="cacheSizeLabel" destination="KMF-QI-NBe" id="7VC-wg-H7F"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zid-3q-LfU" userLabel="First Responder" sceneMemberID="firstResponder"/>
