@@ -3,6 +3,7 @@ xcode_workspace: Meizi.xcworkspace
 xcode_scheme: Meizi
 before_install:
 - gem install activesupport -v 4.2.6
-- gem install cocoapods
-- pod repo update
+- gem update cocoapods
+- pod repo update --silent
+- pod install
 script: xctool -workspace Meizi.xcworkspace -scheme Meizi build test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
