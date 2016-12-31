@@ -9,11 +9,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--妹子-->
         <scene sceneID="gGw-zf-PUk">
             <objects>
                 <navigationController id="Ixr-ZN-jVk" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="Home" id="kFR-bV-p5b"/>
+                    <tabBarItem key="tabBarItem" title="妹子" image="Home" id="kFR-bV-p5b"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="olh-jg-Mb1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -75,11 +75,11 @@
             </objects>
             <point key="canvasLocation" x="1151" y="1264"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--设置-->
         <scene sceneID="7l6-d2-2qh">
             <objects>
                 <navigationController id="rBo-zl-irj" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="Setting" id="w7I-Zt-OeI"/>
+                    <tabBarItem key="tabBarItem" title="设置" image="Setting" id="w7I-Zt-OeI"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="exd-kV-I7Y">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -122,7 +122,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00M" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KMF-QI-NBe" customClass="CacheSizeLabel">
-                                                    <rect key="frame" x="313.5" y="12.5" width="46.5" height="19.5"/>
+                                                    <rect key="frame" x="313" y="12" width="47" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>

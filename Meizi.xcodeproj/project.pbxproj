@@ -19,10 +19,10 @@
 		7D75F9911CAF5EFE00D703E3 /* SYBatchRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D75F9861CAF5EFE00D703E3 /* SYBatchRequestManager.m */; };
 		7D75F9921CAF5EFE00D703E3 /* SYChainRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D75F9881CAF5EFE00D703E3 /* SYChainRequest.m */; };
 		7D75F9931CAF5EFE00D703E3 /* SYChainRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D75F98A1CAF5EFE00D703E3 /* SYChainRequestManager.m */; };
+		7D8910AF1E174B1900C481F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D8910AE1E174B1900C481F2 /* Main.storyboard */; };
 		7D8A0AA81B58B482001EDD42 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8A0AA71B58B482001EDD42 /* SettingViewController.m */; };
 		7D93B84F1ACFD7CF00453452 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D93B84E1ACFD7CF00453452 /* main.m */; };
 		7D93B8521ACFD7CF00453452 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D93B8511ACFD7CF00453452 /* AppDelegate.m */; };
-		7D93B8581ACFD7CF00453452 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D93B8561ACFD7CF00453452 /* Main.storyboard */; };
 		7D93B85A1ACFD7CF00453452 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D93B8591ACFD7CF00453452 /* Images.xcassets */; };
 		7D93B87C1ACFDD2900453452 /* Meizi.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D93B87B1ACFDD2900453452 /* Meizi.m */; };
 		7DBA59001CF8297D00014AA7 /* SYNavigationDropdownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DBA58FF1CF8297D00014AA7 /* SYNavigationDropdownMenu.m */; };
@@ -60,6 +60,7 @@
 		7D75F9881CAF5EFE00D703E3 /* SYChainRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYChainRequest.m; sourceTree = "<group>"; };
 		7D75F9891CAF5EFE00D703E3 /* SYChainRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYChainRequestManager.h; sourceTree = "<group>"; };
 		7D75F98A1CAF5EFE00D703E3 /* SYChainRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYChainRequestManager.m; sourceTree = "<group>"; };
+		7D8910AE1E174B1900C481F2 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		7D8A0AA61B58B482001EDD42 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		7D8A0AA71B58B482001EDD42 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		7D93B8491ACFD7CF00453452 /* Meizi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meizi.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,7 +68,6 @@
 		7D93B84E1ACFD7CF00453452 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7D93B8501ACFD7CF00453452 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7D93B8511ACFD7CF00453452 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		7D93B8571ACFD7CF00453452 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7D93B8591ACFD7CF00453452 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7D93B87A1ACFDD2900453452 /* Meizi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Meizi.h; sourceTree = "<group>"; };
 		7D93B87B1ACFDD2900453452 /* Meizi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Meizi.m; sourceTree = "<group>"; };
@@ -217,8 +217,8 @@
 			children = (
 				7D93B8501ACFD7CF00453452 /* AppDelegate.h */,
 				7D93B8511ACFD7CF00453452 /* AppDelegate.m */,
-				7D93B8561ACFD7CF00453452 /* Main.storyboard */,
 				E32FE7C61CF5DA83004655AB /* Launch Screen.storyboard */,
+				7D8910AE1E174B1900C481F2 /* Main.storyboard */,
 				7D93B8591ACFD7CF00453452 /* Images.xcassets */,
 				7D4375DC1B54FAFB001CEBC9 /* Module */,
 				7D93B8721ACFD9CE00453452 /* Vendor */,
@@ -326,7 +326,6 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
 			);
 			mainGroup = 7D93B8401ACFD7CF00453452;
 			productRefGroup = 7D93B84A1ACFD7CF00453452 /* Products */;
@@ -343,8 +342,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D8910AF1E174B1900C481F2 /* Main.storyboard in Resources */,
 				E32FE7C71CF5DA83004655AB /* Launch Screen.storyboard in Resources */,
-				7D93B8581ACFD7CF00453452 /* Main.storyboard in Resources */,
 				7D93B85A1ACFD7CF00453452 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -428,17 +427,6 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXVariantGroup section */
-		7D93B8561ACFD7CF00453452 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7D93B8571ACFD7CF00453452 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		7D93B86A1ACFD7CF00453452 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -478,7 +466,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -516,7 +504,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

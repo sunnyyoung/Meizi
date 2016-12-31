@@ -1,4 +1,5 @@
 language: objective-c
+osx_image: xcode8.2
 xcode_workspace: Meizi.xcworkspace
 xcode_scheme: Meizi
 before_install:
@@ -6,4 +7,4 @@ before_install:
 - gem update cocoapods
 - pod repo update --silent
 - pod install
-script: xctool -workspace Meizi.xcworkspace -scheme Meizi build test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+script: xcodebuild -workspace Meizi.xcworkspace -scheme Meizi CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
