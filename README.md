@@ -1,23 +1,26 @@
-#Meizi
+# Meizi
 
 豆瓣妹子图iOS客户端
 
 [![Build Status](https://travis-ci.org/Sunnyyoung/Meizi.svg?branch=master)](https://travis-ci.org/Sunnyyoung/Meizi)
 
-##Discription
+## Discription
+
 图片来源:
 
 - http://www.dbmeinv.com
 
-##Update
+## Update
 
 - 采用`LeanCloud`作为后端支持，提供稳定接口
 
-##Screenshot
-![](https://raw.githubusercontent.com/Sunnyyoung/Meizi/master/Screenshots/One.png)
-![](https://raw.githubusercontent.com/Sunnyyoung/Meizi/master/Screenshots/Two.png)
+## Screenshot
 
-##Dependency
+![](Screenshots/One.png)
+![](Screenshots/Two.png)
+
+## Dependency
+
 - [AFNetworking](https://github.com/AFNetworking/AFNetworking)
 - [SYPhotoBrowser](https://github.com/Sunnyyoung/SYPhotoBrowser)
 - [SYNavigationDropdownMenu](https://github.com/Sunnyyoung/SYNavigationDropdownMenu)
@@ -27,7 +30,8 @@
 - [SDWebImage](https://github.com/rs/SDWebImage)
 - [SVProgressHUD](https://github.com/TransitApp/SVProgressHUD)
 
-##Platform
+## Platform
+
 iMac 5K:
 
 - OS X 10.11.5 (15F34)
@@ -38,11 +42,12 @@ Xcode:
 - SDK: iOS SDK 9.3
 - Deployment Taget: 8.0
 
-##Build
+## Build
+
 ```bash
 cd Meizi
 pod install
 ```
 
-##License
+## License
 The [MIT License](LICENSE).
